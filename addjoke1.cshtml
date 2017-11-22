@@ -1,0 +1,15 @@
+﻿@{
+    var title = "";
+    var content = "";
+
+    title = Request.Form["title"];
+    content = Request.Form["content"];
+    var db = Database.Open("StarterSite");
+
+    if (IsPost)
+    {
+        var ls = "insert into (id,title,content) value (@0,@1,@2)";
+        db.Execute(ls, title, content);
+    }
+}
+

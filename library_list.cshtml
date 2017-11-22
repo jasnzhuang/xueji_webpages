@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    Page.Title = "图书列表";
+
+    var db = Database.Open("startersite");
+    var listCommand = "SELECT * FROM library_books";
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+        <a href="#">图书借阅</a>
+    </li>
+    <li><a href="#">@Page.title</a></li>
+</ul>
+
+<table class="table table-striped table-bordered table-hover bootstrap-datatable datatable">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>书籍名称</th>
+        <th>ISBN</th>
+        <th>作者</th>
+        <th>备注</th>
+        <th>入馆日期</th>
+        <th>初始馆存数</th>
+        <th>现有馆存数</th>
+        <th>可用馆存数</th>
+        <th>操作</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var row in db.Query(listCommand))
+    {
+        <tr>
+            <td>@row.id</td>
+            <td><a href="library_detaillist.cshtml?id=@row.id">@row.name</a></td>
+            <td>@row.isbn</td>
+            <td>@row.author</td>
+            <td>@row.memo</td>
+            <td>@row.stockdate</td>
+            <td>@row.stocks</td>
+            <td>@row.amount</td>
+            <td>
+                @{
+                    @Functions.GetAvaliableAmounts(row.id)
+                }
+            </td>
+            <td>fuck me !</td>
+        </tr>
+    }
+    </tbody>
+</table>
+

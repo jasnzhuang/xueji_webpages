@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    //这里是和JS差不多的一个偷懒变量定义方法，用var来定义
+    var tname = "";
+    var ttype = "";
+
+
+    //这里吧，是说咱们在页面上填写的信息，怎么特么的就跑到程序里面来了呢？
+    tname = Request.Form["tname"];
+    ttype = Request.Form["ttype"];
+
+
+    if (IsPost)
+    {
+        //这句吧，就是打开这个SQLCE数据库，这个SQLCE用法跟SQL没啥太大区别，就是不用用户名密码和IP了
+        var db = Database.Open("StarterSite");
+        //这里写清楚了所谓的顺序
+        var insertCommand = "INSERT INTO teachers (tname,ttype) Values(@0, @1)";
+        //这句就是写如何插入到数据库，并且告诉程序要插入的数据都从哪里来的，也就是都从哪几个变量来了
+        db.Execute(insertCommand, tname, ttype);
+    }
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Page.title</a></li></ul>
+<form method="post">
+    <fieldset>
+        <legend>教师信息</legend>
+        <p>
+            <label for="tname">教师姓名：</label>
+            <input type="text" id="tname" name="tname" value="" />
+        </p>
+        <p>
+            <label for="ttype">教师职能：</label>
+            <select id="ttype" name="ttype">
+                <option value="1">辅导员</option>
+                <option value="2">讲师</option>
+            </select>
+        </p>
+
+        <p>
+            <input type="submit" name="buttonSubmit" value="添加教师"/>
+        </p>
+
+    </fieldset>
+</form>

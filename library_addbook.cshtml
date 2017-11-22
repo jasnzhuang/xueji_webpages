@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    Page.Title = "添加书籍";
+    var name = Request.Form["name"];
+    var amount = Request.Form["amount"];
+    var stocks = amount;
+
+    var db = Database.Open("StarterSite");
+
+    if (IsPost)
+    {
+
+        var insertCommand = "INSERT INTO library_books (name,amount,stocks) Values(@0, @1, @2)";
+        db.Execute(insertCommand, name, amount, stocks);
+        var lastid = db.GetLastInsertId();
+        for (int i = 0; i < Convert.ToInt16(amount); i++)
+        {
+
+            var loopinsertCommand = "INSERT INTO library_collections (library_books_id) Values(@0)";
+            db.Execute(loopinsertCommand, lastid);
+
+        }
+    }
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Page.title</a></li>
+</ul>
+<form method="post">
+    <fieldset>
+
+        <input type="text" name="name" id="name" /><br />
+        <input type="text" name="amount" id="amount" />
+        <p>
+            <input type="submit" name="buttonSubmit" value="添加书籍" />
+        </p>
+
+    </fieldset>
+</form>

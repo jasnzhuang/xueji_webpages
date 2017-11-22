@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    Page.Title = "查看日志";
+    var db = Database.Open("startersite");
+
+    //
+    var listCommand = "SELECT * from log";
+
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Page.title</a></li>
+</ul>
+
+
+<table class="table table-striped table-bordered table-hover bootstrap-datatable datatable">
+    <thead>
+        <tr>
+            <th>日志ID</th>
+            <th>谁啊</th>
+            <th>那个表啊</th>
+            <th>什么操作</th>
+            <th>具体干啥</th>
+            <th>什么时候</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in db.Query(listCommand))
+        {
+            <tr>
+                <td>@row.id</td>
+                <td>@row.who</td>
+                <td>@row.whichtable</td>
+                <td>@row.actiontype</td>
+                <td>@row.withwhat</td>
+                <td>@row.whendoes</td>
+            </tr>
+        }
+    </tbody>
+</table>

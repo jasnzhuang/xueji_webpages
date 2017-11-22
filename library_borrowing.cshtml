@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    Page.Title = "借出书籍";
+    string library_collections_id = Request.QueryString["id"];
+    <!-- string user = Request.Form["user"]; -->
+    string user = "1";
+    var borrowdate = DateTime.Now;
+    var planttoreturn = DateTime.Now.AddDays(7);
+
+    var db = Database.Open("StarterSite");
+
+    if (IsPost)
+    {
+
+        string insertCommand = "INSERT INTO library_borrowing (library_collections_id,borrowuser,borrowdate,planttoreturn) Values(@0, @1, @2, @3)";
+        string updateCommand = "UPDATE library_collections SET status=2 WHERE id=@0";
+        db.Execute(updateCommand, library_collections_id);
+        db.Execute(insertCommand, library_collections_id, user, borrowdate, planttoreturn);
+        var lastid = db.GetLastInsertId();
+        Response.Redirect("library_borrowsuccess.cshtml?id=" + lastid);
+    }
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Page.title</a></li>
+</ul>
+<form method="post">
+    <fieldset>
+
+        <input type="text" name="id" id="id" value="@library_collections_id" /><br />
+        <input type="hidden" name="user" id="user" value="1" />
+        <p>
+            <input type="submit" name="buttonSubmit" value="借出书籍" />
+        </p>
+
+    </fieldset>
+</form>

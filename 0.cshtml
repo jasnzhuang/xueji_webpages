@@ -1,0 +1,67 @@
+﻿@{
+    Validation.RequireField("name", "You must enter a name");
+    Validation.RequireField("age", "Age is required");
+
+    var name = "";
+    var age = "";
+
+
+    if (IsPost && Validation.IsValid())
+    {
+
+        name = Request.Form["name"];
+        age = Request.Form["age"];
+
+        var db = Database.Open("xiangmu");
+        var insertCommand = "INSERT INTO users (name,age) Values(@0, @1)";
+        db.Execute(insertCommand, name, age);
+        Response.Redirect("~/users");
+
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Add a user</title>
+    <style type="text/css">
+        .field-validation-error {
+            font-weight: bold;
+            color: #939790;
+            background-color: #2c2933;
+            /*关键哟，不然背景色紧贴着文字太难看*/
+            padding: 5px;
+        }
+
+        .validation-summary-errors {
+            border: 2px dashed #939790;
+            color: #939790;
+            background-color: #2c2933;
+            font-weight: bold;
+            margin: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add a user</h1>
+    @Html.ValidationSummary()
+    <form method="post">
+        <fieldset>
+            <legend>user Information</legend>
+            <p>
+                <label for="name">Name:</label>
+                <input type="text" name="name" value="@Request.Form["name"]" />
+                @Html.ValidationMessage("name")
+            </p>
+
+            <p>
+                <label for="age">Age:</label>
+                <input type="text" name="age" value="@Request.Form["age"]" />
+                @Html.ValidationMessage("age")
+            </p>
+
+            <p><input type="submit" name="buttonSubmit" value="Add User" /></p>
+        </fieldset>
+    </form>
+</body>
+</html>

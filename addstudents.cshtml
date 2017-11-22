@@ -1,0 +1,100 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    //这里是和JS差不多的一个偷懒变量定义方法，用var来定义
+    var snum = "";
+    var sname = "";
+    var ssex = "";
+    var sage = "";
+    var sphone = "";
+    var qq = "";
+    var wx = "";
+    var sstatus = "";
+    var cid = "";
+
+    //这里吧，是说咱们在页面上填写的信息，怎么特么的就跑到程序里面来了呢？
+    snum = Request.Form["snum"];
+    sname = Request.Form["sname"];
+    ssex = Request.Form["ssex"];
+    sage = Request.Form["sage"];
+    sphone = Request.Form["sphone"];
+    qq = Request.Form["qq"];
+    wx = Request.Form["wx"];
+    sstatus = Request.Form["sstatus"];
+    cid = Request.Form["cid"];
+
+    var db2 = Database.Open("startersite");
+    var downlistCommand = "select classes.cid as cid,classes.cyear as cyear,specialized.spname as spname from classes join specialized on classes.spid=specialized.spid";
+
+    if (IsPost)
+    {
+        //这句吧，就是打开这个SQLCE数据库，这个SQLCE用法跟SQL没啥太大区别，就是不用用户名密码和IP了
+        var db = Database.Open("StarterSite");
+        //这里写清楚了所谓的顺序
+        var insertCommand = "INSERT INTO students (snum,sname,ssex,sage,sphone,qq,wx,sstatus,cid) Values(@0, @1,@2,@3,@4,@5,@6,@7,@8)";
+        //这句就是写如何插入到数据库，并且告诉程序要插入的数据都从哪里来的，也就是都从哪几个变量来了
+        db.Execute(insertCommand, snum, sname, ssex, sage, sphone, qq, wx, sstatus, cid);
+
+        string logit = "snum=" + snum + ",sname=" + sname + ",ssex=" + ssex + ",sage=" + sage + ",sphone=" + sphone + ",qq=" + qq + ",wx=" + wx + ",sstatus=" + sstatus + ",cid=" + cid;
+
+        var logCommand = "insert into log (who,whichtable,actiontype,withwhat,whendoes)values('1','students','insert',@0,getdate())";
+        db.Execute(logCommand, logit);
+    }
+}
+
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Page.title</a></li></ul>
+<form method="post">
+    <fieldset>
+        <legend>学生信息</legend>
+        <p>
+            <label for="snum">学号：</label>
+            <input type="text" id="snum" name="snum" value=""/>
+        </p>
+        <p>
+            <label for="cid">班级：</label>
+            <select id="cid" name="cid">
+                @foreach (var row in db2.Query(downlistCommand))
+                {
+                    <option value="@row.cid">@row.cyear@row.spname</option>
+                }
+            </select>
+        </p>
+        <p>
+            <label for="sname">学生姓名：</label>
+            <input type="text" id="sname" name="sname" value=""/>
+        </p>
+        <p>
+            <label >性别：</label>
+            <label for="ssex1">男</label><input id="ssex1" name="ssex" type="radio" value="男" />&nbsp;&nbsp;&nbsp;&nbsp;<label for="ssex2">女</label><input id="ssex2" name="ssex" type="radio" value="女" />
+</p>
+        <p>
+            <label for="sage">年龄：</label>
+            <input type="text" name="sage" value=""/>
+        </p>
+        <p>
+            <label for="sphone">联系电话：</label>
+            <input type="text" name="sphone" value=""/>
+        </p>
+        <p>
+            <label for="qq">QQ号码：</label>
+            <input type="text" name="qq" value=""/>
+        </p>
+        <p>
+            <label for="wx">微信号码：</label>
+            <input type="text" name="wx" value=""/>
+        </p>
+        <p>
+            <label for="sstatus">学籍状态：</label>
+            <input type="text" name="sstatus" value=""/>
+        </p>
+        <p>
+            <input type="submit" name="buttonSubmit" value="添加学生"/>
+        </p>
+
+    </fieldset>
+</form>

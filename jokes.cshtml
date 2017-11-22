@@ -1,0 +1,25 @@
+﻿@{
+    WebSecurity.RequireAuthenticatedUser();
+    Layout = "~/_xuejiLayout.cshtml";
+    var db = Database.Open("startersite");
+    var listCommand = "SELECT * from joke order by adddate";
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Page.title</a></li></ul>
+
+<ul>
+    @foreach (var row in db.Query(listCommand))
+    {
+        <li>
+            <a href="viewjokes?id=@row.id">@row.title</a>
+        </li>
+        <li>
+            @row.adddate
+        </li>
+    }
+ </ul>

@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    var db = Database.Open("startersite");
+    var listCommand = "SELECT sid,sname,ssex,sage from students order by sid";
+    
+}
+<style>
+    .buyit{
+        width: 600px;
+        list-style-type: none;
+    }
+    .buyit li{
+        width:192px;
+        display: inline-block;
+        text-align: center;
+        border-bottom: 1px solid goldenrod;
+        line-height: 30px;
+    }
+</style>
+@if(Session["orderid"] == null){
+<a href="buylogin" target="_self" style="color:red;">返回登录页，以便重新生成后获取session中的orderid</a><br>
+}
+    @Session["username"]
+<br>
+@Session["orderid"]
+<form method="post" action="buy.cshtml">
+<ul class="buyit">
+        <li>学生姓名</li>
+        <li>学生性别</li>
+        <li>学生年龄暨售价</li>
+@foreach (var row in db.Query(listCommand))
+    {
+        <form method="post" action="buy.cshtml">
+        <li>@row.sname</li>
+        <li>@row.ssex</li>
+        <li>@row.sage&nbsp;<input type="hidden" name="sid" value="@row.sid" /><input type="hidden" name="price" value="@row.sage" />
+&nbsp;<input type="submit" name="buy" value="购买" /></li>
+</form>
+
+    }
+</ul>
+</form>
+
+

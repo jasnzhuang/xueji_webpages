@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    Page.Title = "添加课程";
+    //这里是和JS差不多的一个偷懒变量定义方法，用var来定义
+    var coname = "";
+    var tid = "";
+
+
+    //这里吧，是说咱们在页面上填写的信息，怎么特么的就跑到程序里面来了呢？
+    coname = Request.Form["coname"];
+    tid = Request.Form["tid"];
+
+    var db2 = Database.Open("startersite");
+    var downlistCommand = "SELECT * FROM teachers where ttype=2"; ;
+
+    if (IsPost)
+    {
+        //这句吧，就是打开这个SQLCE数据库，这个SQLCE用法跟SQL没啥太大区别，就是不用用户名密码和IP了
+        var db = Database.Open("StarterSite");
+        //这里写清楚了所谓的顺序
+        var insertCommand = "INSERT INTO courses (coname,tid) Values(@0, @1)";
+        //这句就是写如何插入到数据库，并且告诉程序要插入的数据都从哪里来的，也就是都从哪几个变量来了
+        db.Execute(insertCommand, coname, tid);
+    }
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">添加课程</a></li>
+</ul>
+<form method="post">
+    <fieldset>
+        <legend>课程信息</legend>
+        <p>
+            <label for="coname">课程名称：</label>
+            <input type="text" id="coname" name="coname" value="" />
+        </p>
+        <p>
+            <label for="tid">任课教师：</label>
+            <select id="tid" name="tid">
+                @foreach (var row in db2.Query(downlistCommand))
+                {
+                    <option value="@row.tid">@row.tname</option>
+                }
+            </select>
+        </p>
+
+        <p>
+            <input type="submit" name="buttonSubmit" value="添加课程"/>
+        </p>
+
+    </fieldset>
+</form>

@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    var db = Database.Open("startersite");
+    var listCommand = "SELECT * FROM teachers";
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Page.title</a></li>
+</ul>
+
+    <table class="table table-striped table-bordered table-hover bootstrap-datatable datatable">
+        <thead>
+        <tr>
+            <th>操作</th>
+            <th>教师编号</th>
+            <th>教师姓名</th>
+            <th>教师职能</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var row in db.Query(listCommand))
+        {
+            <tr>
+                <td><a href="delteachers?id=@row.id">删除</a></td>
+                <td>@row.id</td>
+                <td>@row.tname</td>
+                <td>
+                    @*@if (row.ttype == 1)
+                    {
+                        @:辅导员
+                    }
+                    @if (row.ttype == 2)
+                    {
+                        @:讲师
+                    }*@
+                    @{
+                        @Functions.GetTeachersType(row.ttype);
+                    }
+                </td>
+
+            </tr>
+                        }
+        </tbody>
+    </table>
+

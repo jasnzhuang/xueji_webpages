@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    Page.Title = "借出书籍成功";
+    string id = Request.QueryString["id"];
+    string user = Request.Form["user"];
+
+    var db = Database.Open("StarterSite");
+    var listCommand = "SELECT lb.name AS name,lb.isbn AS isbn,lb.author AS author,lb.memo AS memo,lb.amount AS amount,lb.id AS id,lbr.borrowdate AS borrowdate,lbr.borrowuser AS borrowuser,lbr.planttoreturn AS planttoreturn FROM dbo.library_borrowing AS lbr INNER JOIN dbo.library_collections AS lc ON lbr.library_collections_id = lc.id INNER JOIN dbo.library_books AS lb ON lc.library_books_id = lb.id WHERE lbr.id=@0";
+    var row = db.QuerySingle(listCommand, id);
+}
+<fieldset>
+            <legend>本次借阅信息</legend>
+        <p>
+            <label for="name">借阅时间：</label>
+            <label>@row.borrowdate</label>
+        </p>
+        <p>
+            <label for="name">预计归还时间：</label>
+            <label>@row.planttoreturn</label>
+        </p>
+        <p>
+            <label for="name">借阅人：</label>
+            <label>@row.borrowuser</label>
+        </p>
+        <p>
+            <label for="name">书籍名称：</label>
+            <label>@row.name</label>
+        </p>
+        <p>
+            <label for="name">书籍ISBN：</label>
+            <label>@row.isbn</label>
+        </p>
+        <p>
+            <label for="name">作者：</label>
+            <label>@row.author</label>
+        </p>
+        <p>
+            <label for="name">备注：</label>
+            <label>@row.memo</label>
+        </p>
+        <p>
+            <label for="name">共有馆藏数：</label>
+            <label>@row.amount</label>
+        </p>
+        <p>
+            <label for="name">本次借阅后现有馆藏数：</label>
+            <label>
+                @{
+                    @Functions.GetAvaliableAmounts(row.id)
+                }
+            </label>
+        </p>
+
+        <p>
+            <label for="name">书籍名称：</label>
+            <label>@row.name</label>
+        </p>
+</fieldset>

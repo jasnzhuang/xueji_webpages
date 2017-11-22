@@ -1,0 +1,166 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    var db = Database.Open("startersite");
+    var cid = Request.QueryString["cid"];
+    string listCommand= "SELECT s.sid,s.snum,s.sname,c.cyear,sp.spname,s.ssex,s.sage,s.sphone,s.qq,s.wx,s.sstatus FROM students as s INNER JOIN classes as c ON s.cid = c.cid INNER JOIN specialized as sp ON c.spid = sp.spid";
+    //通过querystring传入的cid类型为string，所以判断是否为null；并且将cid转换为int后判断其是否小于等于0，这两种情况都是无法根据班级编号cid进行条件查询的
+    if (cid == null || cid.AsInt()<=0)
+    {
+        //这里使用的是拼接字符串的方法
+        listCommand += "";
+        if (!Request.QueryString["searchNum"].IsEmpty() && Request.QueryString["searchName"].IsEmpty())
+        {
+            listCommand += " where s.snum="+ Request.QueryString["searchNum"];
+        }
+        if (!Request.QueryString["searchName"].IsEmpty() && Request.QueryString["searchNum"].IsEmpty())
+        {
+            listCommand += " where s.sname like '%" + Request.QueryString["searchName"]+"%'";
+        }
+        if (!Request.QueryString["searchName"].IsEmpty() && !Request.QueryString["searchNum"].IsEmpty())
+        {
+            listCommand += " where s.snum=" + Request.QueryString["searchNum"] + "and s.sname like '%" + Request.QueryString["searchName"]+"%'";
+        }
+    }
+    else
+    {
+        //这里使用的是拼接字符串的方法
+        listCommand += " where c.cid=@0";
+        if (!Request.QueryString["searchNum"].IsEmpty() && Request.QueryString["searchName"].IsEmpty())
+        {
+            listCommand += " and s.snum=" + Request.QueryString["searchNum"];
+        }
+        if (!Request.QueryString["searchName"].IsEmpty() && Request.QueryString["searchNum"].IsEmpty())
+        {
+            listCommand += " and s.sname like '%" + Request.QueryString["searchName"] + "%'";
+        }
+        if (!Request.QueryString["searchName"].IsEmpty() && !Request.QueryString["searchNum"].IsEmpty())
+        {
+            listCommand += " and s.snum=" + Request.QueryString["searchNum"] + "and s.sname like '%" + Request.QueryString["searchName"] + "%'";
+        }
+    }
+
+
+
+    //var listCommand = db.Query("select * from students");
+    //var grid = new WebGrid(listCommand);
+}
+
+
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Functions.GetClassesName(cid.AsInt()) @Page.title</a></li>
+</ul>
+<form method="get" action="?cid=@cid">
+    <div>
+        <label for="searchNum">按学号查找:</label>
+        <input type="text" id="searchNum" name="searchNum" value="@Request.QueryString["searchNum"]" />
+        <input type="Submit" value="查找" /><br />
+        (清空本查找条件以执行无本条件查询.)<br />
+    </div>
+    <div>
+        <label for="SearchName">按姓名查找:</label>
+        <input type="text" id="searchName" name="searchName" value="@Request.QueryString["searchName"]" />
+        <input type="Submit" value="查找" /><br />
+        (清空本查找条件以执行无本条件查询.)<br />
+    </div>
+    <input type="hidden" name="cid" value="@cid" />
+</form>
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header" data-original-title>
+            <h2>
+                <i class="halflings-icon user"></i><span class="break"></span>学生列表
+            </h2>
+            <div class="box-icon">
+                <a href="#" class="btn-setting">
+                    <i class="halflings-icon wrench"></i>
+                </a>
+                <a href="#" class="btn-minimize">
+                    <i class="halflings-icon chevron-up"></i>
+                </a>
+                <a href="#" class="btn-close">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+            <table class="table table-striped table-bordered table-hover bootstrap-datatable datatable">
+                <thead>
+                <tr class="">
+                    <th>操作</th>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>班级</th>
+                    <th>性别</th>
+                    <th>年龄</th>
+                    <th>电话</th>
+                    <th>QQ</th>
+                    <th>微信</th>
+                    <th>学籍状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var row in db.Query(listCommand,cid))
+                {
+                    <tr>
+                        <td class="center">
+                            <a href="delstudents?id=@row.sid"><i class="halflings-icon remove"></i>删除</a>
+                        </td>
+                        <td class="center">@row.snum</td>
+                        <td class="center">
+                            <a href="editstudents?id=@row.sid"><i class="halflings-icon pencil"></i>@row.sname</a>
+                        </td>
+                        <td class="center">@row.cyear@row.spname</td>
+                        <td class="center">@row.ssex</td>
+                        <td class="center">@row.sage</td>
+                        <td class="center">@row.sphone</td>
+                        <td class="center">@row.qq</td>
+                        <td class="center">@row.wx</td>
+                        <td class="center">
+
+                            @if (row.sstatus == 1)
+                            {
+                                <label class="label label-success">在读</label>
+                            }
+                            @if (row.sstatus == 2)
+                            {
+                                <label class="label label-defaullt">休学</label>
+                            }
+                            @if (row.sstatus == 3)
+                            {
+                                <label class="label label-Inverse">退学</label>
+                            }
+
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            @*@grid.GetHtml(
+
+
+        columns: grid.Columns(
+            grid.Column(format: @<a href="~/delstudents?id=@item.sid">删除</a>),
+            //grid.Column("sid"),
+            grid.Column("snum"),
+            grid.Column("sname"),
+            grid.Column("cyear"),
+            grid.Column("spname"),
+            grid.Column("ssex"),
+            grid.Column("sage"),
+            grid.Column("sphone"),
+            grid.Column("qq"),
+            grid.Column("wx"),
+            grid.Column("sstatus"),
+            grid.Column("cid")
+
+            )
+        )*@
+
+        </div>
+    </div>
+</div>

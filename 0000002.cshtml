@@ -1,0 +1,7 @@
+﻿@{
+    Layout="~/_xuejiLayout.cshtml";
+    var name=Request.Form["name"];
+    var now = DateTime.Now;
+    var after = "你好："+name +"，现在是："+ now;
+}
+@after

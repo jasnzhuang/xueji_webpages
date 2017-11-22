@@ -1,0 +1,61 @@
+﻿@{
+	var spname = "";
+	var spid="";
+
+	if (!IsPost)
+	{
+		if (!Request.QueryString["ID"].IsEmpty() && Request.QueryString["ID"].IsInt())
+		{
+			spid = Request.QueryString["ID"];
+			var db = Database.Open("startersite");
+			var dbCommand = "SELECT * FROM specialized WHERE spid = @0";
+			var row = db.QuerySingle(dbCommand, spid);
+			if (row != null)
+			{
+				spname = row.spname;
+			    spid = row.spid.ToString();
+			}
+			else
+			{
+				Validation.AddFormError("没有找到此专业.");
+			}
+		}
+		else
+		{
+			Validation.AddFormError("没有找到此专业.");
+		}
+	}
+	//两个条件：第一，这是一个POST请求，第二，这是由一个叫做buttonDelete的按钮提交的请求
+	if (IsPost && !Request["buttonDelete"].IsEmpty())
+	{
+		spid = Request.Form["spid"];
+		var db = Database.Open("startersite");
+		var deleteCommand = "DELETE FROM specialized WHERE spid = @0";
+		db.Execute(deleteCommand, spid);
+		Response.Redirect("~/specialized");
+	}
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>删除专业</title>
+</head>
+<body>
+<h1>删除专业</h1>
+@Html.ValidationSummary()
+<form method="post">
+	<fieldset>
+		<legend>专业信息</legend>
+
+		<p>
+			<span>专业名称:</span>
+			<span>@spname</span>
+		</p>
+
+
+		<input type="hidden" name="spid" value="@spid" />
+		<p><input type="submit" name="buttonDelete" value="删除专业" /></p>
+	</fieldset>
+</form>
+</body>
+</html>

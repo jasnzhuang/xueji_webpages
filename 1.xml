@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<CATALOG>
+    <STUDENT>
+        <SNAME>江崟才</SNAME>
+        <PCOUNT>2</PCOUNT>
+        <PRICE>118</PRICE>
+        <SUMM>36</SUMM>
+    </STUDENT>
+    <STUDENT>
+        <SNAME>耿思瑶</SNAME>
+        <PCOUNT>1</PCOUNT>
+        <PRICE>21</PRICE>
+        <SUMM>21</SUMM>
+    </STUDENT>
+    <STUDENT>
+        <SNAME>刘婉玥</SNAME>
+        <PCOUNT>1</PCOUNT>
+        <PRICE>20</PRICE>
+        <SUMM>20</SUMM>
+    </STUDENT>
+</CATALOG>

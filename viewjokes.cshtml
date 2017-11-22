@@ -1,0 +1,22 @@
+﻿@{
+    WebSecurity.RequireAuthenticatedUser();
+    Layout = "~/_xuejiLayout.cshtml";
+    var db = Database.Open("startersite");
+    int id = Convert.ToInt16(Request.QueryString["id"]);
+    var queryCommand = "select id,title,content,adddate from joke where id=" + id;
+    var getjoke = db.QuerySingle(queryCommand);
+}
+<!-- 下面的脚本就是用来使代码高亮的 -->
+<script type="text/javascript" src="third-party/SyntaxHighlighter/shCore.js"></script>
+<link rel="stylesheet" href="third-party/SyntaxHighlighter/shCoreDefault.css">
+<script type="text/javascript">
+    SyntaxHighlighter.all();
+</script>
+<h2>标题：@getjoke.title</h2>
+<br><h3>日期：@getjoke.adddate</h3> <br>
+正文：
+<div class="content">
+    <!-- Html.raw是什么？自己体会 -->
+    @Html.Raw(getjoke.content) 
+</div>
+<br>

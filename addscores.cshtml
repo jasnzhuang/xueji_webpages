@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    var cid = Request.QueryString["cid"];
+    var exid = Request.QueryString["exid"];
+    var coid = Request.QueryString["coid"];
+    var formnum = 0;
+    var countStudents = 0;
+
+    var db = Database.Open("startersite");
+    var getstudentCommand = "SELECT students.sid,students.snum,students.sname FROM students WHERE students.cid = @0";
+
+
+
+
+}
+<form method="post">
+
+    <fieldset>
+        <legend>添加信息的几个固定值如下：班级cid=@cid  考试exid=@exid  课程coid=@coid</legend>
+        <ol>
+
+        @foreach (var row in db.Query(getstudentCommand, cid))
+        {
+            //formnum=formnum+1;
+            formnum += 1;
+            var sid = "sid" + formnum;
+
+            <li>
+            <input type="hidden" name="@sid" value="@row.sid"/>
+            <input type="text" name="snum" value="@row.snum"  disabled/>
+                <input type="text" name="sname" value="@row.sname"  disabled/>
+                <input type="text" name="sname" value="@row.sid" disabled />
+                <input type="text" name="scores" value="" />
+            </li>
+        }
+        </ol>
+    </fieldset>
+</form>

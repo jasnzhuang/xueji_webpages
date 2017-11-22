@@ -1,0 +1,60 @@
+﻿@{
+	var tname = "";
+	var id="";
+
+	if (!IsPost)
+	{
+		if (!Request.QueryString["ID"].IsEmpty() && Request.QueryString["ID"].IsInt())
+		{
+			id = Request.QueryString["ID"];
+			var db = Database.Open("startersite");
+			var dbCommand = "SELECT * FROM teachers WHERE id = @0";
+			var row = db.QuerySingle(dbCommand, id);
+			if (row != null)
+			{
+				tname = row.tname;
+			}
+			else
+			{
+				Validation.AddFormError("No user was found for that ID.");
+			}
+		}
+		else
+		{
+			Validation.AddFormError("No user was found for that ID.");
+		}
+	}
+	//两个条件：第一，这是一个POST请求，第二，这是由一个叫做buttonDelete的按钮提交的请求
+	if (IsPost && !Request["buttonDelete"].IsEmpty())
+	{
+		id = Request.Form["tid"];
+		var db = Database.Open("startersite");
+		var deleteCommand = "DELETE FROM teachers WHERE id = @0";
+		db.Execute(deleteCommand, id);
+		Response.Redirect("~/teachers");
+	}
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>删除教师</title>
+</head>
+<body>
+<h1>删除教师</h1>
+@Html.ValidationSummary()
+<form method="post">
+	<fieldset>
+		<legend>教师信息</legend>
+
+		<p>
+			<span>教师姓名:</span>
+			<span>@tname</span>
+		</p>
+
+
+		<input type="hidden" name="tid" value="@id" />
+		<p><input type="submit" name="buttonDelete" value="删除教师" /></p>
+	</fieldset>
+</form>
+</body>
+</html>

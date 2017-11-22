@@ -1,0 +1,144 @@
+﻿@using System.Globalization
+@functions{
+
+    public static string JudgeAvaliable(int status,int id)
+    {
+        string htmlMessage;
+        if (status==1)
+        {
+            htmlMessage = "<a href='library_borrowing.cshtml? id = '" + id + "'>借出</a>";
+        }else if (status == 2)
+        {
+            htmlMessage ="<a href='#'>已借出</a>";
+        }
+        else
+        {
+            htmlMessage = "状态异常";
+        }
+
+
+        return htmlMessage;
+    }
+
+    public static int GetAvaliableAmounts(int id)
+    {
+        int avaliableAmounts;
+        var db = Database.Open("startersite");
+        const string queryCommand = "SELECT Count(*) AS amounts FROM library_collections AS lc WHERE lc.library_books_id = @0 AND lc.status = 1";
+        var getamounts = db.QuerySingle(queryCommand,id);
+        avaliableAmounts = getamounts.amounts;
+        return avaliableAmounts;
+    }
+
+    public static string GetBookStatus(int status)
+    {
+        string statustext;
+        switch (status)
+        {
+            case 1:
+                statustext = "可借阅";
+                break;
+            case 2:
+                statustext = "已借出";
+                break;
+            default:
+                statustext = "wrong!";
+                break;
+        }
+        return statustext;
+    }
+
+    public static string GetTeachersType(int ttype)
+    {
+        string typename;
+        switch (ttype)
+        {
+            case 1:
+                typename = "辅导员";
+                break;
+            case 2:
+                typename = "讲师";
+                break;
+            default:
+                typename = "wrong!";
+                break;
+        }
+        return typename;
+    }
+
+    public static string GetClassesName(int cid)
+    {
+        string classesname;
+        if (cid <= 0)
+        {
+            classesname = "";
+        }
+        else
+        {
+            var db = Database.Open("startersite");
+            var queryCommand = "select classes.cid as cid,classes.cyear as cyear,specialized.spname as spname from classes join specialized on classes.spid=specialized.spid where classes.cid=" + cid;
+            var getname = db.QuerySingle(queryCommand);
+            classesname = getname.cyear + getname.spname;
+        }
+
+        return classesname;
+    }
+
+    public static string PutCopyright()
+    {
+        var PutCopyright = "&copy; 2017 -  <a href='#' alt='Using the Bootstrap Metro Dashboard Form Template'>沈阳理工大学继续教育学院 博众教学部 指导教师率17编码小分队</a>";
+        return PutCopyright;
+    }
+
+    public static string PutDate()
+    {
+        var putDate = DateTime.Now;
+        return putDate.ToString(CultureInfo.InvariantCulture);
+    }
+
+    public static string GetExamType(int extype)
+    {
+        string typename;
+        switch (extype)
+        {
+            case 1:
+                typename = "期末考试";
+                break;
+            case 2:
+                typename = "期中考试";
+                break;
+            case 3:
+                typename = "月考";
+                break;
+            case 4:
+                typename = "周考";
+                break;
+            case 5:
+                typename = "随堂测验";
+                break;
+            case 6:
+                typename = "成人高考";
+                break;
+            case 7:
+                typename = "自学考试";
+                break;
+            case 8:
+                typename = "成人专升本";
+                break;
+            case 9:
+                typename = "自考专升本";
+                break;
+            case 10:
+                typename = "大学英语四级";
+                break;
+            case 11:
+                typename = "学位英语";
+                break;
+            default:
+                typename = "wrong!";
+                break;
+        }
+        return typename;
+    }
+
+}

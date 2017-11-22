@@ -1,0 +1,93 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    var exdate = "";
+    var exname = "";
+    var extype = "";
+    var exid = Request.QueryString["ID"];
+    var db = Database.Open("startersite");
+
+    if (!IsPost)
+    {
+        if (!Request.QueryString["ID"].IsEmpty() && Request.QueryString["ID"].IsInt())
+        {
+
+            var dbCommand = "SELECT * from exams WHERE exid = @0";
+            //因为我们只是要取出一条数据库记录，因为指定了ID嘛，所以不再使用query这个方法，而是QuerySingle方法
+            var row = db.QuerySingle(dbCommand, exid);
+
+            if (row != null)
+            {
+                exdate = Convert.ToString(row.exdate);
+                exname = row.exname;
+                extype = Convert.ToString(row.extype);
+            }
+            else
+            {
+                Validation.AddFormError("No user was found for that ID.");
+            }
+        }
+        else
+        {
+            Validation.AddFormError("No user was selected.");
+        }
+    }
+    //if (IsPost && cid!=0)
+    if (IsPost)
+    {
+
+
+        exdate = Request.Form["exdate"];
+        exname = Request.Form["exname"];
+        extype = Request.Form["extype"];
+
+        if (Validation.IsValid())
+        {
+            var updateCommand = "UPDATE exams SET exdate=@1,exname=@2,extype=@3 WHERE exid=@0";
+            db.Execute(updateCommand, exid, exdate, exname, extype);
+
+            Response.Redirect("~/exams");
+        }
+    }
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li><li>
+        <a href="~/students.cshtml">学生信息</a>
+    </li>
+    <li>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li>
+        <a href="#">编辑学生信息</a>
+    </li>
+</ul>
+<form method="post">
+    <fieldset>
+        <legend>当前学生信息</legend>
+
+        <div class="control-group">
+            <label class="control-label" for="exdate">考试日期：</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge datepicker" id="exdate" name="exdate" value="@exdate">
+            </div>
+        </div>
+        <p>
+            <label for="exname">考试名称：</label>
+            <input type="text" id="exname" name="exname" value="@exname"/>
+        </p>
+        <p>
+            <label for="extype">考试类型：</label>
+            <input type="text" id="extype" name="extype" value="@extype"/>
+        </p>
+  
+
+        <input type="hidden" name="exid" value="@exid"/>
+
+        <p>
+            <input type="submit" name="buttonSubmit" value="确认修改"/>
+        </p>
+    </fieldset>
+</form>

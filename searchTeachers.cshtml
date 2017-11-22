@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>搜索教师 - 学籍管理系统</title>
+</head>
+<body>
+<h1>搜索教师</h1>
+<form action="stResult" method="post">
+    <fieldset>
+        <legend>请输入教师姓名并选择职能类型</legend>
+
+        <p>
+                <label for="v1">教师姓名：</label>
+                <input type="text" id="v1" name="v1"/>
+
+        </p>
+        <p>
+            
+            <label for="v2">教师职能：</label>
+            <select id="v2" name="v2">
+                <option value="">请选择教师职能</option>
+                <option value="1">辅导员</option>
+                <option value="2">讲师</option>
+            </select>        </p>
+        <p>
+                <input type="submit" value="搜索教师"/>
+        </p>
+
+    </fieldset>
+</form>
+</body>
+</html>

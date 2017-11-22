@@ -1,0 +1,21 @@
+﻿@using System.Text.RegularExpressions;
+@{
+    //要想在Webpage里面使用正则表达式，就必须using上面的命名空间
+    //session的建立只能在登陆完成的页面上进行，否则会被刷新，导致错乱
+    Session["username"] = "AAJZ";
+    string input = Convert.ToString(DateTime.Now)+Convert.ToString(Session["username"]);
+    string pattern = @"(?:(?:\s)+|(?:\/)+|(?:\:)+)+";
+    string replacement = "";
+    //input变量里面是要处理的文本
+    //pattern里面是那些要处理，并且写成了正则表达式
+    //replacement是如果找到了要处理的内容，替换成什么
+    Session["orderid"]=Regex.Replace(input, pattern, replacement);
+}
+Session已经建立
+<br>
+@Session["username"]
+<br>
+@Session["orderid"]
+<br>
+
+<a href="buystudent" target="_self">点击查看学生售卖一览表</a>

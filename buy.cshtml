@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    var db = Database.Open("startersite");
+
+    var orderid=Session["orderid"];
+    var sid=Request.Form["sid"];
+    var price=Request.Form["price"];
+    if(IsPost){
+        var dbCommand="select * from mycart where sid=@0 and orderid=@1";
+        var existCommand="update mycart set pcount=pcount+1 where sid=@0 and orderid=@1";
+        var nexistCommand="insert into mycart(orderid,sid,price,pcount) values(@0,@1,@2,1)";
+        var row = db.QuerySingle(dbCommand,sid,orderid);
+            if (row != null)
+            {
+                db.Execute(existCommand, sid,orderid);
+                Response.Redirect("~/buycart");
+            }
+            else
+            {
+                db.Execute(nexistCommand,orderid,sid,price);
+                Response.Redirect("~/buycart");
+            }
+    }
+    
+}
+
+@Session["username"]
+<br>
+@Session["orderid"]
+<br>
+@Request.Form["sid"]
+<br>
+@Request.Form["price"]

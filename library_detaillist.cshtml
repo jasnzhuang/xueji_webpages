@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    Page.Title = "书籍在馆详情";
+
+    var id = Request.QueryString["ID"];
+
+    var db = Database.Open("startersite");
+    var listCommand = "SELECT lc.id,lb.name,lb.isbn,lb.author,lb.memo,lc.status,lc.stockdate FROM library_books AS lb INNER JOIN library_collections AS lc ON lb.id = lc.library_books_id where lb.id = @0";
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+        <a href="~/library_list.cshtml">图书借阅</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Page.title</a></li>
+</ul>
+
+<table class="table table-striped table-bordered table-hover bootstrap-datatable datatable">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>书籍名称</th>
+            <th>ISBN</th>
+            <th>作者</th>
+            <th>备注</th>
+            <th>入馆日期</th>
+            <th>状态</th>
+            <th>操作</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in db.Query(listCommand, id))
+        {
+            <tr>
+                <td>@row.id</td>
+                <td>@row.name</td>
+                <td>@row.isbn</td>
+                <td>@row.author</td>
+                <td>@row.memo</td>
+                <td>@row.stockdate</td>
+                <td>
+                    @{
+                        @Functions.GetBookStatus(row.status)
+                    }
+                </td>
+                <td>
+                    @if (row.status == 1)
+                    {
+                        <a href="library_borrowing.cshtml?id=@row.id">借出</a>
+                    }
+        </td>
+    </tr>
+         }
+    </tbody>
+</table>

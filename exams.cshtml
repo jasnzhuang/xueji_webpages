@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    var db = Database.Open("startersite");
+
+    //
+    var listCommand = "SELECT * from exams";
+
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Page.title</a></li></ul>
+
+
+<table class="table table-striped table-bordered table-hover bootstrap-datatable datatable">
+    <thead>
+    <tr>
+
+        <th>考试日期</th>
+        <th>考试名称</th>
+        <th>考试类型</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var row in db.Query(listCommand))
+    {
+        <tr>
+
+            <td><a href="editexams?id=@row.exid">@row.exdate</a></td>
+            <td><a href="examclass?id=@row.exid">@row.exname</a></td>
+            <td>@Functions.GetExamType(row.extype)</td>
+
+        </tr>
+    }
+    </tbody>
+</table>

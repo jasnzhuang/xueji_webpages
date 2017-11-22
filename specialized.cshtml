@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    var db = Database.Open("startersite");
+    var listCommand = db.Query("SELECT * FROM specialized");
+    var grid = new WebGrid(listCommand);
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Page.title</a></li></ul>
+    @grid.GetHtml(
+        tableStyle: "table table-striped table-bordered table-hover bootstrap-datatable datatable",
+        columns: grid.Columns(
+            grid.Column(format: @<a href="~/delspecialized?id=@item.spid">删除</a>),
+            grid.Column("spid", header: "专业内部ID"),
+            grid.Column("spname", header: "专业名称")
+
+            )
+    )
+

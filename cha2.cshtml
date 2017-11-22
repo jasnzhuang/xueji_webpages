@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    var snum = "";
+    var sphone = "";
+    var getscoresCommand = "SELECT exams.exname,exams.extype,exams.exdate,courses.coname,scores.scscore,students.snum,students.sname,students.sphone FROM scores INNER JOIN exams ON scores.exid = exams.exid INNER JOIN courses ON scores.coid = courses.coid INNER JOIN students ON scores.sid = students.sid where students.snum=@0 and students.sphone=@1";
+    var db = Database.Open("startersite");
+
+    if (IsPost)
+    {
+        snum = Request.Form["snum"];
+        sphone = Request.Form["sphone"];
+
+        //db.Query(getscoresCommand,snum,sphone);
+
+    }
+    else
+    {
+        Validation.AddFormError("哪儿来的滚回哪去。");
+    }
+}
+
+@Html.ValidationSummary()
+
+<ol>
+    @foreach (var row in db.Query(getscoresCommand, snum, sphone))
+
+    {
+        <li>
+            @row.snum
+            @if (row.scscore >= 70 & row.scscore <= 100)
+            {
+                <span class="label label-success">@row.scscore</span>
+            }
+            else if (row.scscore >= 60 & row.scscore < 70)
+            {
+                <span class="label label-warning">@row.scscore</span>
+
+            }
+            else if (row.scscore >= 0 & row.scscore < 60)
+            {
+                <span class="label label-important">@row.scscore</span>
+
+            }
+
+        </li>
+    }
+</ol>
