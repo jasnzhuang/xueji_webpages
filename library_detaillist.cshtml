@@ -5,7 +5,7 @@
     var id = Request.QueryString["ID"];
 
     var db = Database.Open("startersite");
-    var listCommand = "SELECT lc.id,lb.name,lb.isbn,lb.author,lb.memo,lc.status,lc.stockdate FROM library_books AS lb INNER JOIN library_collections AS lc ON lb.id = lc.library_books_id where lb.id = @0";
+    var listCommand = "SELECT lc.id,lc.status,lc.stockdate FROM library_books AS lb INNER JOIN library_collections AS lc ON lb.id = lc.library_books_id where lb.id = @0";
 }
 <ul class="breadcrumb">
     <li>
@@ -22,10 +22,7 @@
     <thead>
         <tr>
             <th>id</th>
-            <th>书籍名称</th>
-            <th>ISBN</th>
-            <th>作者</th>
-            <th>备注</th>
+
             <th>入馆日期</th>
             <th>状态</th>
             <th>操作</th>
@@ -37,10 +34,7 @@
         {
             <tr>
                 <td>@row.id</td>
-                <td>@row.name</td>
-                <td>@row.isbn</td>
-                <td>@row.author</td>
-                <td>@row.memo</td>
+
                 <td>@row.stockdate</td>
                 <td>
                     @{
@@ -51,6 +45,9 @@
                     @if (row.status == 1)
                     {
                         <a href="library_borrowing.cshtml?id=@row.id">借出</a>
+                    }else
+                    {
+                        <a href="library_return.cshtml?id=@row.id">归还</a>
                     }
         </td>
     </tr>

@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    Page.Title = "借出书籍";
+
+    string library_collections_id = Request.QueryString["id"];
+    string returnuser = "1";
+    var returndate = DateTime.Now;
+    var memo = Request.Form["memo"];
+
+    var db = Database.Open("StarterSite");
+
+    if (IsPost)
+    {
+        string selectCommand = "select * from library_borrowing where library_collections_id=@0 order by id desc";
+        string deleteCommand = "delete from library_borrowing where id=@0";
+        string updateCommand = "UPDATE library_collections SET status=1 WHERE id=@0";
+        string insertCommand = "INSERT INTO library_borrowhistory (library_collections_id,borrowuser,borrowdate,planttoreturn,returndate,returnuser,memo) Values(@0, @1, @2, @3, @4, @5, @6)";
+
+        var bi = db.QuerySingle(selectCommand,library_collections_id);
+        var borrowuser=bi.borrowuser;
+        var borrowdate=bi.borrowdate;
+        var planttoreturn=bi.planttoreturn;
+        var biid=bi.id;
+        db.Execute(deleteCommand, biid);
+        db.Execute(updateCommand, library_collections_id);
+        db.Execute(insertCommand, library_collections_id, borrowuser, borrowdate, planttoreturn, returndate, returnuser, memo);
+        var lastid = db.GetLastInsertId();
+        Response.Redirect("library_returnsuccess.cshtml?id=" + lastid);
+    }
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Page.title</a></li>
+</ul>
+<form method="post">
+    <fieldset>
+
+        <input type="text" name="id" id="id" value="@library_collections_id" /><br />
+        <input type="text" name="memo" id="memo" value="memo" /><br />
+        <input type="hidden" name="user" id="user" value="暂时没用上，因为没有整合用户系统" />
+        <p>
+            <input type="submit" name="buttonSubmit" value="归还书籍" />
+        </p>
+
+    </fieldset>
+</form>
