@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-11-22 13:27:12
+Date: 2017-11-23 09:27:32
 */
 
 
@@ -416,7 +416,7 @@ CREATE TABLE [dbo].[library_books] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[library_books]', RESEED, 3)
+DBCC CHECKIDENT(N'[dbo].[library_books]', RESEED, 7)
 GO
 IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
@@ -528,6 +528,12 @@ GO
 INSERT INTO [dbo].[library_books] ([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate]) VALUES (N'3', N'这第二本书', N'2222-2222-2222-222', N'张这', N'偶们绝不做心灵', N'15', N'15', N'2017-11-20 00:00:00.000')
 GO
 GO
+INSERT INTO [dbo].[library_books] ([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate]) VALUES (N'6', N'论：烹饪藕的各种不良方法', N'6666-6666-6666-666', N'哪吒', N'神笔啊，不是马良啊', N'9', N'9', N'2017-11-22 16:13:02.000')
+GO
+GO
+INSERT INTO [dbo].[library_books] ([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate]) VALUES (N'7', N'面粉与眯眯眼的恐怖组合', N'7777-7777-7777-7777-777', N'遛弯', N'溜达溜达小鲜肉', N'7', N'7', N'2017-11-22 16:13:53.193')
+GO
+GO
 SET IDENTITY_INSERT [dbo].[library_books] OFF
 GO
 
@@ -540,10 +546,11 @@ CREATE TABLE [dbo].[library_borrowhistory] (
 [id] int NOT NULL IDENTITY(1,1) ,
 [borrowdate] datetime NULL ,
 [borrowuser] int NULL ,
-[plantoreturn] datetime NULL ,
+[planttoreturn] datetime NULL ,
 [returndate] datetime NULL ,
 [returnuser] int NULL ,
-[memo] varchar(255) NULL 
+[memo] varchar(255) NULL ,
+[library_collections_id] int NULL 
 )
 
 
@@ -579,22 +586,25 @@ GO
 IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_borrowhistory', 
-'COLUMN', N'plantoreturn')) > 0) 
+'COLUMN', N'planttoreturn')) > 0) 
 EXEC sp_updateextendedproperty @name = N'MS_Description', @value = N'预计归还日期'
 , @level0type = 'SCHEMA', @level0name = N'dbo'
 , @level1type = 'TABLE', @level1name = N'library_borrowhistory'
-, @level2type = 'COLUMN', @level2name = N'plantoreturn'
+, @level2type = 'COLUMN', @level2name = N'planttoreturn'
 ELSE
 EXEC sp_addextendedproperty @name = N'MS_Description', @value = N'预计归还日期'
 , @level0type = 'SCHEMA', @level0name = N'dbo'
 , @level1type = 'TABLE', @level1name = N'library_borrowhistory'
-, @level2type = 'COLUMN', @level2name = N'plantoreturn'
+, @level2type = 'COLUMN', @level2name = N'planttoreturn'
 GO
 
 -- ----------------------------
 -- Records of library_borrowhistory
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[library_borrowhistory] ON
+GO
+INSERT INTO [dbo].[library_borrowhistory] ([id], [borrowdate], [borrowuser], [planttoreturn], [returndate], [returnuser], [memo], [library_collections_id]) VALUES (N'1', N'2017-11-22 13:30:06.263', N'1', N'2017-11-29 13:30:06.263', N'2017-11-23 09:05:59.770', N'1', N'memo', N'3')
+GO
 GO
 SET IDENTITY_INSERT [dbo].[library_borrowhistory] OFF
 GO
@@ -613,6 +623,8 @@ CREATE TABLE [dbo].[library_borrowing] (
 )
 
 
+GO
+DBCC CHECKIDENT(N'[dbo].[library_borrowing]', RESEED, 9)
 GO
 IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
@@ -662,7 +674,22 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[library_borrowing] ON
 GO
-INSERT INTO [dbo].[library_borrowing] ([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id]) VALUES (N'1', null, N'1', null, N'2')
+INSERT INTO [dbo].[library_borrowing] ([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id]) VALUES (N'3', N'2017-11-22 14:53:17.700', N'1', N'2017-11-29 14:53:17.700', N'4')
+GO
+GO
+INSERT INTO [dbo].[library_borrowing] ([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id]) VALUES (N'4', N'2017-11-22 15:12:35.510', N'1', N'2017-11-29 15:12:35.510', N'5')
+GO
+GO
+INSERT INTO [dbo].[library_borrowing] ([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id]) VALUES (N'5', N'2017-11-22 15:33:16.633', N'1', N'2017-11-29 15:33:16.633', N'12')
+GO
+GO
+INSERT INTO [dbo].[library_borrowing] ([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id]) VALUES (N'6', N'2017-11-22 16:17:54.907', N'1', N'2017-11-29 16:17:54.907', N'27')
+GO
+GO
+INSERT INTO [dbo].[library_borrowing] ([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id]) VALUES (N'7', N'2017-11-22 16:18:01.477', N'1', N'2017-11-29 16:18:01.477', N'36')
+GO
+GO
+INSERT INTO [dbo].[library_borrowing] ([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id]) VALUES (N'8', N'2017-11-22 16:18:08.497', N'1', N'2017-11-29 16:18:08.497', N'37')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[library_borrowing] OFF
@@ -682,7 +709,7 @@ CREATE TABLE [dbo].[library_collections] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[library_collections]', RESEED, 11)
+DBCC CHECKIDENT(N'[dbo].[library_collections]', RESEED, 42)
 GO
 IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
@@ -718,19 +745,19 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[library_collections] ON
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1', N'2', N'2', N'2017-11-20')
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1', N'2', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'2', N'2', N'2', N'2017-11-20')
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'2', N'2', N'1', N'2017-11-20')
 GO
 GO
 INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'3', N'2', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'4', N'2', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'4', N'2', N'2', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'5', N'2', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'5', N'2', N'2', N'2017-11-20')
 GO
 GO
 INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'6', N'2', N'1', N'2017-11-20')
@@ -751,7 +778,7 @@ GO
 INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'11', N'2', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'12', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'12', N'3', N'2', N'2017-11-20')
 GO
 GO
 INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'13', N'3', N'1', N'2017-11-20')
@@ -794,6 +821,54 @@ INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [st
 GO
 GO
 INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'26', N'3', N'1', N'2017-11-20')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'27', N'6', N'2', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'28', N'6', N'1', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'29', N'6', N'1', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'30', N'6', N'1', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'31', N'6', N'1', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'32', N'6', N'1', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'33', N'6', N'1', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'34', N'6', N'1', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'35', N'6', N'1', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'36', N'7', N'2', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'37', N'7', N'2', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'38', N'7', N'1', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'39', N'7', N'1', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'40', N'7', N'1', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'41', N'7', N'1', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'42', N'7', N'1', N'2017-11-22')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[library_collections] OFF
