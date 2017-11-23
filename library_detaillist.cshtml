@@ -42,12 +42,8 @@
                     }
                 </td>
                 <td>
-                    @if (row.status == 1)
-                    {
-                        <a href="library_borrowing.cshtml?id=@row.id">借出</a>
-                    }else
-                    {
-                        <a href="library_return.cshtml?id=@row.id">归还</a>
+                    @{
+                        @Html.Raw(Functions.JudgeAvaliable(row.status, row.id))
                     }
         </td>
     </tr>

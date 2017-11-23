@@ -6,10 +6,10 @@
         string htmlMessage;
         if (status==1)
         {
-            htmlMessage = "<a href='library_borrowing.cshtml? id = '" + id + "'>借出</a>";
+            htmlMessage = "<a href='library_borrowing.cshtml?id=" + id + "'>借出</a>";
         }else if (status == 2)
         {
-            htmlMessage ="<a href='#'>已借出</a>";
+            htmlMessage = "<a href='library_return.cshtml?id=" + id + "'>归还</a>";
         }
         else
         {
