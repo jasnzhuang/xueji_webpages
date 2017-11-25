@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    Page.Title = "历史记录";
+
+    var id = Request.QueryString["ID"];
+
+    var db = Database.Open("startersite");
+    var listCommand = "SELECT lbh.id AS lbhid,lb.id AS lbid,lb.name AS name,lbh.borrowuser AS borrowuser,lbh.borrowdate AS borrowdate,lbh.planttoreturn AS planttoreturn,lbh.returndate AS returndate,lbh.returnuser AS returnuser FROM dbo.library_collections AS lc INNER JOIN dbo.library_books AS lb ON lc.library_books_id = lb.id INNER JOIN dbo.library_borrowhistory AS lbh ON lbh.library_collections_id = lc.id order by lbh.id desc";
+}
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+        <a href="~/library_list.cshtml">图书借阅</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Page.title</a></li>
+</ul>
+
+<table class="table table-striped table-bordered table-hover bootstrap-datatable datatable">
+    <thead>
+        <tr>
+            <th>lbh.id</th>
+            <th>lb.id</th>
+            <th>书籍名称</th>
+            <th>借阅用户</th>
+            <th>借阅时间</th>
+            <th>归还用户</th>
+            <th>归还时间</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in db.Query(listCommand, id))
+        {
+            <tr>
+                <td>@row.lbhid</td>
+
+                <td>@row.lbid</td>
+                <td>@row.name</td>
+                <td>@row.borrowuser</td>
+                <td>@row.borrowdate</td>
+                <td>@row.returnuser</td>
+                <td>@row.returndate</td>
+
+
+    </tr>
+         }
+    </tbody>
+</table>
