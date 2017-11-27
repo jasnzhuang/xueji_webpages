@@ -1,40 +1,40 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
     //这里是和JS差不多的一个偷懒变量定义方法，用var来定义
-    var snum = "";
-    var sname = "";
-    var ssex = "";
-    var sage = "";
-    var sphone = "";
+    var students_number = "";
+    var students_name = "";
+    var students_sex = "";
+    var students_age = "";
+    var students_phone = "";
     var qq = "";
     var wx = "";
-    var sstatus = "";
-    var cid = "";
+    var students_status = "";
+    var classes_id = "";
 
     //这里吧，是说咱们在页面上填写的信息，怎么特么的就跑到程序里面来了呢？
-    snum = Request.Form["snum"];
-    sname = Request.Form["sname"];
-    ssex = Request.Form["ssex"];
-    sage = Request.Form["sage"];
-    sphone = Request.Form["sphone"];
+    students_number = Request.Form["students_number"];
+    students_name = Request.Form["students_name"];
+    students_sex = Request.Form["students_sex"];
+    students_age = Request.Form["students_age"];
+    students_phone = Request.Form["students_phone"];
     qq = Request.Form["qq"];
     wx = Request.Form["wx"];
-    sstatus = Request.Form["sstatus"];
-    cid = Request.Form["cid"];
+    students_status = Request.Form["students_status"];
+    classes_id = Request.Form["classes_id"];
 
     var db2 = Database.Open("startersite");
-    var downlistCommand = "select classes.cid as cid,classes.classes_year as classes_year,majors.majors_name as majors_name from classes join majors on classes.majors_id=majors.id";
+    var downlistCommand = "select classes.id,classes.classes_year as classes_year,majors.majors_name as majors_name from classes join majors on classes.majors_id=majors.id";
 
     if (IsPost)
     {
         //这句吧，就是打开这个SQLCE数据库，这个SQLCE用法跟SQL没啥太大区别，就是不用用户名密码和IP了
         var db = Database.Open("StarterSite");
         //这里写清楚了所谓的顺序
-        var insertCommand = "INSERT INTO students (snum,sname,ssex,sage,sphone,qq,wx,sstatus,cid) Values(@0, @1,@2,@3,@4,@5,@6,@7,@8)";
+        var insertCommand = "INSERT INTO students (students_number,students_name,students_sex,students_age,students_phone,qq,wx,students_status,classes_id) Values(@0, @1,@2,@3,@4,@5,@6,@7,@8)";
         //这句就是写如何插入到数据库，并且告诉程序要插入的数据都从哪里来的，也就是都从哪几个变量来了
-        db.Execute(insertCommand, snum, sname, ssex, sage, sphone, qq, wx, sstatus, cid);
+        db.Execute(insertCommand, students_number, students_name, students_sex, students_age, students_phone, qq, wx, students_status, classes_id);
 
-        string logit = "snum=" + snum + ",sname=" + sname + ",ssex=" + ssex + ",sage=" + sage + ",sphone=" + sphone + ",qq=" + qq + ",wx=" + wx + ",sstatus=" + sstatus + ",cid=" + cid;
+        string logit = "students_number=" + students_number + ",students_name=" + students_name + ",students_sex=" + students_sex + ",students_age=" + students_age + ",students_phone=" + students_phone + ",qq=" + qq + ",wx=" + wx + ",students_status=" + students_status + ",classes_id=" + classes_id;
 
         var logCommand = "insert into log (who,whichtable,actiontype,withwhat,whendoes)values('1','students','insert',@0,getdate())";
         db.Execute(logCommand, logit);
@@ -52,33 +52,33 @@
     <fieldset>
         <legend>学生信息</legend>
         <p>
-            <label for="snum">学号：</label>
-            <input type="text" id="snum" name="snum" value=""/>
+            <label for="students_number">学号：</label>
+            <input type="text" id="students_number" name="students_number" value=""/>
         </p>
         <p>
-            <label for="cid">班级：</label>
-            <select id="cid" name="cid">
+            <label for="classes_id">班级：</label>
+            <select id="classes_id" name="classes_id">
                 @foreach (var row in db2.Query(downlistCommand))
                 {
-                    <option value="@row.cid">@row.classes_year@row.majors_name</option>
+                    <option value="@row.id">@row.classes_year@row.majors_name</option>
                 }
             </select>
         </p>
         <p>
-            <label for="sname">学生姓名：</label>
-            <input type="text" id="sname" name="sname" value=""/>
+            <label for="students_name">学生姓名：</label>
+            <input type="text" id="students_name" name="students_name" value=""/>
         </p>
         <p>
             <label >性别：</label>
-            <label for="ssex1">男</label><input id="ssex1" name="ssex" type="radio" value="男" />&nbsp;&nbsp;&nbsp;&nbsp;<label for="ssex2">女</label><input id="ssex2" name="ssex" type="radio" value="女" />
+            <label for="students_sex1">男</label><input id="students_sex1" name="students_sex" type="radio" value="男" />&nbsp;&nbsp;&nbsp;&nbsp;<label for="students_sex2">女</label><input id="students_sex2" name="students_sex" type="radio" value="女" />
 </p>
         <p>
-            <label for="sage">年龄：</label>
-            <input type="text" name="sage" value=""/>
+            <label for="students_age">年龄：</label>
+            <input type="text" name="students_age" value=""/>
         </p>
         <p>
-            <label for="sphone">联系电话：</label>
-            <input type="text" name="sphone" value=""/>
+            <label for="students_phone">联系电话：</label>
+            <input type="text" name="students_phone" value=""/>
         </p>
         <p>
             <label for="qq">QQ号码：</label>
@@ -89,8 +89,8 @@
             <input type="text" name="wx" value=""/>
         </p>
         <p>
-            <label for="sstatus">学籍状态：</label>
-            <input type="text" name="sstatus" value=""/>
+            <label for="students_status">学籍状态：</label>
+            <input type="text" name="students_status" value=""/>
         </p>
         <p>
             <input type="submit" name="buttonSubmit" value="添加学生"/>

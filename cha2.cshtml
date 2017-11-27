@@ -1,16 +1,16 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
-    var snum = "";
-    var sphone = "";
-    var getscoresCommand = "SELECT exams.exname,exams.extype,exams.exdate,courses.coname,scores.scscore,students.snum,students.sname,students.sphone FROM scores INNER JOIN exams ON scores.exid = exams.exid INNER JOIN courses ON scores.coid = courses.coid INNER JOIN students ON scores.sid = students.sid where students.snum=@0 and students.sphone=@1";
+    var students_number = "";
+    var students_phone = "";
+    var getscoresCommand = "SELECT exams.exams_name,exams.exams_type,exams.exams_date,courses.courses_name,scores.scores_value,students.students_number,students.students_name,students.students_phone FROM scores INNER JOIN exams ON scores.exams_id = exams.id INNER JOIN courses ON scores.courses_id = courses.id INNER JOIN students ON scores.students_id = students.students_id where students.students_number=@0 and students.students_phone=@1";
     var db = Database.Open("startersite");
 
     if (IsPost)
     {
-        snum = Request.Form["snum"];
-        sphone = Request.Form["sphone"];
+        students_number = Request.Form["students_number"];
+        students_phone = Request.Form["students_phone"];
 
-        //db.Query(getscoresCommand,snum,sphone);
+        //db.Query(getscoresCommand,students_number,students_phone);
 
     }
     else
@@ -22,23 +22,23 @@
 @Html.ValidationSummary()
 
 <ol>
-    @foreach (var row in db.Query(getscoresCommand, snum, sphone))
+    @foreach (var row in db.Query(getscoresCommand, students_number, students_phone))
 
     {
         <li>
-            @row.snum
-            @if (row.scscore >= 70 & row.scscore <= 100)
+            @row.students_number
+            @if (row.scores_value >= 70 & row.scores_value <= 100)
             {
-                <span class="label label-success">@row.scscore</span>
+                <span class="label label-success">@row.scores_value</span>
             }
-            else if (row.scscore >= 60 & row.scscore < 70)
+            else if (row.scores_value >= 60 & row.scores_value < 70)
             {
-                <span class="label label-warning">@row.scscore</span>
+                <span class="label label-warning">@row.scores_value</span>
 
             }
-            else if (row.scscore >= 0 & row.scscore < 60)
+            else if (row.scores_value >= 0 & row.scores_value < 60)
             {
-                <span class="label label-important">@row.scscore</span>
+                <span class="label label-important">@row.scores_value</span>
 
             }
 

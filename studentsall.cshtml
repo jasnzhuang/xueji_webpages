@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
     var db = Database.Open("startersite");
-    var listCommand = "SELECT s.sid,s.snum,s.sname,c.classes_year,m.majors_name,s.ssex,s.sage,s.sphone,s.qq,s.wx,s.sstatus FROM students as m INNER JOIN classes as c ON s.cid = c.id INNER JOIN majors as m ON c.majors_id = majors.id";
+    var listCommand = "SELECT s.id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.qq,s.wx,s.students_status FROM students as m INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = majors.id";
     //var listCommand = db.Query("select * from students");
     //var grid = new WebGrid(listCommand);
 }
@@ -55,29 +55,29 @@
                 {
                     <tr>
                         <td class="center">
-                            <a href="delstudents?id=@row.sid">删除</a>
+                            <a href="delstudents?students_id=@row.id">删除</a>
                         </td>
-                        <td class="center">@row.snum</td>
+                        <td class="center">@row.students_number</td>
                         <td class="center">
-                            <a href="editstudents?id=@row.sid">@row.sname</a>
+                            <a href="editstudents?students_id=@row.id">@row.students_name</a>
                         </td>
                         <td class="center">@row.classes_year@row.majors_name</td>
-                        <td class="center">@row.ssex</td>
-                        <td class="center">@row.sage</td>
-                        <td class="center">@row.sphone</td>
+                        <td class="center">@row.students_sex</td>
+                        <td class="center">@row.students_age</td>
+                        <td class="center">@row.students_phone</td>
                         <td class="center">@row.qq</td>
                         <td class="center">@row.wx</td>
                         <td class="center">
 
-                            @if (row.sstatus == 1)
+                            @if (row.students_status == 1)
                             {
                                 <label class="label label-success">在读</label>
                             }
-                            @if (row.sstatus == 2)
+                            @if (row.students_status == 2)
                             {
                                 <label class="label label-defaullt">休学</label>
                             }
-                            @if (row.sstatus == 3)
+                            @if (row.students_status == 3)
                             {
                                 <label class="label label-Inverse">退学</label>
                             }
@@ -91,19 +91,19 @@
 
 
         columns: grid.Columns(
-            grid.Column(format: @<a href="~/delstudents?id=@item.sid">删除</a>),
-            //grid.Column("sid"),
-            grid.Column("snum"),
-            grid.Column("sname"),
+            grid.Column(format: @<a href="~/delstudents?id=@item.id">删除</a>),
+            //grid.Column("id"),
+            grid.Column("students_number"),
+            grid.Column("students_name"),
             grid.Column("classes_year"),
             grid.Column("majors_name"),
-            grid.Column("ssex"),
-            grid.Column("sage"),
-            grid.Column("sphone"),
+            grid.Column("students_sex"),
+            grid.Column("students_age"),
+            grid.Column("students_phone"),
             grid.Column("qq"),
             grid.Column("wx"),
-            grid.Column("sstatus"),
-            grid.Column("cid")
+            grid.Column("students_status"),
+            grid.Column("classes_id")
 
             )
         )*@

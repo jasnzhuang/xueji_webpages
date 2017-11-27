@@ -1,25 +1,25 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
     //这里是和JS差不多的一个偷懒变量定义方法，用var来定义
-    var exname = "";
-    var exdate = DateTime.Now;
-    var extype = "";
+    var exams_name = "";
+    var exams_date = DateTime.Now;
+    var exams_type = "";
 
 
     //这里吧，是说咱们在页面上填写的信息，怎么特么的就跑到程序里面来了呢？
-    exname = Request.Form["exname"];
-    exdate = Convert.ToDateTime(Request.Form["exdate"]);
-    //exdate = Request.Form["exdate"].AsDateTime;
-    extype = Request.Form["extype"];
+    exams_name = Request.Form["exams_name"];
+    exams_date = Convert.ToDateTime(Request.Form["exams_date"]);
+    //exams_date = Request.Form["exams_date"].AsDateTime;
+    exams_type = Request.Form["exams_type"];
 
     if (IsPost)
     {
         //这句吧，就是打开这个SQLCE数据库，这个SQLCE用法跟SQL没啥太大区别，就是不用用户名密码和IP了
         var db = Database.Open("StarterSite");
         //这里写清楚了所谓的顺序
-        var insertCommand = "INSERT INTO exams (exname,exdate,extype) Values(@0, @1,@2)";
+        var insertCommand = "INSERT INTO exams (exams_name,exams_date,exams_type) Values(@0, @1,@2)";
         //这句就是写如何插入到数据库，并且告诉程序要插入的数据都从哪里来的，也就是都从哪几个变量来了
-        db.Execute(insertCommand, exname, exdate,extype);
+        db.Execute(insertCommand, exams_name, exams_date,exams_type);
     }
 }
 <ul class="breadcrumb">
@@ -36,19 +36,19 @@
     <fieldset>
         <legend>考试信息</legend>
         <p>
-        <label for="exname">考试名称：</label>
-        <input type="text" id="exname" name="exname" value=""/>
+        <label for="exams_name">考试名称：</label>
+        <input type="text" id="exams_name" name="exams_name" value=""/>
 
         <div class="control-group">
-            <label class="control-label" for="exdate">考试日期：</label>
+            <label class="control-label" for="exams_date">考试日期：</label>
             <div class="controls">
-                <input type="text" class="input-xlarge datepicker" id="exdate" name="exdate" value="@Functions.PutDate()">
+                <input type="text" class="input-xlarge datepicker" id="exams_date" name="exams_date" value="@Functions.PutDate()">
             </div>
         </div>
 
         <p>
-            <label for="extype">考试类型：</label>
-            <select id="extype" name="extype">
+            <label for="exams_type">考试类型：</label>
+            <select id="exams_type" name="exams_type">
                 <option value="1">期末考试</option>
                 <option value="2">期中考试</option>
                 <option value="3">月考</option>

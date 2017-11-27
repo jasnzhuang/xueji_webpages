@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
     var db = Database.Open("startersite");
-    var listCommand = "SELECT courses.coid,courses.coname,teachers.teachers_name FROM courses INNER JOIN teachers ON courses.teachers_id = teachers.id";
+    var listCommand = "SELECT courses.id,courses.courses_name,teachers.teachers_name FROM courses INNER JOIN teachers ON courses.teachers_id = teachers.id";
 }
 <ul class="breadcrumb">
     <li>
@@ -27,10 +27,10 @@
     {
         <tr>
             <td>
-                <a href="~/delcourses?id=@row.coid">删除</a>
+                <a href="~/delcourses?id=@row.id">删除</a>
             </td>
-            <td>@row.coid</td>
-            <td><a href="~/editcourses?id=@row.coid">@row.coname</a></td>
+            <td>@row.id</td>
+            <td><a href="~/editcourses?id=@row.id">@row.courses_name</a></td>
             <td>@row.teachers_name</td>
 
         </tr>

@@ -3,21 +3,21 @@
     var db = Database.Open("startersite");
 
     var orderid=Session["orderid"];
-    var sid=Request.Form["sid"];
+    var students_id=Request.Form["students_id"];
     var price=Request.Form["price"];
     if(IsPost){
-        var dbCommand="select * from mycart where sid=@0 and orderid=@1";
-        var existCommand="update mycart set pcount=pcount+1 where sid=@0 and orderid=@1";
-        var nexistCommand="insert into mycart(orderid,sid,price,pcount) values(@0,@1,@2,1)";
-        var row = db.QuerySingle(dbCommand,sid,orderid);
+        var dbCommand="select * from mycart where students_id=@0 and orderid=@1";
+        var existCommand="update mycart set pcount=pcount+1 where students_id=@0 and orderid=@1";
+        var nexistCommand="insert into mycart(orderid,students_id,price,pcount) values(@0,@1,@2,1)";
+        var row = db.QuerySingle(dbCommand,students_id,orderid);
             if (row != null)
             {
-                db.Execute(existCommand, sid,orderid);
+                db.Execute(existCommand, students_id,orderid);
                 Response.Redirect("~/buycart");
             }
             else
             {
-                db.Execute(nexistCommand,orderid,sid,price);
+                db.Execute(nexistCommand,orderid,students_id,price);
                 Response.Redirect("~/buycart");
             }
     }
@@ -28,6 +28,6 @@
 <br>
 @Session["orderid"]
 <br>
-@Request.Form["sid"]
+@Request.Form["students_id"]
 <br>
 @Request.Form["price"]

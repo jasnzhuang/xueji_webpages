@@ -1,13 +1,13 @@
 ﻿@{
     var db = Database.Open("startersite");
-    //var data = db.Query("SELECT sname, ssex FROM students");
+    //var data = db.Query("SELECT students_name, students_sex FROM students");
 
-     var data = db.Query("SELECT Count(ssex) as sexcount,ssex FROM students GROUP BY ssex");
+     var data = db.Query("SELECT Count(students_sex) as sexcount,students_sex FROM students GROUP BY students_sex");
     var myChart = new Chart(width: 600, height: 400)
         .AddTitle("学生性别")
         .AddSeries(
             name: "Teams", chartType: "Pie",
-            xValue: data, xField: "ssex",
+            xValue: data, xField: "students_sex",
             yValues: data, yFields: "sexcount")
         .Write(); 
 }

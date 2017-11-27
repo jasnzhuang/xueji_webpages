@@ -1,24 +1,24 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
     var db = Database.Open("startersite");
-    var id = Request.QueryString["id"];
-    string listCommand= "SELECT s.sid,s.snum,s.sname,c.classes_year,m.majors_name,s.ssex,s.sage,s.sphone,s.qq,s.wx,s.sstatus FROM students as s INNER JOIN classes as c ON s.cid = c.id INNER JOIN majors as m ON c.majors_id = m.id";
-    //通过querystring传入的cid类型为string，所以判断是否为null；并且将cid转换为int后判断其是否小于等于0，这两种情况都是无法根据班级编号cid进行条件查询的
-    if (id == null || id.AsInt()<=0)
+    var classes_id = Request.QueryString["classes_id"];
+    string listCommand= "SELECT s.id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.qq,s.wx,s.students_status FROM students as s INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = m.id";
+    //通过querystring传入的classes_id类型为string，所以判断是否为null；并且将classes_id转换为int后判断其是否小于等于0，这两种情况都是无法根据班级编号classes_id进行条件查询的
+    if (classes_id == null || classes_id.AsInt()<=0)
     {
         //这里使用的是拼接字符串的方法
         listCommand += "";
         if (!Request.QueryString["searchNum"].IsEmpty() && Request.QueryString["searchName"].IsEmpty())
         {
-            listCommand += " where s.snum="+ Request.QueryString["searchNum"];
+            listCommand += " where s.students_number="+ Request.QueryString["searchNum"];
         }
         if (!Request.QueryString["searchName"].IsEmpty() && Request.QueryString["searchNum"].IsEmpty())
         {
-            listCommand += " where s.sname like '%" + Request.QueryString["searchName"]+"%'";
+            listCommand += " where s.students_name like '%" + Request.QueryString["searchName"]+"%'";
         }
         if (!Request.QueryString["searchName"].IsEmpty() && !Request.QueryString["searchNum"].IsEmpty())
         {
-            listCommand += " where s.snum=" + Request.QueryString["searchNum"] + "and s.sname like '%" + Request.QueryString["searchName"]+"%'";
+            listCommand += " where s.students_number=" + Request.QueryString["searchNum"] + "and s.students_name like '%" + Request.QueryString["searchName"]+"%'";
         }
     }
     else
@@ -27,15 +27,15 @@
         listCommand += " where c.id=@0";
         if (!Request.QueryString["searchNum"].IsEmpty() && Request.QueryString["searchName"].IsEmpty())
         {
-            listCommand += " and s.snum=" + Request.QueryString["searchNum"];
+            listCommand += " and s.students_number=" + Request.QueryString["searchNum"];
         }
         if (!Request.QueryString["searchName"].IsEmpty() && Request.QueryString["searchNum"].IsEmpty())
         {
-            listCommand += " and s.sname like '%" + Request.QueryString["searchName"] + "%'";
+            listCommand += " and s.students_name like '%" + Request.QueryString["searchName"] + "%'";
         }
         if (!Request.QueryString["searchName"].IsEmpty() && !Request.QueryString["searchNum"].IsEmpty())
         {
-            listCommand += " and s.snum=" + Request.QueryString["searchNum"] + "and s.sname like '%" + Request.QueryString["searchName"] + "%'";
+            listCommand += " and s.students_number=" + Request.QueryString["searchNum"] + "and s.students_name like '%" + Request.QueryString["searchName"] + "%'";
         }
     }
 
@@ -52,9 +52,9 @@
         <a href="~/index.cshtml">控制面板</a>
         <i class="icon-angle-right"></i>
     </li>
-    <li><a href="#">@Functions.GetClassesName(id.AsInt()) @Page.title</a></li>
+    <li><a href="#">@Functions.GetClassesName(classes_id.AsInt()) @Page.title</a></li>
 </ul>
-<form method="get" action="?id=@id">
+<form method="get" action="?classes_id=@classes_id">
     <div>
         <label for="searchNum">按学号查找:</label>
         <input type="text" id="searchNum" name="searchNum" value="@Request.QueryString["searchNum"]" />
@@ -67,7 +67,7 @@
         <input type="Submit" value="查找" /><br />
         (清空本查找条件以执行无本条件查询.)<br />
     </div>
-    <input type="hidden" name="id" value="@id" />
+    <input type="hidden" name="classes_id" value="@classes_id" />
 </form>
 <div class="row-fluid sortable">
     <div class="box span12">
@@ -104,33 +104,33 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach (var row in db.Query(listCommand,id))
+                @foreach (var row in db.Query(listCommand,classes_id))
                 {
                     <tr>
                         <td class="center">
-                            <a href="delstudents?id=@row.sid"><i class="halflings-icon remove"></i>删除</a>
+                            <a href="delstudents?students_id=@row.id"><i class="halflings-icon remove"></i>删除</a>
                         </td>
-                        <td class="center">@row.snum</td>
+                        <td class="center">@row.students_number</td>
                         <td class="center">
-                            <a href="editstudents?id=@row.sid"><i class="halflings-icon pencil"></i>@row.sname</a>
+                            <a href="editstudents?students_id=@row.id"><i class="halflings-icon pencil"></i>@row.students_name</a>
                         </td>
                         <td class="center">@row.classes_year@row.majors_name</td>
-                        <td class="center">@row.ssex</td>
-                        <td class="center">@row.sage</td>
-                        <td class="center">@row.sphone</td>
+                        <td class="center">@row.students_sex</td>
+                        <td class="center">@row.students_age</td>
+                        <td class="center">@row.students_phone</td>
                         <td class="center">@row.qq</td>
                         <td class="center">@row.wx</td>
                         <td class="center">
 
-                            @if (row.sstatus == 1)
+                            @if (row.students_status == 1)
                             {
                                 <label class="label label-success">在读</label>
                             }
-                            @if (row.sstatus == 2)
+                            @if (row.students_status == 2)
                             {
                                 <label class="label label-defaullt">休学</label>
                             }
-                            @if (row.sstatus == 3)
+                            @if (row.students_status == 3)
                             {
                                 <label class="label label-Inverse">退学</label>
                             }
@@ -144,19 +144,19 @@
 
 
         columns: grid.Columns(
-            grid.Column(format: @<a href="~/delstudents?id=@item.sid">删除</a>),
-            //grid.Column("sid"),
-            grid.Column("snum"),
-            grid.Column("sname"),
+            grid.Column(format: @<a href="~/delstudents?id=@item.id">删除</a>),
+            //grid.Column("id"),
+            grid.Column("students_number"),
+            grid.Column("students_name"),
             grid.Column("classes_year"),
             grid.Column("majors_name"),
-            grid.Column("ssex"),
-            grid.Column("sage"),
-            grid.Column("sphone"),
+            grid.Column("students_sex"),
+            grid.Column("students_age"),
+            grid.Column("students_phone"),
             grid.Column("qq"),
             grid.Column("wx"),
-            grid.Column("sstatus"),
-            grid.Column("cid")
+            grid.Column("students_status"),
+            grid.Column("classes_id")
 
             )
         )*@

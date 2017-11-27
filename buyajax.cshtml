@@ -35,7 +35,7 @@ function myFunction(xml) {
   var x = xmlDoc.getElementsByTagName("STUDENT");
   for (i = 0; i <x.length; i++) { 
     table += "<tr><td>" +
-    x[i].getElementsByTagName("SNAME")[0].childNodes[0].nodeValue +
+    x[i].getElementsByTagName("students_name")[0].childNodes[0].nodeValue +
     "</td><td>" +
     x[i].getElementsByTagName("PCOUNT")[0].childNodes[0].nodeValue +
     "</td><td>" +

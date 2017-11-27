@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
     var db = Database.Open("startersite");
-    var listCommand = "SELECT sid,sname,ssex,sage from students order by sid";
+    var listCommand = "SELECT id,students_name,students_sex,students_age from students order by id";
     
 }
 <style>
@@ -31,9 +31,9 @@
 @foreach (var row in db.Query(listCommand))
     {
         <form method="post" action="buy.cshtml">
-        <li>@row.sname</li>
-        <li>@row.ssex</li>
-        <li>@row.sage&nbsp;<input type="hidden" name="sid" value="@row.sid" /><input type="hidden" name="price" value="@row.sage" />
+        <li>@row.students_name</li>
+        <li>@row.students_sex</li>
+        <li>@row.students_age&nbsp;<input type="hidden" name="id" value="@row.id" /><input type="hidden" name="price" value="@row.students_age" />
 &nbsp;<input type="submit" name="buy" value="购买" /></li>
 </form>
 

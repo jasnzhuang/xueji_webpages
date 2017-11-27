@@ -3,11 +3,11 @@
     string username=Convert.ToString(Request.Form["username"]);
     string password=Convert.ToString(Request.Form["password"]);
     var db = Database.Open("startersite");
-    var listCommand = "SELECT sname,snum from students where sname=@0 and snum=@1";
+    var listCommand = "SELECT students_name,students_number from students where students_name=@0 and students_number=@1";
     var row = db.QuerySingle(listCommand, username,password);
     if (row != null)
             {
-                Session["username"]=row.sname;
+                Session["username"]=row.students_name;
                 Validation.AddFormError("wo cao! u did it!.");
 
             }

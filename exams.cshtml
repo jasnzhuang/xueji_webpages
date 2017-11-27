@@ -30,9 +30,9 @@
     {
         <tr>
 
-            <td><a href="editexams?id=@row.exid">@row.exdate</a></td>
-            <td><a href="examclass?id=@row.exid">@row.exname</a></td>
-            <td>@Functions.GetExamType(row.extype)</td>
+            <td><a href="editexams?id=@row.id">@row.exams_date</a></td>
+            <td><a href="examclass?id=@row.id">@row.exams_name</a></td>
+            <td>@Functions.GetExamType(row.exams_type)</td>
 
         </tr>
     }

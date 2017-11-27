@@ -1,13 +1,13 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
-    var cid = Request.QueryString["cid"];
-    var exid = Request.QueryString["exid"];
-    var coid = Request.QueryString["coid"];
+    var classes_id = Request.QueryString["classes_id"];
+    var exams_id = Request.QueryString["exams_id"];
+    var courses_id = Request.QueryString["courses_id"];
     var formnum = 0;
     var countStudents = 0;
 
     var db = Database.Open("startersite");
-    var getstudentCommand = "SELECT students.sid,students.snum,students.sname FROM students WHERE students.cid = @0";
+    var getstudentCommand = "SELECT students.id,students.students_number,students.students_name FROM students WHERE students.classses_id = @0";
 
 
 
@@ -16,20 +16,20 @@
 <form method="post">
 
     <fieldset>
-        <legend>添加信息的几个固定值如下：班级cid=@cid  考试exid=@exid  课程coid=@coid</legend>
+        <legend>添加信息的几个固定值如下：班级classes_id=@classes_id  考试exams_id=@exams_id  课程courses_id=@courses_id</legend>
         <ol>
 
         @foreach (var row in db.Query(getstudentCommand, cid))
         {
             //formnum=formnum+1;
             formnum += 1;
-            var sid = "sid" + formnum;
+            var id = "sid" + formnum;
 
             <li>
             <input type="hidden" name="@sid" value="@row.sid"/>
-            <input type="text" name="snum" value="@row.snum"  disabled/>
-                <input type="text" name="sname" value="@row.sname"  disabled/>
-                <input type="text" name="sname" value="@row.sid" disabled />
+            <input type="text" name="students_number" value="@row.students_number"  disabled/>
+                <input type="text" name="students_name" value="@row.students_name"  disabled/>
+                <input type="text" name="students_id" value="@row.id" disabled />
                 <input type="text" name="scores" value="" />
             </li>
         }

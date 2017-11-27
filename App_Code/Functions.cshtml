@@ -64,17 +64,18 @@
         return typename;
     }
 
-    public static string GetClassesName(int cid)
+    public static string GetClassesName(int classes_id)
     {
         string classesname;
-        if (cid <= 0)
+        if (classes_id <= 0)
         {
             classesname = "";
         }
         else
         {
+            //本部分目前有BUG，就是没有判断处理当classes表中没有对应classes.id记录的时候，将会取得一个null值，并且爆粗
             var db = Database.Open("startersite");
-            var queryCommand = "select classes.cid as cid,classes.classes_year as classes_year,majors.majors_name as majors_name from classes join majors on classes.majors_id=majors.id where classes.cid=" + cid;
+            var queryCommand = "select classes.id,classes.classes_year as classes_year,majors.majors_name as majors_name from classes join majors on classes.majors_id=majors.id where classes.id=" + classes_id;
             var getname = db.QuerySingle(queryCommand);
             classesname = getname.classes_year + getname.majors_name;
         }
@@ -94,10 +95,10 @@
         return putDate.ToString(CultureInfo.InvariantCulture);
     }
 
-    public static string GetExamType(int extype)
+    public static string GetExamType(int exams_type)
     {
         string typename;
-        switch (extype)
+        switch (exams_type)
         {
             case 1:
                 typename = "期末考试";

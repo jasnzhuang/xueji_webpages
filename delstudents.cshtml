@@ -1,19 +1,19 @@
 ﻿@{
-    var sname = "";
-    var snum = "";
-    var sid = "";
+    var students_name = "";
+    var students_number = "";
+    var students_id = "";
     if (!IsPost)
     {
-        if (!Request.QueryString["ID"].IsEmpty() && Request.QueryString["ID"].IsInt())
+        if (!Request.QueryString["students_id"].IsEmpty() && Request.QueryString["students_id"].IsInt())
         {
-            sid = Request.QueryString["ID"];
+            students_id = Request.QueryString["ID"];
             var db = Database.Open("startersite");
-            var dbCommand = "SELECT * FROM students WHERE sid = @0";
-            var row = db.QuerySingle(dbCommand, sid);
+            var dbCommand = "SELECT * FROM students WHERE id = @0";
+            var row = db.QuerySingle(dbCommand, students_id);
             if (row != null)
             {
-                sname = row.sname;
-                snum = row.snum;
+                students_name = row.students_name;
+                students_number = row.students_number;
             }
             else
             {
@@ -28,16 +28,16 @@
     //两个条件：第一，这是一个POST请求，第二，这是由一个叫做buttonDelete的按钮提交的请求
     if (IsPost && !Request["buttonDelete"].IsEmpty())
     {
-        sid = Request.Form["sid"];
+        students_id = Request.Form["students_id"];
         var db = Database.Open("startersite");
-        var deleteCommand = "DELETE FROM students WHERE sid = @0";
+        var deleteCommand = "DELETE FROM students WHERE id = @0";
         
-        var logg = db.QuerySingle("select * FROM students WHERE sid = "+sid);
-        string logit = "sid=" + logg.sid + ",snum=" + logg.snum + ",sname=" + logg.sname + ",ssex=" + logg.ssex + ",sage=" + logg.sage + ",sphone=" + logg.sphone + ",qq=" + logg.qq + ",wx=" + logg.wx + ",sstatus=" + logg.sstatus + ",cid=" + logg.cid;
+        var logg = db.QuerySingle("select * FROM students WHERE id = "+students_id);
+        string logit = "students_id=" + logg.id + ",students_number=" + logg.students_number + ",students_name=" + logg.students_name + ",students_sex=" + logg.students_sex + ",students_age=" + logg.students_age + ",students_phone=" + logg.students_phone + ",qq=" + logg.qq + ",wx=" + logg.wx + ",students_status=" + logg.students_status + ",classes_id=" + logg.classes_id;
 
         var logCommand = "insert into log (who,whichtable,actiontype,withwhat,whendoes)values('1','students','delete',@0,getdate())";
         db.Execute(logCommand, logit);
-        db.Execute(deleteCommand, sid);
+        db.Execute(deleteCommand, students_id);
         Response.Redirect("~/students");
     }
 }
@@ -58,15 +58,15 @@
 
         <p>
             <span>学生姓名:</span>
-            <span>@sname</span>
+            <span>@students_name</span>
         </p>
 
         <p>
             <span>学号:</span>
-            <span>@snum</span>
+            <span>@students_number</span>
         </p>
 
-        <input type="hidden" name="sid" value="@sid" />
+        <input type="hidden" name="students_id" value="@students_id" />
         <p><input type="submit" name="buttonDelete" value="确认删除" /></p>
     </fieldset>
 </form>

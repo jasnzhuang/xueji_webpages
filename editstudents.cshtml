@@ -1,41 +1,41 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
-    var snum = "";
-    var sname = "";
-    var ssex = "";
-    var sage = 0;
-    var sphone = "";
+    var students_number = "";
+    var students_name = "";
+    var students_sex = "";
+    var students_age = 0;
+    var students_phone = "";
     var qq = 0;
     var wx = "";
-    var sstatus = 0;
+    var students_status = 0;
     var classes_year = 0;
     var majors_name = "";
     var classes_id = 0;
 
-    var sid = "";
+    var students_id = "";
 
     var db = Database.Open("startersite");
     var downlistCommand = "SELECT c.id as classes_id,c.classes_year,m.majors_name FROM classes as c INNER JOIN majors as m ON c.majors_id = m.id";
 
     if (!IsPost)
     {
-        if (!Request.QueryString["ID"].IsEmpty() && Request.QueryString["ID"].IsInt())
+        if (!Request.QueryString["students_id"].IsEmpty() && Request.QueryString["students_id"].IsInt())
         {
-            sid = Request.QueryString["ID"];
-            var dbCommand = "SELECT s.sid,c.id as classes_id,s.snum,s.sname,c.classes_year,m.majors_name,s.ssex,s.sage,s.sphone,s.qq,s.wx,s.sstatus FROM students as s INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = m.id WHERE s.sid = @0";
+            students_id = Request.QueryString["students_id"];
+            var dbCommand = "SELECT s.id,c.id as classes_id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.qq,s.wx,s.students_status FROM students as s INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = m.id WHERE s.id = @0";
             //因为我们只是要取出一条数据库记录，因为指定了ID嘛，所以不再使用query这个方法，而是QuerySingle方法
-            var row = db.QuerySingle(dbCommand, sid);
+            var row = db.QuerySingle(dbCommand, students_id);
 
             if (row != null)
             {
-                snum = row.snum;
-                sname = row.sname;
-                ssex = row.ssex;
-                sage = row.sage;
-                sphone = row.sphone;
+                students_number = row.students_number;
+                students_name = row.students_name;
+                students_sex = row.students_sex;
+                students_age = row.students_age;
+                students_phone = row.students_phone;
                 qq = row.qq;
                 wx = row.wx;
-                sstatus = row.sstatus;
+                students_status = row.students_status;
                 classes_year = row.classes_year;
                 majors_name = row.majors_name;
                 classes_id = row.classes_id;
@@ -54,28 +54,28 @@
     if (IsPost)
     {
         var customValiError = "请返回列表页面重新选择要编辑的学生";
-        Validation.RequireField("snum", "学号不可为空" + customValiError);
-        Validation.RequireField("sname", "学生姓名不可为空" + customValiError);
+        Validation.RequireField("students_number", "学号不可为空" + customValiError);
+        Validation.RequireField("students_name", "学生姓名不可为空" + customValiError);
         Validation.RequireField("classes_id", "班级不可为空" + customValiError);
-        Validation.RequireField("sid", "无有效学生信息可提交" + customValiError);
+        Validation.RequireField("students_id", "无有效学生信息可提交" + customValiError);
 
-        sid = Request.Form["sid"];
-        snum = Request.Form["snum"];
-        sname = Request.Form["sname"];
-        ssex = Request.Form["ssex"];
-        sage = Convert.ToInt32(Request.Form["sage"]);
-        sphone = Request.Form["sphone"];
+        students_id = Request.Form["students_id"];
+        students_number = Request.Form["students_number"];
+        students_name = Request.Form["students_name"];
+        students_sex = Request.Form["students_sex"];
+        students_age = Convert.ToInt32(Request.Form["students_age"]);
+        students_phone = Request.Form["students_phone"];
         qq = Convert.ToInt32(Request.Form["qq"]);
         wx = Request.Form["wx"];
-        sstatus = Convert.ToInt32(Request.Form["sstatus"]);
+        students_status = Convert.ToInt32(Request.Form["students_status"]);
         classes_id = Convert.ToInt32(Request.Form["classes_id"]);
 
         if (Validation.IsValid())
         {
-            var updateCommand = "UPDATE students SET snum=@1,sname=@2,ssex=@3,sage=@4,sphone=@5,qq=@6,wx=@7,sstatus=@8, classes_id=@9 WHERE sid=@0";
-            db.Execute(updateCommand, sid, snum, sname, ssex, sage, sphone, qq, wx, sstatus, classes_id);
+            var updateCommand = "UPDATE students SET students_number=@1,students_name=@2,students_sex=@3,students_age=@4,students_phone=@5,qq=@6,wx=@7,students_status=@8, classes_id=@9 WHERE id=@0";
+            db.Execute(updateCommand, students_id, students_number, students_name, students_sex, students_age, students_phone, qq, wx, students_status, classes_id);
 
-            string logit = "sid="+sid + ",snum=" + snum + ",sname=" + sname + ",ssex=" + ssex + ",sage=" + sage + ",sphone=" + sphone + ",qq=" + qq + ",wx=" + wx + ",sstatus=" + sstatus + ",classes_id=" + classes_id;
+            string logit = "id="+students_id + ",students_number=" + students_number + ",students_name=" + students_name + ",students_sex=" + students_sex + ",students_age=" + students_age + ",students_phone=" + students_phone + ",qq=" + qq + ",wx=" + wx + ",students_status=" + students_status + ",classes_id=" + classes_id;
 
             var logCommand = "insert into log (who,whichtable,actiontype,withwhat,whendoes)values('1','students','update',@0,getdate())";
             db.Execute(logCommand, logit);
@@ -104,8 +104,8 @@
         <legend>当前学生信息</legend>
 
         <p>
-            <label for="snum">学号：</label>
-            <input type="text" id="snum" name="snum" value="@snum"/>
+            <label for="students_number">学号：</label>
+            <input type="text" id="students_number" name="students_number" value="@students_number"/>
         </p>
         <p>
             <label for="classes_id">班级：</label>@classes_year@majors_name (请在右侧选择要更改为的班级)
@@ -125,26 +125,26 @@
             </select>
         </p>
         <p>
-            <label for="sname">学生姓名：</label>
-            <input type="text" id="sname" name="sname" value="@sname"/>
+            <label for="students_name">学生姓名：</label>
+            <input type="text" id="students_name" name="students_name" value="@students_name"/>
         </p>
         <p>
             <label>性别：</label>
-            <label for="ssex1">
+            <label for="students_sex1">
                 男
-            </label><input id="ssex1" name="ssex" type="radio" value="男" @if (ssex == "男") { @: checked="checked"
+            </label><input id="students_sex1" name="students_sex" type="radio" value="男" @if (students_sex == "男") { @: checked="checked"
                                                                                          } />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-            <label for="ssex2">女</label><input id="ssex2" name="ssex" type="radio" value="女" @if (ssex == "女") { @: checked="checked"
+            <label for="students_sex2">女</label><input id="students_sex2" name="students_sex" type="radio" value="女" @if (students_sex == "女") { @: checked="checked"
                                                                                          } />
 </p>
         <p>
-            <label for="sage">年龄：</label>
-            <input type="text" id="sage" name="sage" value="@sage"/>
+            <label for="students_age">年龄：</label>
+            <input type="text" id="students_age" name="students_age" value="@students_age"/>
         </p>
         <p>
-            <label for="sphone">联系电话：</label>
-            <input type="text" id="sphone" name="sphone" value="@sphone"/>
+            <label for="students_phone">联系电话：</label>
+            <input type="text" id="students_phone" name="students_phone" value="@students_phone"/>
         </p>
         <p>
             <label for="qq">QQ号码：</label>
@@ -155,12 +155,12 @@
             <input type="text" id="wx" name="wx" value="@wx"/>
         </p>
         <p>
-            <label for="sstatus">学籍状态：</label>
-            <input type="text" id="sstatus" name="sstatus" value="@sstatus"/>
+            <label for="students_status">学籍状态：</label>
+            <input type="text" id="students_status" name="students_status" value="@students_status"/>
         </p>
 
 
-        <input type="hidden" name="sid" value="@sid"/>
+        <input type="hidden" name="students_id" value="@students_id"/>
 
         <p>
             <input type="submit" name="buttonSubmit" value="确认修改"/>

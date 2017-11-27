@@ -4,12 +4,12 @@
     Response.Write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
     var db = Database.Open("startersite");
     var orderid=Session["orderid"];
-    var listCartCommand="SELECT mycart.sid, mycart.orderid, mycart.pcount, mycart.price, students.sname, students.ssex, (mycart.pcount*mycart.price)as summ FROM mycart INNER JOIN students ON mycart.sid = students.sid where orderid=@0";    
+    var listCartCommand="SELECT mycart.students_id, mycart.orderid, mycart.pcount, mycart.price, students.students_name, students.students_sex, (mycart.pcount*mycart.price)as summ FROM mycart INNER JOIN students ON mycart.students_id = students.students_id where orderid=@0";    
 }
 <CATALOG>
 @foreach (var row in db.Query(listCartCommand,orderid)) {
     <STUDENT>
-        <SNAME>@row.sname</SNAME>
+        <students_name>@row.students_name</students_name>
         <PCOUNT>@row.pcount</PCOUNT>
         <PRICE>@row.price</PRICE>
         <SUMM>@row.summ</SUMM>

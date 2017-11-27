@@ -11,7 +11,7 @@
     //var grid = new WebGrid(listCommand);
 
     //
-    var listCommand = "SELECT c.id,c.classes_year,s.majors_name,t.teachers_name FROM classes as c JOIN majors as m ON c.majors_id=majors.id JOIN teachers as t ON c.teachers_id=t.id";
+    var listCommand = "SELECT c.id,c.classes_year,m.majors_name,t.teachers_name FROM classes as c JOIN majors as m ON c.majors_id=m.id JOIN teachers as t ON c.teachers_id=t.id";
 
 }
 <ul class="breadcrumb">
@@ -48,9 +48,9 @@
     @foreach (var row in db.Query(listCommand))
     {
         <tr>
-            <td><a href="delteachers?id=@row.cid">删除</a></td>
+            <td><a href="delteachers?teachers_id=@row.id">删除</a></td>
             <td>@row.classes_year</td>
-            <td><a class="" href="students?cid=@row.cid">@row.majors_name</a></td>
+            <td><a class="" href="students?classes_id=@row.id">@row.majors_name</a></td>
             <td>@row.teachers_name</td>
 
         </tr>

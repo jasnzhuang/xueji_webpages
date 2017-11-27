@@ -1,25 +1,25 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
-    var exdate = "";
-    var exname = "";
-    var extype = "";
-    var exid = Request.QueryString["ID"];
+    var exams_date = "";
+    var exams_name = "";
+    var exams_type = "";
+    var exams_id = Request.QueryString["exams_id"];
     var db = Database.Open("startersite");
 
     if (!IsPost)
     {
-        if (!Request.QueryString["ID"].IsEmpty() && Request.QueryString["ID"].IsInt())
+        if (!exams_id.IsEmpty() && exams_id.IsInt())
         {
 
-            var dbCommand = "SELECT * from exams WHERE exid = @0";
+            var dbCommand = "SELECT * from exams WHERE id = @0";
             //因为我们只是要取出一条数据库记录，因为指定了ID嘛，所以不再使用query这个方法，而是QuerySingle方法
-            var row = db.QuerySingle(dbCommand, exid);
+            var row = db.QuerySingle(dbCommand, exams_id);
 
             if (row != null)
             {
-                exdate = Convert.ToString(row.exdate);
-                exname = row.exname;
-                extype = Convert.ToString(row.extype);
+                exams_date = Convert.ToString(row.exams_date);
+                exams_name = row.exams_name;
+                exams_type = Convert.ToString(row.exams_type);
             }
             else
             {
@@ -36,14 +36,14 @@
     {
 
 
-        exdate = Request.Form["exdate"];
-        exname = Request.Form["exname"];
-        extype = Request.Form["extype"];
+        exams_date = Request.Form["exams_date"];
+        exams_name = Request.Form["exams_name"];
+        exams_type = Request.Form["exams_type"];
 
         if (Validation.IsValid())
         {
-            var updateCommand = "UPDATE exams SET exdate=@1,exname=@2,extype=@3 WHERE exid=@0";
-            db.Execute(updateCommand, exid, exdate, exname, extype);
+            var updateCommand = "UPDATE exams SET exams_date=@1,exams_name=@2,exams_type=@3 WHERE id=@0";
+            db.Execute(updateCommand, exams_id, exams_date, exams_name, exams_type);
 
             Response.Redirect("~/exams");
         }
@@ -69,22 +69,22 @@
         <legend>当前学生信息</legend>
 
         <div class="control-group">
-            <label class="control-label" for="exdate">考试日期：</label>
+            <label class="control-label" for="exams_date">考试日期：</label>
             <div class="controls">
-                <input type="text" class="input-xlarge datepicker" id="exdate" name="exdate" value="@exdate">
+                <input type="text" class="input-xlarge datepicker" id="exams_date" name="exams_date" value="@exams_date">
             </div>
         </div>
         <p>
-            <label for="exname">考试名称：</label>
-            <input type="text" id="exname" name="exname" value="@exname"/>
+            <label for="exams_name">考试名称：</label>
+            <input type="text" id="exams_name" name="exams_name" value="@exams_name"/>
         </p>
         <p>
-            <label for="extype">考试类型：</label>
-            <input type="text" id="extype" name="extype" value="@extype"/>
+            <label for="exams_type">考试类型：</label>
+            <input type="text" id="exams_type" name="exams_type" value="@exams_type"/>
         </p>
   
 
-        <input type="hidden" name="exid" value="@exid"/>
+        <input type="hidden" name="exams_id" value="@exams_id"/>
 
         <p>
             <input type="submit" name="buttonSubmit" value="确认修改"/>
