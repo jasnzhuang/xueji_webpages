@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
     var db = Database.Open("startersite");
-    var listCommand = "SELECT s.sid,s.snum,s.sname,c.cyear,sp.spname,s.ssex,s.sage,s.sphone,s.qq,s.wx,s.sstatus FROM students as s INNER JOIN classes as c ON s.cid = c.cid INNER JOIN specialized as sp ON c.spid = sp.spid";
+    var listCommand = "SELECT s.sid,s.snum,s.sname,c.classes_year,m.majors_name,s.ssex,s.sage,s.sphone,s.qq,s.wx,s.sstatus FROM students as m INNER JOIN classes as c ON s.cid = c.id INNER JOIN majors as m ON c.majors_id = majors.id";
     //var listCommand = db.Query("select * from students");
     //var grid = new WebGrid(listCommand);
 }
@@ -61,7 +61,7 @@
                         <td class="center">
                             <a href="editstudents?id=@row.sid">@row.sname</a>
                         </td>
-                        <td class="center">@row.cyear@row.spname</td>
+                        <td class="center">@row.classes_year@row.majors_name</td>
                         <td class="center">@row.ssex</td>
                         <td class="center">@row.sage</td>
                         <td class="center">@row.sphone</td>
@@ -95,8 +95,8 @@
             //grid.Column("sid"),
             grid.Column("snum"),
             grid.Column("sname"),
-            grid.Column("cyear"),
-            grid.Column("spname"),
+            grid.Column("classes_year"),
+            grid.Column("majors_name"),
             grid.Column("ssex"),
             grid.Column("sage"),
             grid.Column("sphone"),

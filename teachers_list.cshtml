@@ -26,20 +26,20 @@
         @foreach (var row in db.Query(listCommand))
         {
             <tr>
-                <td><a href="delteachers?id=@row.id">删除</a></td>
+                <td><a href="/teachers_delete?id=@row.id">删除</a></td>
                 <td>@row.id</td>
-                <td>@row.tname</td>
+                <td>@row.teachers_name</td>
                 <td>
-                    @*@if (row.ttype == 1)
+                    @*@if (row.teachers_type == 1)
                     {
                         @:辅导员
                     }
-                    @if (row.ttype == 2)
+                    @if (row.teachers_type == 2)
                     {
                         @:讲师
                     }*@
                     @{
-                        @Functions.GetTeachersType(row.ttype);
+                        @Functions.GetTeachersType(row.teachers_type);
                     }
                 </td>
 

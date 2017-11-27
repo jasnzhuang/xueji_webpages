@@ -7,11 +7,11 @@
     //var grid = new WebGrid(source: listCommand);
 
     //尝试使用字段as来定义webgrid的列名称,需要搭配下面的@grid.GetHtml
-    //var listCommand = db.Query("SELECT c.cid,c.cyear as 入学年份,s.spname as 专业名称,t.tname as 辅导员 FROM classes as c JOIN specialized as s ON c.spid=s.spid JOIN teachers as t ON c.teachers_id=t.tid");
+    //var listCommand = db.Query("SELECT c.id,c.classes_year as 入学年份,s.majors_name as 专业名称,t.teachers_name as 辅导员 FROM classes as c JOIN majors as m ON c.majors_id=majors.id JOIN teachers as t ON c.teachers_id=t.id");
     //var grid = new WebGrid(listCommand);
 
     //
-    var listCommand = "SELECT c.cid,c.cyear,s.spname,t.tname FROM classes as c JOIN specialized as s ON c.spid=s.spid JOIN teachers as t ON c.teachers_id=t.id";
+    var listCommand = "SELECT c.id,c.classes_year,s.majors_name,t.teachers_name FROM classes as c JOIN majors as m ON c.majors_id=majors.id JOIN teachers as t ON c.teachers_id=t.id";
 
 }
 <ul class="breadcrumb">
@@ -49,9 +49,9 @@
     {
         <tr>
             <td><a href="delteachers?id=@row.cid">删除</a></td>
-            <td>@row.cyear</td>
-            <td><a class="" href="students?cid=@row.cid">@row.spname</a></td>
-            <td>@row.tname</td>
+            <td>@row.classes_year</td>
+            <td><a class="" href="students?cid=@row.cid">@row.majors_name</a></td>
+            <td>@row.teachers_name</td>
 
         </tr>
     }

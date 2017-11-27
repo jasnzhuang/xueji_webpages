@@ -8,21 +8,21 @@
     var qq = 0;
     var wx = "";
     var sstatus = 0;
-    var cyear = 0;
-    var spname = "";
-    var cid = 0;
+    var classes_year = 0;
+    var majors_name = "";
+    var classes_id = 0;
 
     var sid = "";
 
     var db = Database.Open("startersite");
-    var downlistCommand = "SELECT c.cid,c.cyear,sp.spname FROM classes as c INNER JOIN specialized as sp ON c.spid = sp.spid";
+    var downlistCommand = "SELECT c.id as classes_id,c.classes_year,m.majors_name FROM classes as c INNER JOIN majors as m ON c.majors_id = m.id";
 
     if (!IsPost)
     {
         if (!Request.QueryString["ID"].IsEmpty() && Request.QueryString["ID"].IsInt())
         {
             sid = Request.QueryString["ID"];
-            var dbCommand = "SELECT s.sid,c.cid,s.snum,s.sname,c.cyear,sp.spname,s.ssex,s.sage,s.sphone,s.qq,s.wx,s.sstatus FROM students as s INNER JOIN classes as c ON s.cid = c.cid INNER JOIN specialized as sp ON c.spid = sp.spid WHERE s.sid = @0";
+            var dbCommand = "SELECT s.sid,c.id as classes_id,s.snum,s.sname,c.classes_year,m.majors_name,s.ssex,s.sage,s.sphone,s.qq,s.wx,s.sstatus FROM students as s INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = m.id WHERE s.sid = @0";
             //因为我们只是要取出一条数据库记录，因为指定了ID嘛，所以不再使用query这个方法，而是QuerySingle方法
             var row = db.QuerySingle(dbCommand, sid);
 
@@ -36,9 +36,9 @@
                 qq = row.qq;
                 wx = row.wx;
                 sstatus = row.sstatus;
-                cyear = row.cyear;
-                spname = row.spname;
-                cid = row.cid;
+                classes_year = row.classes_year;
+                majors_name = row.majors_name;
+                classes_id = row.classes_id;
             }
             else
             {
@@ -50,13 +50,13 @@
             Validation.AddFormError("No user was selected.");
         }
     }
-    //if (IsPost && cid!=0)
+    //if (IsPost && classes_id!=0)
     if (IsPost)
     {
         var customValiError = "请返回列表页面重新选择要编辑的学生";
         Validation.RequireField("snum", "学号不可为空" + customValiError);
         Validation.RequireField("sname", "学生姓名不可为空" + customValiError);
-        Validation.RequireField("cid", "班级不可为空" + customValiError);
+        Validation.RequireField("classes_id", "班级不可为空" + customValiError);
         Validation.RequireField("sid", "无有效学生信息可提交" + customValiError);
 
         sid = Request.Form["sid"];
@@ -68,18 +68,18 @@
         qq = Convert.ToInt32(Request.Form["qq"]);
         wx = Request.Form["wx"];
         sstatus = Convert.ToInt32(Request.Form["sstatus"]);
-        cid = Convert.ToInt32(Request.Form["cid"]);
+        classes_id = Convert.ToInt32(Request.Form["classes_id"]);
 
         if (Validation.IsValid())
         {
-            var updateCommand = "UPDATE students SET snum=@1,sname=@2,ssex=@3,sage=@4,sphone=@5,qq=@6,wx=@7,sstatus=@8, cid=@9 WHERE sid=@0";
-            db.Execute(updateCommand, sid, snum, sname, ssex, sage, sphone, qq, wx, sstatus, cid);
+            var updateCommand = "UPDATE students SET snum=@1,sname=@2,ssex=@3,sage=@4,sphone=@5,qq=@6,wx=@7,sstatus=@8, classes_id=@9 WHERE sid=@0";
+            db.Execute(updateCommand, sid, snum, sname, ssex, sage, sphone, qq, wx, sstatus, classes_id);
 
-            string logit = "sid="+sid + ",snum=" + snum + ",sname=" + sname + ",ssex=" + ssex + ",sage=" + sage + ",sphone=" + sphone + ",qq=" + qq + ",wx=" + wx + ",sstatus=" + sstatus + ",cid=" + cid;
+            string logit = "sid="+sid + ",snum=" + snum + ",sname=" + sname + ",ssex=" + ssex + ",sage=" + sage + ",sphone=" + sphone + ",qq=" + qq + ",wx=" + wx + ",sstatus=" + sstatus + ",classes_id=" + classes_id;
 
             var logCommand = "insert into log (who,whichtable,actiontype,withwhat,whendoes)values('1','students','update',@0,getdate())";
             db.Execute(logCommand, logit);
-            Response.Redirect("~/students?id="+cid);
+            Response.Redirect("~/students?id="+classes_id);
         }
     }
 }
@@ -108,18 +108,18 @@
             <input type="text" id="snum" name="snum" value="@snum"/>
         </p>
         <p>
-            <label for="cid">班级：</label>@cyear@spname (请在右侧选择要更改为的班级)
-            <select id="cid" name="cid">
-                @if (cid > 0)
+            <label for="classes_id">班级：</label>@classes_year@majors_name (请在右侧选择要更改为的班级)
+            <select id="classes_id" name="classes_id">
+                @if (classes_id > 0)
                 {
                     foreach (var row2 in db.Query(downlistCommand))
                     {
-                        <option value="@row2.cid"
-                                @if (cid == row2.cid)
+                        <option value="@row2.classes_id"
+                                @if (classes_id == row2.classes_id)
                                 {
                                     @:selected="selected"
                                 }>
-                            @row2.cyear@row2.spname</option>
+                            @row2.classes_year@row2.majors_name</option>
                     }
                 }
             </select>

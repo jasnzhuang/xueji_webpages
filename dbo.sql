@@ -20,11 +20,12 @@ Date: 2017-11-23 09:27:32
 -- ----------------------------
 DROP TABLE [dbo].[classes]
 GO
-CREATE TABLE [dbo].[classes] (
-[cid] int NOT NULL IDENTITY(12,1) ,
-[spid] int NOT NULL ,
-[cyear] int NOT NULL ,
-[tid] int NOT NULL 
+CREATE TABLE [dbo].[classes]
+(
+	[cid] int NOT NULL IDENTITY(12,1) ,
+	[spid] int NOT NULL ,
+	[cyear] int NOT NULL ,
+	[tid] int NOT NULL
 )
 
 
@@ -35,34 +36,64 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[classes] ON
 GO
-INSERT INTO [dbo].[classes] ([cid], [spid], [cyear], [tid]) VALUES (N'1', N'1', N'2017', N'1')
+INSERT INTO [dbo].[classes]
+	([cid], [spid], [cyear], [tid])
+VALUES
+	(N'1', N'1', N'2017', N'1')
 GO
 GO
-INSERT INTO [dbo].[classes] ([cid], [spid], [cyear], [tid]) VALUES (N'2', N'2', N'2017', N'4')
+INSERT INTO [dbo].[classes]
+	([cid], [spid], [cyear], [tid])
+VALUES
+	(N'2', N'2', N'2017', N'4')
 GO
 GO
-INSERT INTO [dbo].[classes] ([cid], [spid], [cyear], [tid]) VALUES (N'4', N'1', N'2016', N'3')
+INSERT INTO [dbo].[classes]
+	([cid], [spid], [cyear], [tid])
+VALUES
+	(N'4', N'1', N'2016', N'3')
 GO
 GO
-INSERT INTO [dbo].[classes] ([cid], [spid], [cyear], [tid]) VALUES (N'5', N'2', N'2016', N'3')
+INSERT INTO [dbo].[classes]
+	([cid], [spid], [cyear], [tid])
+VALUES
+	(N'5', N'2', N'2016', N'3')
 GO
 GO
-INSERT INTO [dbo].[classes] ([cid], [spid], [cyear], [tid]) VALUES (N'6', N'4', N'2016', N'5')
+INSERT INTO [dbo].[classes]
+	([cid], [spid], [cyear], [tid])
+VALUES
+	(N'6', N'4', N'2016', N'5')
 GO
 GO
-INSERT INTO [dbo].[classes] ([cid], [spid], [cyear], [tid]) VALUES (N'7', N'5', N'2016', N'3')
+INSERT INTO [dbo].[classes]
+	([cid], [spid], [cyear], [tid])
+VALUES
+	(N'7', N'5', N'2016', N'3')
 GO
 GO
-INSERT INTO [dbo].[classes] ([cid], [spid], [cyear], [tid]) VALUES (N'8', N'6', N'2016', N'3')
+INSERT INTO [dbo].[classes]
+	([cid], [spid], [cyear], [tid])
+VALUES
+	(N'8', N'6', N'2016', N'3')
 GO
 GO
-INSERT INTO [dbo].[classes] ([cid], [spid], [cyear], [tid]) VALUES (N'9', N'7', N'2016', N'3')
+INSERT INTO [dbo].[classes]
+	([cid], [spid], [cyear], [tid])
+VALUES
+	(N'9', N'7', N'2016', N'3')
 GO
 GO
-INSERT INTO [dbo].[classes] ([cid], [spid], [cyear], [tid]) VALUES (N'10', N'12', N'2016', N'3')
+INSERT INTO [dbo].[classes]
+	([cid], [spid], [cyear], [tid])
+VALUES
+	(N'10', N'12', N'2016', N'3')
 GO
 GO
-INSERT INTO [dbo].[classes] ([cid], [spid], [cyear], [tid]) VALUES (N'11', N'12', N'2017', N'4')
+INSERT INTO [dbo].[classes]
+	([cid], [spid], [cyear], [tid])
+VALUES
+	(N'11', N'12', N'2017', N'4')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[classes] OFF
@@ -73,10 +104,11 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[courses]
 GO
-CREATE TABLE [dbo].[courses] (
-[coid] int NOT NULL IDENTITY(8,1) ,
-[coname] nvarchar(254) NOT NULL ,
-[tid] int NOT NULL 
+CREATE TABLE [dbo].[courses]
+(
+	[coid] int NOT NULL IDENTITY(8,1) ,
+	[coname] nvarchar(254) NOT NULL ,
+	[tid] int NOT NULL
 )
 
 
@@ -87,22 +119,40 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[courses] ON
 GO
-INSERT INTO [dbo].[courses] ([coid], [coname], [tid]) VALUES (N'2', N'SQL Server', N'2')
+INSERT INTO [dbo].[courses]
+	([coid], [coname], [tid])
+VALUES
+	(N'2', N'SQL Server', N'2')
 GO
 GO
-INSERT INTO [dbo].[courses] ([coid], [coname], [tid]) VALUES (N'3', N'Java Script', N'2')
+INSERT INTO [dbo].[courses]
+	([coid], [coname], [tid])
+VALUES
+	(N'3', N'Java Script', N'2')
 GO
 GO
-INSERT INTO [dbo].[courses] ([coid], [coname], [tid]) VALUES (N'4', N'WinForm', N'2')
+INSERT INTO [dbo].[courses]
+	([coid], [coname], [tid])
+VALUES
+	(N'4', N'WinForm', N'2')
 GO
 GO
-INSERT INTO [dbo].[courses] ([coid], [coname], [tid]) VALUES (N'5', N'Illustrator', N'14')
+INSERT INTO [dbo].[courses]
+	([coid], [coname], [tid])
+VALUES
+	(N'5', N'Illustrator', N'14')
 GO
 GO
-INSERT INTO [dbo].[courses] ([coid], [coname], [tid]) VALUES (N'6', N'MySQL', N'15')
+INSERT INTO [dbo].[courses]
+	([coid], [coname], [tid])
+VALUES
+	(N'6', N'MySQL', N'15')
 GO
 GO
-INSERT INTO [dbo].[courses] ([coid], [coname], [tid]) VALUES (N'7', N'中职英语', N'11')
+INSERT INTO [dbo].[courses]
+	([coid], [coname], [tid])
+VALUES
+	(N'7', N'中职英语', N'11')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[courses] OFF
@@ -113,11 +163,12 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[exams]
 GO
-CREATE TABLE [dbo].[exams] (
-[exid] int NOT NULL IDENTITY(6,1) ,
-[exname] nvarchar(254) NOT NULL ,
-[exdate] datetime NOT NULL ,
-[extype] int NOT NULL 
+CREATE TABLE [dbo].[exams]
+(
+	[exid] int NOT NULL IDENTITY(6,1) ,
+	[exname] nvarchar(254) NOT NULL ,
+	[exdate] datetime NOT NULL ,
+	[extype] int NOT NULL
 )
 
 
@@ -128,10 +179,16 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[exams] ON
 GO
-INSERT INTO [dbo].[exams] ([exid], [exname], [exdate], [extype]) VALUES (N'4', N'哎哟哟测试', N'2017-06-01 00:00:00.000', N'1')
+INSERT INTO [dbo].[exams]
+	([exid], [exname], [exdate], [extype])
+VALUES
+	(N'4', N'哎哟哟测试', N'2017-06-01 00:00:00.000', N'1')
 GO
 GO
-INSERT INTO [dbo].[exams] ([exid], [exname], [exdate], [extype]) VALUES (N'5', N'测试八下嗯', N'2017-05-24 00:00:00.000', N'5')
+INSERT INTO [dbo].[exams]
+	([exid], [exname], [exdate], [extype])
+VALUES
+	(N'5', N'测试八下嗯', N'2017-05-24 00:00:00.000', N'5')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[exams] OFF
@@ -142,11 +199,12 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[joke]
 GO
-CREATE TABLE [dbo].[joke] (
-[id] int NOT NULL IDENTITY(10,1) ,
-[title] nvarchar(254) NOT NULL ,
-[content] nvarchar(MAX) NOT NULL ,
-[adddate] datetime NULL 
+CREATE TABLE [dbo].[joke]
+(
+	[id] int NOT NULL IDENTITY(10,1) ,
+	[title] nvarchar(254) NOT NULL ,
+	[content] nvarchar(MAX) NOT NULL ,
+	[adddate] datetime NULL
 )
 
 
@@ -157,17 +215,29 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[joke] ON
 GO
-INSERT INTO [dbo].[joke] ([id], [title], [content], [adddate]) VALUES (N'1', N'123', N'123', N'2017-07-12 14:37:41.877')
+INSERT INTO [dbo].[joke]
+	([id], [title], [content], [adddate])
+VALUES
+	(N'1', N'123', N'123', N'2017-07-12 14:37:41.877')
 GO
 GO
-INSERT INTO [dbo].[joke] ([id], [title], [content], [adddate]) VALUES (N'2', N'222', N'<p>&nbsp; &nbsp; &nbsp; &nbsp;这里写你的初始化内容
+INSERT INTO [dbo].[joke]
+	([id], [title], [content], [adddate])
+VALUES
+	(N'2', N'222', N'<p>&nbsp; &nbsp; &nbsp; &nbsp;这里写你的初始化内容
  &nbsp; &nbsp;</p>', N'2017-07-12 15:37:41.877')
 GO
 GO
-INSERT INTO [dbo].[joke] ([id], [title], [content], [adddate]) VALUES (N'3', N'12341234', N'<p>123412341234</p>', N'2017-07-12 16:37:41.877')
+INSERT INTO [dbo].[joke]
+	([id], [title], [content], [adddate])
+VALUES
+	(N'3', N'12341234', N'<p>123412341234</p>', N'2017-07-12 16:37:41.877')
 GO
 GO
-INSERT INTO [dbo].[joke] ([id], [title], [content], [adddate]) VALUES (N'4', N'测试代码功能', N'<p>&nbsp; &nbsp; &nbsp; &nbsp;这里写你的初始化内容</p><pre class="brush:c#;toolbar:false">@{
+INSERT INTO [dbo].[joke]
+	([id], [title], [content], [adddate])
+VALUES
+	(N'4', N'测试代码功能', N'<p>&nbsp; &nbsp; &nbsp; &nbsp;这里写你的初始化内容</p><pre class="brush:c#;toolbar:false">@{
 
 Layout&nbsp;=&nbsp;&quot;~/_xuejiLayout.cshtml&quot;;
 
@@ -203,7 +273,10 @@ var&nbsp;ue&nbsp;=&nbsp;UE.getEditor(&#39;container&#39;);
 &lt;/form&gt;</pre><p>&nbsp; &nbsp; 上面的代码口耐不？哈哈哈<br/></p>', N'2017-07-12 20:57:36.923')
 GO
 GO
-INSERT INTO [dbo].[joke] ([id], [title], [content], [adddate]) VALUES (N'5', N'重新测试代码', N'<p>怎么没有行号了呢？怪了</p><pre class="brush:c#;toolbar:false">@{
+INSERT INTO [dbo].[joke]
+	([id], [title], [content], [adddate])
+VALUES
+	(N'5', N'重新测试代码', N'<p>怎么没有行号了呢？怪了</p><pre class="brush:c#;toolbar:false">@{
 Layout&nbsp;=&nbsp;&quot;~/_xuejiLayout.cshtml&quot;;
 var&nbsp;db&nbsp;=&nbsp;Database.Open(&quot;startersite&quot;);
 int&nbsp;id&nbsp;=&nbsp;Convert.ToInt16(Request.QueryString[&quot;id&quot;]);
@@ -219,7 +292,10 @@ var&nbsp;getjoke&nbsp;=&nbsp;db.QuerySingle(queryCommand);
 &lt;br&gt;</pre><p><br/></p>', N'2017-07-12 20:59:20.977')
 GO
 GO
-INSERT INTO [dbo].[joke] ([id], [title], [content], [adddate]) VALUES (N'6', N'偶偶', N'<pre class="brush:c#;toolbar:false">@{
+INSERT INTO [dbo].[joke]
+	([id], [title], [content], [adddate])
+VALUES
+	(N'6', N'偶偶', N'<pre class="brush:c#;toolbar:false">@{
 Layout&nbsp;=&nbsp;&quot;~/_xuejiLayout.cshtml&quot;;
 var&nbsp;db&nbsp;=&nbsp;Database.Open(&quot;startersite&quot;);
 int&nbsp;id&nbsp;=&nbsp;Convert.ToInt16(Request.QueryString[&quot;id&quot;]);
@@ -240,7 +316,10 @@ var&nbsp;getjoke&nbsp;=&nbsp;db.QuerySingle(queryCommand);
  &nbsp; &nbsp;<br/></p>', N'2017-07-12 21:59:07.257')
 GO
 GO
-INSERT INTO [dbo].[joke] ([id], [title], [content], [adddate]) VALUES (N'7', N'傻才', N'<p>看这里！</p><pre class="brush:html;toolbar:false">@{
+INSERT INTO [dbo].[joke]
+	([id], [title], [content], [adddate])
+VALUES
+	(N'7', N'傻才', N'<p>看这里！</p><pre class="brush:html;toolbar:false">@{
 
 &nbsp;&nbsp;&nbsp;&nbsp;Layout&nbsp;=&nbsp;&quot;~/_xuejiLayout.cshtml&quot;;
 
@@ -278,10 +357,16 @@ INSERT INTO [dbo].[joke] ([id], [title], [content], [adddate]) VALUES (N'7', N'�
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/form&gt;</pre><p><br/></p>', N'2017-07-14 09:38:28.143')
 GO
 GO
-INSERT INTO [dbo].[joke] ([id], [title], [content], [adddate]) VALUES (N'8', N'o?', N'<p>标题</p><p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>', N'2017-07-14 11:17:34.160')
+INSERT INTO [dbo].[joke]
+	([id], [title], [content], [adddate])
+VALUES
+	(N'8', N'o?', N'<p>标题</p><p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>', N'2017-07-14 11:17:34.160')
 GO
 GO
-INSERT INTO [dbo].[joke] ([id], [title], [content], [adddate]) VALUES (N'9', N'‘’‘’‘', N'<p>
+INSERT INTO [dbo].[joke]
+	([id], [title], [content], [adddate])
+VALUES
+	(N'9', N'‘’‘’‘', N'<p>
 		这里写你的初始化内容	</p><pre class="brush:c#;toolbar:false">@{
 
 &nbsp;&nbsp;&nbsp;&nbsp;Layout&nbsp;=&nbsp;&quot;~/_xuejiLayout.cshtml&quot;;
@@ -320,7 +405,10 @@ INSERT INTO [dbo].[joke] ([id], [title], [content], [adddate]) VALUES (N'9', N'�
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/form&gt;</pre><p><br/></p>', N'2017-07-14 12:12:19.507')
 GO
 GO
-INSERT INTO [dbo].[joke] ([id], [title], [content], [adddate]) VALUES (N'10', N'666', N'<p>
+INSERT INTO [dbo].[joke]
+	([id], [title], [content], [adddate])
+VALUES
+	(N'10', N'666', N'<p>
 		这里写你的初始化内容	</p><pre class="brush:html;toolbar:false">@{
 &nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;Layout&nbsp;=&nbsp;&quot;~/_xuejiLayout.cshtml&quot;;
@@ -403,22 +491,24 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[library_books]
 GO
-CREATE TABLE [dbo].[library_books] (
-[id] int NOT NULL IDENTITY(1,1) ,
-[name] varchar(255) NULL ,
-[isbn] varchar(255) NULL ,
-[author] varchar(255) NULL ,
-[memo] varchar(255) NULL ,
-[amount] varchar(255) NULL ,
-[stocks] int NULL ,
-[stockdate] datetime NULL 
+CREATE TABLE [dbo].[library_books]
+(
+	[id] int NOT NULL IDENTITY(1,1) ,
+	[name] varchar(255) NULL ,
+	[isbn] varchar(255) NULL ,
+	[author] varchar(255) NULL ,
+	[memo] varchar(255) NULL ,
+	[amount] varchar(255) NULL ,
+	[stocks] int NULL ,
+	[stockdate] datetime NULL
 )
 
 
 GO
 DBCC CHECKIDENT(N'[dbo].[library_books]', RESEED, 7)
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_books', 
 'COLUMN', N'name')) > 0) 
@@ -432,7 +522,8 @@ EXEC sp_addextendedproperty @name = N'MS_Description', @value = N'书籍名称'
 , @level1type = 'TABLE', @level1name = N'library_books'
 , @level2type = 'COLUMN', @level2name = N'name'
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_books', 
 'COLUMN', N'isbn')) > 0) 
@@ -446,7 +537,8 @@ EXEC sp_addextendedproperty @name = N'MS_Description', @value = N'ISBN号'
 , @level1type = 'TABLE', @level1name = N'library_books'
 , @level2type = 'COLUMN', @level2name = N'isbn'
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_books', 
 'COLUMN', N'author')) > 0) 
@@ -460,7 +552,8 @@ EXEC sp_addextendedproperty @name = N'MS_Description', @value = N'作者'
 , @level1type = 'TABLE', @level1name = N'library_books'
 , @level2type = 'COLUMN', @level2name = N'author'
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_books', 
 'COLUMN', N'memo')) > 0) 
@@ -474,7 +567,8 @@ EXEC sp_addextendedproperty @name = N'MS_Description', @value = N'备注'
 , @level1type = 'TABLE', @level1name = N'library_books'
 , @level2type = 'COLUMN', @level2name = N'memo'
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_books', 
 'COLUMN', N'amount')) > 0) 
@@ -488,7 +582,8 @@ EXEC sp_addextendedproperty @name = N'MS_Description', @value = N'现有馆存�
 , @level1type = 'TABLE', @level1name = N'library_books'
 , @level2type = 'COLUMN', @level2name = N'amount'
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_books', 
 'COLUMN', N'stocks')) > 0) 
@@ -502,7 +597,8 @@ EXEC sp_addextendedproperty @name = N'MS_Description', @value = N'初始馆存�
 , @level1type = 'TABLE', @level1name = N'library_books'
 , @level2type = 'COLUMN', @level2name = N'stocks'
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_books', 
 'COLUMN', N'stockdate')) > 0) 
@@ -522,16 +618,28 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[library_books] ON
 GO
-INSERT INTO [dbo].[library_books] ([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate]) VALUES (N'2', N'那第一本书', N'1111-1111-1111-1111-111', N'王那', N'本书实乃毒鸡汤', N'11', N'11', N'2017-11-20 00:00:00.000')
+INSERT INTO [dbo].[library_books]
+	([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate])
+VALUES
+	(N'2', N'那第一本书', N'1111-1111-1111-1111-111', N'王那', N'本书实乃毒鸡汤', N'11', N'11', N'2017-11-20 00:00:00.000')
 GO
 GO
-INSERT INTO [dbo].[library_books] ([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate]) VALUES (N'3', N'这第二本书', N'2222-2222-2222-222', N'张这', N'偶们绝不做心灵', N'15', N'15', N'2017-11-20 00:00:00.000')
+INSERT INTO [dbo].[library_books]
+	([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate])
+VALUES
+	(N'3', N'这第二本书', N'2222-2222-2222-222', N'张这', N'偶们绝不做心灵', N'15', N'15', N'2017-11-20 00:00:00.000')
 GO
 GO
-INSERT INTO [dbo].[library_books] ([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate]) VALUES (N'6', N'论：烹饪藕的各种不良方法', N'6666-6666-6666-666', N'哪吒', N'神笔啊，不是马良啊', N'9', N'9', N'2017-11-22 16:13:02.000')
+INSERT INTO [dbo].[library_books]
+	([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate])
+VALUES
+	(N'6', N'论：烹饪藕的各种不良方法', N'6666-6666-6666-666', N'哪吒', N'神笔啊，不是马良啊', N'9', N'9', N'2017-11-22 16:13:02.000')
 GO
 GO
-INSERT INTO [dbo].[library_books] ([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate]) VALUES (N'7', N'面粉与眯眯眼的恐怖组合', N'7777-7777-7777-7777-777', N'遛弯', N'溜达溜达小鲜肉', N'7', N'7', N'2017-11-22 16:13:53.193')
+INSERT INTO [dbo].[library_books]
+	([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate])
+VALUES
+	(N'7', N'面粉与眯眯眼的恐怖组合', N'7777-7777-7777-7777-777', N'遛弯', N'溜达溜达小鲜肉', N'7', N'7', N'2017-11-22 16:13:53.193')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[library_books] OFF
@@ -542,20 +650,22 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[library_borrowhistory]
 GO
-CREATE TABLE [dbo].[library_borrowhistory] (
-[id] int NOT NULL IDENTITY(1,1) ,
-[borrowdate] datetime NULL ,
-[borrowuser] int NULL ,
-[planttoreturn] datetime NULL ,
-[returndate] datetime NULL ,
-[returnuser] int NULL ,
-[memo] varchar(255) NULL ,
-[library_collections_id] int NULL 
+CREATE TABLE [dbo].[library_borrowhistory]
+(
+	[id] int NOT NULL IDENTITY(1,1) ,
+	[borrowdate] datetime NULL ,
+	[borrowuser] int NULL ,
+	[planttoreturn] datetime NULL ,
+	[returndate] datetime NULL ,
+	[returnuser] int NULL ,
+	[memo] varchar(255) NULL ,
+	[library_collections_id] int NULL
 )
 
 
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_borrowhistory', 
 'COLUMN', N'borrowdate')) > 0) 
@@ -569,7 +679,8 @@ EXEC sp_addextendedproperty @name = N'MS_Description', @value = N'借阅日期'
 , @level1type = 'TABLE', @level1name = N'library_borrowhistory'
 , @level2type = 'COLUMN', @level2name = N'borrowdate'
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_borrowhistory', 
 'COLUMN', N'borrowuser')) > 0) 
@@ -583,7 +694,8 @@ EXEC sp_addextendedproperty @name = N'MS_Description', @value = N'借阅用户id
 , @level1type = 'TABLE', @level1name = N'library_borrowhistory'
 , @level2type = 'COLUMN', @level2name = N'borrowuser'
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_borrowhistory', 
 'COLUMN', N'planttoreturn')) > 0) 
@@ -603,7 +715,10 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[library_borrowhistory] ON
 GO
-INSERT INTO [dbo].[library_borrowhistory] ([id], [borrowdate], [borrowuser], [planttoreturn], [returndate], [returnuser], [memo], [library_collections_id]) VALUES (N'1', N'2017-11-22 13:30:06.263', N'1', N'2017-11-29 13:30:06.263', N'2017-11-23 09:05:59.770', N'1', N'memo', N'3')
+INSERT INTO [dbo].[library_borrowhistory]
+	([id], [borrowdate], [borrowuser], [planttoreturn], [returndate], [returnuser], [memo], [library_collections_id])
+VALUES
+	(N'1', N'2017-11-22 13:30:06.263', N'1', N'2017-11-29 13:30:06.263', N'2017-11-23 09:05:59.770', N'1', N'memo', N'3')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[library_borrowhistory] OFF
@@ -614,19 +729,21 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[library_borrowing]
 GO
-CREATE TABLE [dbo].[library_borrowing] (
-[id] int NOT NULL IDENTITY(1,1) ,
-[borrowdate] datetime NULL ,
-[borrowuser] int NULL ,
-[planttoreturn] datetime NULL ,
-[library_collections_id] int NULL 
+CREATE TABLE [dbo].[library_borrowing]
+(
+	[id] int NOT NULL IDENTITY(1,1) ,
+	[borrowdate] datetime NULL ,
+	[borrowuser] int NULL ,
+	[planttoreturn] datetime NULL ,
+	[library_collections_id] int NULL
 )
 
 
 GO
 DBCC CHECKIDENT(N'[dbo].[library_borrowing]', RESEED, 9)
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_borrowing', 
 'COLUMN', N'borrowdate')) > 0) 
@@ -640,7 +757,8 @@ EXEC sp_addextendedproperty @name = N'MS_Description', @value = N'借阅日期'
 , @level1type = 'TABLE', @level1name = N'library_borrowing'
 , @level2type = 'COLUMN', @level2name = N'borrowdate'
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_borrowing', 
 'COLUMN', N'borrowuser')) > 0) 
@@ -654,7 +772,8 @@ EXEC sp_addextendedproperty @name = N'MS_Description', @value = N'借阅用户id
 , @level1type = 'TABLE', @level1name = N'library_borrowing'
 , @level2type = 'COLUMN', @level2name = N'borrowuser'
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_borrowing', 
 'COLUMN', N'planttoreturn')) > 0) 
@@ -674,22 +793,40 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[library_borrowing] ON
 GO
-INSERT INTO [dbo].[library_borrowing] ([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id]) VALUES (N'3', N'2017-11-22 14:53:17.700', N'1', N'2017-11-29 14:53:17.700', N'4')
+INSERT INTO [dbo].[library_borrowing]
+	([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id])
+VALUES
+	(N'3', N'2017-11-22 14:53:17.700', N'1', N'2017-11-29 14:53:17.700', N'4')
 GO
 GO
-INSERT INTO [dbo].[library_borrowing] ([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id]) VALUES (N'4', N'2017-11-22 15:12:35.510', N'1', N'2017-11-29 15:12:35.510', N'5')
+INSERT INTO [dbo].[library_borrowing]
+	([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id])
+VALUES
+	(N'4', N'2017-11-22 15:12:35.510', N'1', N'2017-11-29 15:12:35.510', N'5')
 GO
 GO
-INSERT INTO [dbo].[library_borrowing] ([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id]) VALUES (N'5', N'2017-11-22 15:33:16.633', N'1', N'2017-11-29 15:33:16.633', N'12')
+INSERT INTO [dbo].[library_borrowing]
+	([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id])
+VALUES
+	(N'5', N'2017-11-22 15:33:16.633', N'1', N'2017-11-29 15:33:16.633', N'12')
 GO
 GO
-INSERT INTO [dbo].[library_borrowing] ([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id]) VALUES (N'6', N'2017-11-22 16:17:54.907', N'1', N'2017-11-29 16:17:54.907', N'27')
+INSERT INTO [dbo].[library_borrowing]
+	([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id])
+VALUES
+	(N'6', N'2017-11-22 16:17:54.907', N'1', N'2017-11-29 16:17:54.907', N'27')
 GO
 GO
-INSERT INTO [dbo].[library_borrowing] ([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id]) VALUES (N'7', N'2017-11-22 16:18:01.477', N'1', N'2017-11-29 16:18:01.477', N'36')
+INSERT INTO [dbo].[library_borrowing]
+	([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id])
+VALUES
+	(N'7', N'2017-11-22 16:18:01.477', N'1', N'2017-11-29 16:18:01.477', N'36')
 GO
 GO
-INSERT INTO [dbo].[library_borrowing] ([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id]) VALUES (N'8', N'2017-11-22 16:18:08.497', N'1', N'2017-11-29 16:18:08.497', N'37')
+INSERT INTO [dbo].[library_borrowing]
+	([id], [borrowdate], [borrowuser], [planttoreturn], [library_collections_id])
+VALUES
+	(N'8', N'2017-11-22 16:18:08.497', N'1', N'2017-11-29 16:18:08.497', N'37')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[library_borrowing] OFF
@@ -700,18 +837,20 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[library_collections]
 GO
-CREATE TABLE [dbo].[library_collections] (
-[id] int NOT NULL IDENTITY(1,1) ,
-[library_books_id] int NULL ,
-[status] int NULL DEFAULT ((1)) ,
-[stockdate] date NULL 
+CREATE TABLE [dbo].[library_collections]
+(
+	[id] int NOT NULL IDENTITY(1,1) ,
+	[library_books_id] int NULL ,
+	[status] int NULL DEFAULT ((1)) ,
+	[stockdate] date NULL
 )
 
 
 GO
 DBCC CHECKIDENT(N'[dbo].[library_collections]', RESEED, 42)
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_collections', 
 'COLUMN', N'status')) > 0) 
@@ -725,7 +864,8 @@ EXEC sp_addextendedproperty @name = N'MS_Description', @value = N'状态'
 , @level1type = 'TABLE', @level1name = N'library_collections'
 , @level2type = 'COLUMN', @level2name = N'status'
 GO
-IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
+IF ((SELECT COUNT(*)
+from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
 'TABLE', N'library_collections', 
 'COLUMN', N'stockdate')) > 0) 
@@ -745,130 +885,256 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[library_collections] ON
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1', N'2', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'1', N'2', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'2', N'2', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'2', N'2', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'3', N'2', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'3', N'2', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'4', N'2', N'2', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'4', N'2', N'2', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'5', N'2', N'2', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'5', N'2', N'2', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'6', N'2', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'6', N'2', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'7', N'2', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'7', N'2', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'8', N'2', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'8', N'2', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'9', N'2', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'9', N'2', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'10', N'2', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'10', N'2', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'11', N'2', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'11', N'2', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'12', N'3', N'2', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'12', N'3', N'2', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'13', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'13', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'14', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'14', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'15', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'15', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'16', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'16', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'17', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'17', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'18', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'18', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'19', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'19', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'20', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'20', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'21', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'21', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'22', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'22', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'23', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'23', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'24', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'24', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'25', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'25', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'26', N'3', N'1', N'2017-11-20')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'26', N'3', N'1', N'2017-11-20')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'27', N'6', N'2', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'27', N'6', N'2', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'28', N'6', N'1', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'28', N'6', N'1', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'29', N'6', N'1', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'29', N'6', N'1', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'30', N'6', N'1', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'30', N'6', N'1', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'31', N'6', N'1', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'31', N'6', N'1', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'32', N'6', N'1', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'32', N'6', N'1', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'33', N'6', N'1', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'33', N'6', N'1', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'34', N'6', N'1', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'34', N'6', N'1', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'35', N'6', N'1', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'35', N'6', N'1', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'36', N'7', N'2', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'36', N'7', N'2', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'37', N'7', N'2', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'37', N'7', N'2', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'38', N'7', N'1', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'38', N'7', N'1', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'39', N'7', N'1', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'39', N'7', N'1', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'40', N'7', N'1', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'40', N'7', N'1', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'41', N'7', N'1', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'41', N'7', N'1', N'2017-11-22')
 GO
 GO
-INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'42', N'7', N'1', N'2017-11-22')
+INSERT INTO [dbo].[library_collections]
+	([id], [library_books_id], [status], [stockdate])
+VALUES
+	(N'42', N'7', N'1', N'2017-11-22')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[library_collections] OFF
@@ -879,13 +1145,14 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[log]
 GO
-CREATE TABLE [dbo].[log] (
-[Id] int NOT NULL IDENTITY(38,1) ,
-[who] nvarchar(10) NOT NULL ,
-[whichtable] nvarchar(20) NOT NULL ,
-[actiontype] nvarchar(10) NOT NULL ,
-[withwhat] nvarchar(200) NOT NULL ,
-[whendoes] datetime NULL 
+CREATE TABLE [dbo].[log]
+(
+	[Id] int NOT NULL IDENTITY(38,1) ,
+	[who] nvarchar(10) NOT NULL ,
+	[whichtable] nvarchar(20) NOT NULL ,
+	[actiontype] nvarchar(10) NOT NULL ,
+	[withwhat] nvarchar(200) NOT NULL ,
+	[whendoes] datetime NULL
 )
 
 
@@ -896,100 +1163,196 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[log] ON
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'6', N'1', N'students', N'insert', N'snum=170101003,sname=苏子豪,ssex=男,sage=1,sphone=1,qq=1,wx=1,sstatus=1,cid=1', N'2017-05-29 17:39:01.433')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'6', N'1', N'students', N'insert', N'snum=170101003,sname=苏子豪,ssex=男,sage=1,sphone=1,qq=1,wx=1,sstatus=1,cid=1', N'2017-05-29 17:39:01.433')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'7', N'1', N'students', N'insert', N'snum=123123123,sname=123123,ssex=男,sage=11,sphone=1,qq=1,wx=1,sstatus=1,cid=1', N'2017-05-29 17:42:22.853')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'7', N'1', N'students', N'insert', N'snum=123123123,sname=123123,ssex=男,sage=11,sphone=1,qq=1,wx=1,sstatus=1,cid=1', N'2017-05-29 17:42:22.853')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'8', N'1', N'students', N'insert', N'sid=6snum=170102001,sname=耿思瑶,ssex=女,sage=21,sphone=12,qq=187333,wx=6666222q11,sstatus=1,cid=2', N'2017-05-29 17:46:21.173')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'8', N'1', N'students', N'insert', N'sid=6snum=170102001,sname=耿思瑶,ssex=女,sage=21,sphone=12,qq=187333,wx=6666222q11,sstatus=1,cid=2', N'2017-05-29 17:46:21.173')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'9', N'1', N'students', N'insert', N'sid=6snum=170102001,sname=耿思瑶,ssex=女,sage=21,sphone=12,qq=187333,wx=6666222q11,sstatus=1,cid=2', N'2017-05-29 17:46:26.783')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'9', N'1', N'students', N'insert', N'sid=6snum=170102001,sname=耿思瑶,ssex=女,sage=21,sphone=12,qq=187333,wx=6666222q11,sstatus=1,cid=2', N'2017-05-29 17:46:26.783')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'10', N'1', N'students', N'delete', N'sid=37,snum=123123123,sname=苏子豪,ssex=1,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=1', N'2017-05-29 22:02:49.087')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'10', N'1', N'students', N'delete', N'sid=37,snum=123123123,sname=苏子豪,ssex=1,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=1', N'2017-05-29 22:02:49.087')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'11', N'1', N'students', N'update', N'sid=47,snum=123123123,sname=郭东来,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:17:14.513')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'11', N'1', N'students', N'update', N'sid=47,snum=123123123,sname=郭东来,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:17:14.513')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'12', N'1', N'students', N'update', N'sid=48,snum=123123123,sname=陈籽霖,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:17:47.427')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'12', N'1', N'students', N'update', N'sid=48,snum=123123123,sname=陈籽霖,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:17:47.427')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'13', N'1', N'students', N'update', N'sid=49,snum=123123123,sname=任鹏,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:17:53.430')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'13', N'1', N'students', N'update', N'sid=49,snum=123123123,sname=任鹏,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:17:53.430')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'14', N'1', N'students', N'update', N'sid=50,snum=123123123,sname=刘仲胜,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:17:57.843')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'14', N'1', N'students', N'update', N'sid=50,snum=123123123,sname=刘仲胜,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:17:57.843')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'15', N'1', N'students', N'update', N'sid=51,snum=123123123,sname=刘思奇,ssex=女,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:02.570')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'15', N'1', N'students', N'update', N'sid=51,snum=123123123,sname=刘思奇,ssex=女,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:02.570')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'16', N'1', N'students', N'update', N'sid=52,snum=123123123,sname=杨金月,ssex=女,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:07.530')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'16', N'1', N'students', N'update', N'sid=52,snum=123123123,sname=杨金月,ssex=女,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:07.530')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'17', N'1', N'students', N'update', N'sid=53,snum=123123123,sname=李浩博,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:13.923')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'17', N'1', N'students', N'update', N'sid=53,snum=123123123,sname=李浩博,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:13.923')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'18', N'1', N'students', N'update', N'sid=54,snum=123123123,sname=姚阳,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:18.373')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'18', N'1', N'students', N'update', N'sid=54,snum=123123123,sname=姚阳,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:18.373')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'19', N'1', N'students', N'update', N'sid=55,snum=123123123,sname=张雷,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:23.347')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'19', N'1', N'students', N'update', N'sid=55,snum=123123123,sname=张雷,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:23.347')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'20', N'1', N'students', N'update', N'sid=56,snum=123123123,sname=朱浩,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:27.453')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'20', N'1', N'students', N'update', N'sid=56,snum=123123123,sname=朱浩,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:27.453')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'21', N'1', N'students', N'update', N'sid=57,snum=123123123,sname=王希智,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:36.627')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'21', N'1', N'students', N'update', N'sid=57,snum=123123123,sname=王希智,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:18:36.627')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'22', N'1', N'students', N'update', N'sid=58,snum=123123123,sname=白宇轩,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:04.117')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'22', N'1', N'students', N'update', N'sid=58,snum=123123123,sname=白宇轩,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:04.117')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'23', N'1', N'students', N'update', N'sid=59,snum=123123123,sname=蓝硕,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:08.867')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'23', N'1', N'students', N'update', N'sid=59,snum=123123123,sname=蓝硕,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:08.867')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'24', N'1', N'students', N'update', N'sid=59,snum=123123123,sname=蓝硕,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=3,cid=6', N'2017-05-29 23:19:21.867')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'24', N'1', N'students', N'update', N'sid=59,snum=123123123,sname=蓝硕,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=3,cid=6', N'2017-05-29 23:19:21.867')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'25', N'1', N'students', N'update', N'sid=60,snum=123123123,sname=康源浩,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:30.077')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'25', N'1', N'students', N'update', N'sid=60,snum=123123123,sname=康源浩,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:30.077')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'26', N'1', N'students', N'update', N'sid=61,snum=123123123,sname=张云鹤,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:33.730')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'26', N'1', N'students', N'update', N'sid=61,snum=123123123,sname=张云鹤,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:33.730')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'27', N'1', N'students', N'update', N'sid=62,snum=123123123,sname=王浩楠,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:38.150')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'27', N'1', N'students', N'update', N'sid=62,snum=123123123,sname=王浩楠,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:38.150')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'28', N'1', N'students', N'update', N'sid=63,snum=123123123,sname=毛晟宇,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:42.490')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'28', N'1', N'students', N'update', N'sid=63,snum=123123123,sname=毛晟宇,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:42.490')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'29', N'1', N'students', N'update', N'sid=64,snum=123123123,sname=聂源良,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:46.357')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'29', N'1', N'students', N'update', N'sid=64,snum=123123123,sname=聂源良,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:46.357')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'30', N'1', N'students', N'update', N'sid=65,snum=123123123,sname=蔡演秋,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:51.407')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'30', N'1', N'students', N'update', N'sid=65,snum=123123123,sname=蔡演秋,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:51.407')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'31', N'1', N'students', N'update', N'sid=66,snum=123123123,sname=叶信麟,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:54.417')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'31', N'1', N'students', N'update', N'sid=66,snum=123123123,sname=叶信麟,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:54.417')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'32', N'1', N'students', N'update', N'sid=67,snum=123123123,sname=方铭坚,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:58.070')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'32', N'1', N'students', N'update', N'sid=67,snum=123123123,sname=方铭坚,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-29 23:19:58.070')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'33', N'1', N'students', N'update', N'sid=10,snum=123123123,sname=佟鑫荣,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=1', N'2017-05-30 01:18:42.380')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'33', N'1', N'students', N'update', N'sid=10,snum=123123123,sname=佟鑫荣,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=1', N'2017-05-30 01:18:42.380')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'34', N'1', N'students', N'update', N'sid=11,snum=123123123,sname=盛任,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=1', N'2017-05-30 09:58:17.343')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'34', N'1', N'students', N'update', N'sid=11,snum=123123123,sname=盛任,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=1', N'2017-05-30 09:58:17.343')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'35', N'1', N'students', N'update', N'sid=49,snum=123123123,sname=任鹏,ssex=女,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=8', N'2017-05-31 15:45:29.277')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'35', N'1', N'students', N'update', N'sid=49,snum=123123123,sname=任鹏,ssex=女,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=8', N'2017-05-31 15:45:29.277')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'36', N'1', N'students', N'update', N'sid=49,snum=123123123,sname=任大屌,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-31 15:45:56.967')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'36', N'1', N'students', N'update', N'sid=49,snum=123123123,sname=任大屌,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-31 15:45:56.967')
 GO
 GO
-INSERT INTO [dbo].[log] ([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes]) VALUES (N'37', N'1', N'students', N'update', N'sid=49,snum=123123123,sname=任鹏,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-31 15:46:06.917')
+INSERT INTO [dbo].[log]
+	([Id], [who], [whichtable], [actiontype], [withwhat], [whendoes])
+VALUES
+	(N'37', N'1', N'students', N'update', N'sid=49,snum=123123123,sname=任鹏,ssex=男,sage=19,sphone=1,qq=111,wx=1,sstatus=1,cid=6', N'2017-05-31 15:46:06.917')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[log] OFF
@@ -1000,12 +1363,13 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[mycart]
 GO
-CREATE TABLE [dbo].[mycart] (
-[cartid] int NOT NULL IDENTITY(1,1) ,
-[sid] int NULL ,
-[orderid] nvarchar(254) NULL ,
-[pcount] int NULL ,
-[price] int NULL 
+CREATE TABLE [dbo].[mycart]
+(
+	[cartid] int NOT NULL IDENTITY(1,1) ,
+	[sid] int NULL ,
+	[orderid] nvarchar(254) NULL ,
+	[pcount] int NULL ,
+	[price] int NULL
 )
 
 
@@ -1018,100 +1382,196 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[mycart] ON
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'7', N'2', N'201783112329AAJZ', N'11', N'18')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'7', N'2', N'201783112329AAJZ', N'11', N'18')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'8', N'6', N'201783112329AAJZ', N'2', N'21')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'8', N'6', N'201783112329AAJZ', N'2', N'21')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'11', N'2', N'201783125202AAJZ', N'1', N'18')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'11', N'2', N'201783125202AAJZ', N'1', N'18')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'12', N'6', N'201783125202AAJZ', N'1', N'21')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'12', N'6', N'201783125202AAJZ', N'1', N'21')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'13', N'7', N'201783125202AAJZ', N'1', N'20')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'13', N'7', N'201783125202AAJZ', N'1', N'20')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'14', N'8', N'201783125202AAJZ', N'1', N'1')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'14', N'8', N'201783125202AAJZ', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'15', N'2', N'201783214050AAJZ', N'2', N'18')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'15', N'2', N'201783214050AAJZ', N'2', N'18')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'16', N'6', N'201783214050AAJZ', N'2', N'21')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'16', N'6', N'201783214050AAJZ', N'2', N'21')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'17', N'7', N'201783214050AAJZ', N'2', N'20')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'17', N'7', N'201783214050AAJZ', N'2', N'20')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'18', N'8', N'201783214050AAJZ', N'2', N'1')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'18', N'8', N'201783214050AAJZ', N'2', N'1')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'19', N'11', N'201783214050AAJZ', N'2', N'19')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'19', N'11', N'201783214050AAJZ', N'2', N'19')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'20', N'2', N'201783232337AAJZ', N'5', N'18')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'20', N'2', N'201783232337AAJZ', N'5', N'18')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'21', N'6', N'201783232337AAJZ', N'1', N'21')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'21', N'6', N'201783232337AAJZ', N'1', N'21')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'22', N'7', N'201783232337AAJZ', N'1', N'20')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'22', N'7', N'201783232337AAJZ', N'1', N'20')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'23', N'2', N'201784112500AAJZ', N'1', N'18')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'23', N'2', N'201784112500AAJZ', N'1', N'18')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'24', N'2', N'201784220016AAJZ', N'2', N'18')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'24', N'2', N'201784220016AAJZ', N'2', N'18')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'25', N'6', N'201784220016AAJZ', N'2', N'21')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'25', N'6', N'201784220016AAJZ', N'2', N'21')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'26', N'7', N'201784220016AAJZ', N'2', N'20')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'26', N'7', N'201784220016AAJZ', N'2', N'20')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'27', N'2', N'20178503056AAJZ', N'1', N'18')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'27', N'2', N'20178503056AAJZ', N'1', N'18')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'28', N'6', N'20178503056AAJZ', N'1', N'21')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'28', N'6', N'20178503056AAJZ', N'1', N'21')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'29', N'8', N'20178503056AAJZ', N'1', N'1')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'29', N'8', N'20178503056AAJZ', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'30', N'15', N'20178503056AAJZ', N'1', N'19')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'30', N'15', N'20178503056AAJZ', N'1', N'19')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'31', N'14', N'201785105721AAJZ', N'1', N'19')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'31', N'14', N'201785105721AAJZ', N'1', N'19')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'32', N'17', N'201785105721AAJZ', N'1', N'19')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'32', N'17', N'201785105721AAJZ', N'1', N'19')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'33', N'6', N'201785122803AAJZ', N'1', N'21')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'33', N'6', N'201785122803AAJZ', N'1', N'21')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'34', N'8', N'201785122803AAJZ', N'1', N'1')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'34', N'8', N'201785122803AAJZ', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'35', N'12', N'201785122803AAJZ', N'1', N'19')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'35', N'12', N'201785122803AAJZ', N'1', N'19')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'36', N'2', N'201791391054AAJZ', N'3', N'18')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'36', N'2', N'201791391054AAJZ', N'3', N'18')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'37', N'7', N'201791391054AAJZ', N'3', N'20')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'37', N'7', N'201791391054AAJZ', N'3', N'20')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'38', N'2', null, N'1', N'18')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'38', N'2', null, N'1', N'18')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'39', N'2', N'20171025171549AAJZ', N'3', N'18')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'39', N'2', N'20171025171549AAJZ', N'3', N'18')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [sid], [orderid], [pcount], [price]) VALUES (N'40', N'6', N'20171025171549AAJZ', N'2', N'21')
+INSERT INTO [dbo].[mycart]
+	([cartid], [sid], [orderid], [pcount], [price])
+VALUES
+	(N'40', N'6', N'20171025171549AAJZ', N'2', N'21')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[mycart] OFF
@@ -1122,12 +1582,13 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[scores]
 GO
-CREATE TABLE [dbo].[scores] (
-[scid] int NOT NULL IDENTITY(4,1) ,
-[exid] int NOT NULL ,
-[scscore] int NOT NULL ,
-[coid] int NOT NULL ,
-[sid] int NOT NULL 
+CREATE TABLE [dbo].[scores]
+(
+	[scid] int NOT NULL IDENTITY(4,1) ,
+	[exid] int NOT NULL ,
+	[scscore] int NOT NULL ,
+	[coid] int NOT NULL ,
+	[sid] int NOT NULL
 )
 
 
@@ -1138,10 +1599,16 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[scores] ON
 GO
-INSERT INTO [dbo].[scores] ([scid], [exid], [scscore], [coid], [sid]) VALUES (N'2', N'4', N'80', N'3', N'6')
+INSERT INTO [dbo].[scores]
+	([scid], [exid], [scscore], [coid], [sid])
+VALUES
+	(N'2', N'4', N'80', N'3', N'6')
 GO
 GO
-INSERT INTO [dbo].[scores] ([scid], [exid], [scscore], [coid], [sid]) VALUES (N'3', N'4', N'90', N'3', N'2')
+INSERT INTO [dbo].[scores]
+	([scid], [exid], [scscore], [coid], [sid])
+VALUES
+	(N'3', N'4', N'90', N'3', N'2')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[scores] OFF
@@ -1152,9 +1619,10 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[specialized]
 GO
-CREATE TABLE [dbo].[specialized] (
-[spid] int NOT NULL IDENTITY(13,1) ,
-[spname] nvarchar(50) NOT NULL 
+CREATE TABLE [dbo].[specialized]
+(
+	[spid] int NOT NULL IDENTITY(13,1) ,
+	[majors_name] nvarchar(50) NOT NULL
 )
 
 
@@ -1165,37 +1633,70 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[specialized] ON
 GO
-INSERT INTO [dbo].[specialized] ([spid], [spname]) VALUES (N'1', N'计算机软件开发')
+INSERT INTO [dbo].[specialized]
+	([spid], [majors_name])
+VALUES
+	(N'1', N'计算机软件开发')
 GO
 GO
-INSERT INTO [dbo].[specialized] ([spid], [spname]) VALUES (N'2', N'计算机UI设计')
+INSERT INTO [dbo].[specialized]
+	([spid], [majors_name])
+VALUES
+	(N'2', N'计算机UI设计')
 GO
 GO
-INSERT INTO [dbo].[specialized] ([spid], [spname]) VALUES (N'4', N'3+4升学班计算机')
+INSERT INTO [dbo].[specialized]
+	([spid], [majors_name])
+VALUES
+	(N'4', N'3+4升学班计算机')
 GO
 GO
-INSERT INTO [dbo].[specialized] ([spid], [spname]) VALUES (N'5', N'3+4升学班机械')
+INSERT INTO [dbo].[specialized]
+	([spid], [majors_name])
+VALUES
+	(N'5', N'3+4升学班机械')
 GO
 GO
-INSERT INTO [dbo].[specialized] ([spid], [spname]) VALUES (N'6', N'3+4升学班会计')
+INSERT INTO [dbo].[specialized]
+	([spid], [majors_name])
+VALUES
+	(N'6', N'3+4升学班会计')
 GO
 GO
-INSERT INTO [dbo].[specialized] ([spid], [spname]) VALUES (N'7', N'3+4升学班市场营销')
+INSERT INTO [dbo].[specialized]
+	([spid], [majors_name])
+VALUES
+	(N'7', N'3+4升学班市场营销')
 GO
 GO
-INSERT INTO [dbo].[specialized] ([spid], [spname]) VALUES (N'8', N'机械加工与设计')
+INSERT INTO [dbo].[specialized]
+	([spid], [majors_name])
+VALUES
+	(N'8', N'机械加工与设计')
 GO
 GO
-INSERT INTO [dbo].[specialized] ([spid], [spname]) VALUES (N'9', N'会计')
+INSERT INTO [dbo].[specialized]
+	([spid], [majors_name])
+VALUES
+	(N'9', N'会计')
 GO
 GO
-INSERT INTO [dbo].[specialized] ([spid], [spname]) VALUES (N'10', N'装潢')
+INSERT INTO [dbo].[specialized]
+	([spid], [majors_name])
+VALUES
+	(N'10', N'装潢')
 GO
 GO
-INSERT INTO [dbo].[specialized] ([spid], [spname]) VALUES (N'11', N'营销')
+INSERT INTO [dbo].[specialized]
+	([spid], [majors_name])
+VALUES
+	(N'11', N'营销')
 GO
 GO
-INSERT INTO [dbo].[specialized] ([spid], [spname]) VALUES (N'12', N'互联网商务')
+INSERT INTO [dbo].[specialized]
+	([spid], [majors_name])
+VALUES
+	(N'12', N'互联网商务')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[specialized] OFF
@@ -1206,17 +1707,18 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[students]
 GO
-CREATE TABLE [dbo].[students] (
-[sid] int NOT NULL IDENTITY(68,1) ,
-[snum] nvarchar(10) NOT NULL ,
-[sname] nvarchar(8) NOT NULL ,
-[ssex] nvarchar(2) NOT NULL ,
-[sage] int NOT NULL ,
-[sphone] nvarchar(12) NOT NULL ,
-[qq] int NOT NULL ,
-[wx] nvarchar(20) NOT NULL ,
-[sstatus] int NOT NULL ,
-[cid] int NOT NULL 
+CREATE TABLE [dbo].[students]
+(
+	[sid] int NOT NULL IDENTITY(68,1) ,
+	[snum] nvarchar(10) NOT NULL ,
+	[sname] nvarchar(8) NOT NULL ,
+	[ssex] nvarchar(2) NOT NULL ,
+	[sage] int NOT NULL ,
+	[sphone] nvarchar(12) NOT NULL ,
+	[qq] int NOT NULL ,
+	[wx] nvarchar(20) NOT NULL ,
+	[sstatus] int NOT NULL ,
+	[cid] int NOT NULL
 )
 
 
@@ -1227,181 +1729,358 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[students] ON
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'2', N'170101001', N'江崟才', N'男', N'18', N'11111111111', N'35345', N'tyuiyu', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'2', N'170101001', N'江崟才', N'男', N'18', N'11111111111', N'35345', N'tyuiyu', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'6', N'170102001', N'耿思瑶', N'女', N'21', N'22222222222', N'187333', N'6666222q11', N'1', N'2')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'6', N'170102001', N'耿思瑶', N'女', N'21', N'22222222222', N'187333', N'6666222q11', N'1', N'2')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'7', N'170101002', N'刘婉玥', N'女', N'20', N'33333333333', N'1212', N'1212', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'7', N'170101002', N'刘婉玥', N'女', N'20', N'33333333333', N'1212', N'1212', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'8', N'170101003', N'苏子豪', N'男', N'1', N'1', N'1', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'8', N'170101003', N'苏子豪', N'男', N'1', N'1', N'1', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'10', N'123123123', N'佟鑫荣', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'10', N'123123123', N'佟鑫荣', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'11', N'123123123', N'盛任', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'11', N'123123123', N'盛任', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'12', N'123123123', N'刘佳彬', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'12', N'123123123', N'刘佳彬', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'14', N'123123123', N'孟震', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'14', N'123123123', N'孟震', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'15', N'123123123', N'张齐', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'15', N'123123123', N'张齐', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'16', N'123123123', N'刘涛', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'16', N'123123123', N'刘涛', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'17', N'123123123', N'刘阔', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'17', N'123123123', N'刘阔', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'18', N'123123123', N'王英吉', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'18', N'123123123', N'王英吉', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'19', N'123123123', N'谢驰', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'19', N'123123123', N'谢驰', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'20', N'123123123', N'张照坤', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'20', N'123123123', N'张照坤', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'21', N'123123123', N'孙明新', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'21', N'123123123', N'孙明新', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'22', N'123123123', N'陈际宇', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'22', N'123123123', N'陈际宇', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'23', N'123123123', N'董权德', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'23', N'123123123', N'董权德', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'24', N'123123123', N'张贺', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'24', N'123123123', N'张贺', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'25', N'123123123', N'赵琦琳', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'25', N'123123123', N'赵琦琳', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'26', N'123123123', N'刘博', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'26', N'123123123', N'刘博', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'27', N'123123123', N'马志远', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'27', N'123123123', N'马志远', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'28', N'123123123', N'崔翔', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'28', N'123123123', N'崔翔', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'29', N'123123123', N'赵薪荐', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'29', N'123123123', N'赵薪荐', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'30', N'123123123', N'邹海洋', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'30', N'123123123', N'邹海洋', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'31', N'123123123', N'王方正', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'31', N'123123123', N'王方正', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'32', N'123123123', N'徐明远', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'32', N'123123123', N'徐明远', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'33', N'123123123', N'孙圣然', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'33', N'123123123', N'孙圣然', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'35', N'123123123', N'蔡达彬', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'35', N'123123123', N'蔡达彬', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'36', N'123123123', N'杨珺博', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'36', N'123123123', N'杨珺博', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'38', N'123123123', N'徐晓东', N'女', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'38', N'123123123', N'徐晓东', N'女', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'39', N'123123123', N'王帅', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'39', N'123123123', N'王帅', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'40', N'123123123', N'吴德斌', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'40', N'123123123', N'吴德斌', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'41', N'123123123', N'关超', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'41', N'123123123', N'关超', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'42', N'123123123', N'刘帅林', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'42', N'123123123', N'刘帅林', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'43', N'123123123', N'伊思宇', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'43', N'123123123', N'伊思宇', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'44', N'123123123', N'陈叙达', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'44', N'123123123', N'陈叙达', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'45', N'123123123', N'王陈旭', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'45', N'123123123', N'王陈旭', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'46', N'123123123', N'金智勋', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'46', N'123123123', N'金智勋', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'47', N'123123123', N'郭东来', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'47', N'123123123', N'郭东来', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'48', N'123123123', N'陈籽霖', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'48', N'123123123', N'陈籽霖', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'49', N'123123123', N'任鹏', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'49', N'123123123', N'任鹏', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'50', N'123123123', N'刘仲胜', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'50', N'123123123', N'刘仲胜', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'51', N'123123123', N'刘思奇', N'女', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'51', N'123123123', N'刘思奇', N'女', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'52', N'123123123', N'杨金月', N'女', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'52', N'123123123', N'杨金月', N'女', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'53', N'123123123', N'李浩博', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'53', N'123123123', N'李浩博', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'54', N'123123123', N'姚阳', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'54', N'123123123', N'姚阳', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'55', N'123123123', N'张雷', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'55', N'123123123', N'张雷', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'56', N'123123123', N'朱浩', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'56', N'123123123', N'朱浩', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'57', N'123123123', N'王希智', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'57', N'123123123', N'王希智', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'58', N'123123123', N'白宇轩', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'58', N'123123123', N'白宇轩', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'59', N'123123123', N'蓝硕', N'男', N'19', N'1', N'111', N'1', N'3', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'59', N'123123123', N'蓝硕', N'男', N'19', N'1', N'111', N'1', N'3', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'60', N'123123123', N'康源浩', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'60', N'123123123', N'康源浩', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'61', N'123123123', N'张云鹤', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'61', N'123123123', N'张云鹤', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'62', N'123123123', N'王浩楠', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'62', N'123123123', N'王浩楠', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'63', N'123123123', N'毛晟宇', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'63', N'123123123', N'毛晟宇', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'64', N'123123123', N'聂源良', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'64', N'123123123', N'聂源良', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'65', N'123123123', N'蔡演秋', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'65', N'123123123', N'蔡演秋', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'66', N'123123123', N'叶信麟', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'66', N'123123123', N'叶信麟', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid]) VALUES (N'67', N'123123123', N'方铭坚', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students]
+	([sid], [snum], [sname], [ssex], [sage], [sphone], [qq], [wx], [sstatus], [cid])
+VALUES
+	(N'67', N'123123123', N'方铭坚', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[students] OFF
@@ -1412,10 +2091,11 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[teachers]
 GO
-CREATE TABLE [dbo].[teachers] (
-[tid] int NOT NULL IDENTITY(16,1) ,
-[tname] nvarchar(8) NOT NULL ,
-[ttype] int NOT NULL 
+CREATE TABLE [dbo].[teachers]
+(
+	[tid] int NOT NULL IDENTITY(16,1) ,
+	[tname] nvarchar(8) NOT NULL ,
+	[ttype] int NOT NULL
 )
 
 
@@ -1426,40 +2106,76 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[teachers] ON
 GO
-INSERT INTO [dbo].[teachers] ([tid], [tname], [ttype]) VALUES (N'1', N'刘亮', N'1')
+INSERT INTO [dbo].[teachers]
+	([tid], [tname], [ttype])
+VALUES
+	(N'1', N'刘亮', N'1')
 GO
 GO
-INSERT INTO [dbo].[teachers] ([tid], [tname], [ttype]) VALUES (N'2', N'庄德鑫', N'2')
+INSERT INTO [dbo].[teachers]
+	([tid], [tname], [ttype])
+VALUES
+	(N'2', N'庄德鑫', N'2')
 GO
 GO
-INSERT INTO [dbo].[teachers] ([tid], [tname], [ttype]) VALUES (N'3', N'刘晓东', N'1')
+INSERT INTO [dbo].[teachers]
+	([tid], [tname], [ttype])
+VALUES
+	(N'3', N'刘晓东', N'1')
 GO
 GO
-INSERT INTO [dbo].[teachers] ([tid], [tname], [ttype]) VALUES (N'4', N'胡振东', N'1')
+INSERT INTO [dbo].[teachers]
+	([tid], [tname], [ttype])
+VALUES
+	(N'4', N'胡振东', N'1')
 GO
 GO
-INSERT INTO [dbo].[teachers] ([tid], [tname], [ttype]) VALUES (N'5', N'幕裕', N'1')
+INSERT INTO [dbo].[teachers]
+	([tid], [tname], [ttype])
+VALUES
+	(N'5', N'幕裕', N'1')
 GO
 GO
-INSERT INTO [dbo].[teachers] ([tid], [tname], [ttype]) VALUES (N'6', N'李嘉', N'2')
+INSERT INTO [dbo].[teachers]
+	([tid], [tname], [ttype])
+VALUES
+	(N'6', N'李嘉', N'2')
 GO
 GO
-INSERT INTO [dbo].[teachers] ([tid], [tname], [ttype]) VALUES (N'10', N'刘云燕', N'2')
+INSERT INTO [dbo].[teachers]
+	([tid], [tname], [ttype])
+VALUES
+	(N'10', N'刘云燕', N'2')
 GO
 GO
-INSERT INTO [dbo].[teachers] ([tid], [tname], [ttype]) VALUES (N'11', N'高倩', N'2')
+INSERT INTO [dbo].[teachers]
+	([tid], [tname], [ttype])
+VALUES
+	(N'11', N'高倩', N'2')
 GO
 GO
-INSERT INTO [dbo].[teachers] ([tid], [tname], [ttype]) VALUES (N'12', N'乔伊娜', N'2')
+INSERT INTO [dbo].[teachers]
+	([tid], [tname], [ttype])
+VALUES
+	(N'12', N'乔伊娜', N'2')
 GO
 GO
-INSERT INTO [dbo].[teachers] ([tid], [tname], [ttype]) VALUES (N'13', N'朱迪', N'2')
+INSERT INTO [dbo].[teachers]
+	([tid], [tname], [ttype])
+VALUES
+	(N'13', N'朱迪', N'2')
 GO
 GO
-INSERT INTO [dbo].[teachers] ([tid], [tname], [ttype]) VALUES (N'14', N'李笑航', N'2')
+INSERT INTO [dbo].[teachers]
+	([tid], [tname], [ttype])
+VALUES
+	(N'14', N'李笑航', N'2')
 GO
 GO
-INSERT INTO [dbo].[teachers] ([tid], [tname], [ttype]) VALUES (N'15', N'杨丹', N'2')
+INSERT INTO [dbo].[teachers]
+	([tid], [tname], [ttype])
+VALUES
+	(N'15', N'杨丹', N'2')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[teachers] OFF
@@ -1470,9 +2186,10 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[UserProfile]
 GO
-CREATE TABLE [dbo].[UserProfile] (
-[Email] nvarchar(4000) NULL ,
-[UserId] int NOT NULL IDENTITY(5,1) 
+CREATE TABLE [dbo].[UserProfile]
+(
+	[Email] nvarchar(4000) NULL ,
+	[UserId] int NOT NULL IDENTITY(5,1)
 )
 
 
@@ -1485,19 +2202,34 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[UserProfile] ON
 GO
-INSERT INTO [dbo].[UserProfile] ([Email], [UserId]) VALUES (N'六六六', N'2')
+INSERT INTO [dbo].[UserProfile]
+	([Email], [UserId])
+VALUES
+	(N'六六六', N'2')
 GO
 GO
-INSERT INTO [dbo].[UserProfile] ([Email], [UserId]) VALUES (N'123@456.com', N'3')
+INSERT INTO [dbo].[UserProfile]
+	([Email], [UserId])
+VALUES
+	(N'123@456.com', N'3')
 GO
 GO
-INSERT INTO [dbo].[UserProfile] ([Email], [UserId]) VALUES (N'123@123.com', N'4')
+INSERT INTO [dbo].[UserProfile]
+	([Email], [UserId])
+VALUES
+	(N'123@123.com', N'4')
 GO
 GO
-INSERT INTO [dbo].[UserProfile] ([Email], [UserId]) VALUES (N'aajz@13.com', N'5')
+INSERT INTO [dbo].[UserProfile]
+	([Email], [UserId])
+VALUES
+	(N'aajz@13.com', N'5')
 GO
 GO
-INSERT INTO [dbo].[UserProfile] ([Email], [UserId]) VALUES (N'mmy@mmy.mmy', N'6')
+INSERT INTO [dbo].[UserProfile]
+	([Email], [UserId])
+VALUES
+	(N'mmy@mmy.mmy', N'6')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[UserProfile] OFF
@@ -1508,9 +2240,10 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[Users]
 GO
-CREATE TABLE [dbo].[Users] (
-[Email] nvarchar(4000) NULL ,
-[UserId] int NOT NULL IDENTITY(1,1) 
+CREATE TABLE [dbo].[Users]
+(
+	[Email] nvarchar(4000) NULL ,
+	[UserId] int NOT NULL IDENTITY(1,1)
 )
 
 
@@ -1529,18 +2262,19 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[webpages_Membership]
 GO
-CREATE TABLE [dbo].[webpages_Membership] (
-[UserId] int NOT NULL ,
-[CreateDate] datetime NULL ,
-[ConfirmationToken] nvarchar(128) NULL ,
-[IsConfirmed] bit NULL DEFAULT ((0)) ,
-[LastPasswordFailureDate] datetime NULL ,
-[PasswordFailuresSinceLastSuccess] int NOT NULL DEFAULT ((0)) ,
-[Password] nvarchar(128) NOT NULL ,
-[PasswordChangedDate] datetime NULL ,
-[PasswordSalt] nvarchar(128) NOT NULL ,
-[PasswordVerificationToken] nvarchar(128) NULL ,
-[PasswordVerificationTokenExpirationDate] datetime NULL 
+CREATE TABLE [dbo].[webpages_Membership]
+(
+	[UserId] int NOT NULL ,
+	[CreateDate] datetime NULL ,
+	[ConfirmationToken] nvarchar(128) NULL ,
+	[IsConfirmed] bit NULL DEFAULT ((0)) ,
+	[LastPasswordFailureDate] datetime NULL ,
+	[PasswordFailuresSinceLastSuccess] int NOT NULL DEFAULT ((0)) ,
+	[Password] nvarchar(128) NOT NULL ,
+	[PasswordChangedDate] datetime NULL ,
+	[PasswordSalt] nvarchar(128) NOT NULL ,
+	[PasswordVerificationToken] nvarchar(128) NULL ,
+	[PasswordVerificationTokenExpirationDate] datetime NULL
 )
 
 
@@ -1549,13 +2283,22 @@ GO
 -- ----------------------------
 -- Records of webpages_Membership
 -- ----------------------------
-INSERT INTO [dbo].[webpages_Membership] ([UserId], [CreateDate], [ConfirmationToken], [IsConfirmed], [LastPasswordFailureDate], [PasswordFailuresSinceLastSuccess], [Password], [PasswordChangedDate], [PasswordSalt], [PasswordVerificationToken], [PasswordVerificationTokenExpirationDate]) VALUES (N'3', N'2017-06-12 01:14:07.633', null, N'1', null, N'0', N'ACxFdm9RcThzfw7ZLRm6JT06cT8DSdakHhbiw29OzO0yQT9Y3DlHa5uaiGJXvQ2TXQ==', N'2017-06-12 01:14:07.633', N'', null, null)
+INSERT INTO [dbo].[webpages_Membership]
+	([UserId], [CreateDate], [ConfirmationToken], [IsConfirmed], [LastPasswordFailureDate], [PasswordFailuresSinceLastSuccess], [Password], [PasswordChangedDate], [PasswordSalt], [PasswordVerificationToken], [PasswordVerificationTokenExpirationDate])
+VALUES
+	(N'3', N'2017-06-12 01:14:07.633', null, N'1', null, N'0', N'ACxFdm9RcThzfw7ZLRm6JT06cT8DSdakHhbiw29OzO0yQT9Y3DlHa5uaiGJXvQ2TXQ==', N'2017-06-12 01:14:07.633', N'', null, null)
 GO
 GO
-INSERT INTO [dbo].[webpages_Membership] ([UserId], [CreateDate], [ConfirmationToken], [IsConfirmed], [LastPasswordFailureDate], [PasswordFailuresSinceLastSuccess], [Password], [PasswordChangedDate], [PasswordSalt], [PasswordVerificationToken], [PasswordVerificationTokenExpirationDate]) VALUES (N'5', N'2017-07-15 17:48:48.593', null, N'1', null, N'0', N'AFMdurfEsD8VPj6uxpR2uWLkrlXvIPFQ0F4aHieQMKE+lyopXARM19JY3PXd0NVxzQ==', N'2017-07-15 17:48:48.593', N'', null, null)
+INSERT INTO [dbo].[webpages_Membership]
+	([UserId], [CreateDate], [ConfirmationToken], [IsConfirmed], [LastPasswordFailureDate], [PasswordFailuresSinceLastSuccess], [Password], [PasswordChangedDate], [PasswordSalt], [PasswordVerificationToken], [PasswordVerificationTokenExpirationDate])
+VALUES
+	(N'5', N'2017-07-15 17:48:48.593', null, N'1', null, N'0', N'AFMdurfEsD8VPj6uxpR2uWLkrlXvIPFQ0F4aHieQMKE+lyopXARM19JY3PXd0NVxzQ==', N'2017-07-15 17:48:48.593', N'', null, null)
 GO
 GO
-INSERT INTO [dbo].[webpages_Membership] ([UserId], [CreateDate], [ConfirmationToken], [IsConfirmed], [LastPasswordFailureDate], [PasswordFailuresSinceLastSuccess], [Password], [PasswordChangedDate], [PasswordSalt], [PasswordVerificationToken], [PasswordVerificationTokenExpirationDate]) VALUES (N'6', N'2017-09-18 03:01:57.070', null, N'1', null, N'0', N'AHc1yuSHadBtflm3N6YQ4NtT3LIzu89Tz6wNBmbS4t1zmxF1Yd8byerxDefjge5PlA==', N'2017-09-18 03:01:57.070', N'', null, null)
+INSERT INTO [dbo].[webpages_Membership]
+	([UserId], [CreateDate], [ConfirmationToken], [IsConfirmed], [LastPasswordFailureDate], [PasswordFailuresSinceLastSuccess], [Password], [PasswordChangedDate], [PasswordSalt], [PasswordVerificationToken], [PasswordVerificationTokenExpirationDate])
+VALUES
+	(N'6', N'2017-09-18 03:01:57.070', null, N'1', null, N'0', N'AHc1yuSHadBtflm3N6YQ4NtT3LIzu89Tz6wNBmbS4t1zmxF1Yd8byerxDefjge5PlA==', N'2017-09-18 03:01:57.070', N'', null, null)
 GO
 GO
 
@@ -1564,10 +2307,11 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[webpages_OAuthMembership]
 GO
-CREATE TABLE [dbo].[webpages_OAuthMembership] (
-[Provider] nvarchar(30) NOT NULL ,
-[ProviderUserId] nvarchar(100) NOT NULL ,
-[UserId] int NOT NULL 
+CREATE TABLE [dbo].[webpages_OAuthMembership]
+(
+	[Provider] nvarchar(30) NOT NULL ,
+	[ProviderUserId] nvarchar(100) NOT NULL ,
+	[UserId] int NOT NULL
 )
 
 
@@ -1582,9 +2326,10 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[webpages_Roles]
 GO
-CREATE TABLE [dbo].[webpages_Roles] (
-[RoleId] int NOT NULL IDENTITY(1,1) ,
-[RoleName] nvarchar(256) NOT NULL 
+CREATE TABLE [dbo].[webpages_Roles]
+(
+	[RoleId] int NOT NULL IDENTITY(1,1) ,
+	[RoleName] nvarchar(256) NOT NULL
 )
 
 
@@ -1603,9 +2348,10 @@ GO
 -- ----------------------------
 DROP TABLE [dbo].[webpages_UsersInRoles]
 GO
-CREATE TABLE [dbo].[webpages_UsersInRoles] (
-[UserId] int NOT NULL ,
-[RoleId] int NOT NULL 
+CREATE TABLE [dbo].[webpages_UsersInRoles]
+(
+	[UserId] int NOT NULL ,
+	[RoleId] int NOT NULL
 )
 
 

@@ -15,8 +15,6 @@
         {
             htmlMessage = "状态异常";
         }
-
-
         return htmlMessage;
     }
 
@@ -48,10 +46,10 @@
         return statustext;
     }
 
-    public static string GetTeachersType(int ttype)
+    public static string GetTeachersType(int teachers_type)
     {
         string typename;
-        switch (ttype)
+        switch (teachers_type)
         {
             case 1:
                 typename = "辅导员";
@@ -76,9 +74,9 @@
         else
         {
             var db = Database.Open("startersite");
-            var queryCommand = "select classes.cid as cid,classes.cyear as cyear,specialized.spname as spname from classes join specialized on classes.spid=specialized.spid where classes.cid=" + cid;
+            var queryCommand = "select classes.cid as cid,classes.classes_year as classes_year,majors.majors_name as majors_name from classes join majors on classes.majors_id=majors.id where classes.cid=" + cid;
             var getname = db.QuerySingle(queryCommand);
-            classesname = getname.cyear + getname.spname;
+            classesname = getname.classes_year + getname.majors_name;
         }
 
         return classesname;

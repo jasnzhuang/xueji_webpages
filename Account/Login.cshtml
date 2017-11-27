@@ -9,8 +9,8 @@
     Page.Title = "登录";
 
     // 初始化常规页变量
-    var email = "";
-    var password = "";
+    var email = "aajz@163.com";
+    var password = "aajzaajz";
     var rememberMe = false;
 
     var returnUrl = Request.QueryString["ReturnUrl"];
@@ -80,7 +80,7 @@
                 </li>
                 <li class="password">
                     <label for="password" @if (!ModelState.IsValidField("password")) {<text>class="error-label"</text>}>密码</label>
-                    <input type="password" id="password" name="password" @Validation.For("password")/>
+                    <input type="password" id="password" name="password" value="aajzaajz" @Validation.For("password")/>
                     @* 将任何密码验证错误写入此页 *@
                     @Html.ValidationMessage("password")
                 </li>

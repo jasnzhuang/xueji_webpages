@@ -1,10 +1,10 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
     var db = Database.Open("startersite");
-    var cid = Request.QueryString["cid"];
-    string listCommand= "SELECT s.sid,s.snum,s.sname,c.cyear,sp.spname,s.ssex,s.sage,s.sphone,s.qq,s.wx,s.sstatus FROM students as s INNER JOIN classes as c ON s.cid = c.cid INNER JOIN specialized as sp ON c.spid = sp.spid";
+    var id = Request.QueryString["id"];
+    string listCommand= "SELECT s.sid,s.snum,s.sname,c.classes_year,m.majors_name,s.ssex,s.sage,s.sphone,s.qq,s.wx,s.sstatus FROM students as s INNER JOIN classes as c ON s.cid = c.id INNER JOIN majors as m ON c.majors_id = m.id";
     //通过querystring传入的cid类型为string，所以判断是否为null；并且将cid转换为int后判断其是否小于等于0，这两种情况都是无法根据班级编号cid进行条件查询的
-    if (cid == null || cid.AsInt()<=0)
+    if (id == null || id.AsInt()<=0)
     {
         //这里使用的是拼接字符串的方法
         listCommand += "";
@@ -24,7 +24,7 @@
     else
     {
         //这里使用的是拼接字符串的方法
-        listCommand += " where c.cid=@0";
+        listCommand += " where c.id=@0";
         if (!Request.QueryString["searchNum"].IsEmpty() && Request.QueryString["searchName"].IsEmpty())
         {
             listCommand += " and s.snum=" + Request.QueryString["searchNum"];
@@ -52,9 +52,9 @@
         <a href="~/index.cshtml">控制面板</a>
         <i class="icon-angle-right"></i>
     </li>
-    <li><a href="#">@Functions.GetClassesName(cid.AsInt()) @Page.title</a></li>
+    <li><a href="#">@Functions.GetClassesName(id.AsInt()) @Page.title</a></li>
 </ul>
-<form method="get" action="?cid=@cid">
+<form method="get" action="?id=@id">
     <div>
         <label for="searchNum">按学号查找:</label>
         <input type="text" id="searchNum" name="searchNum" value="@Request.QueryString["searchNum"]" />
@@ -67,7 +67,7 @@
         <input type="Submit" value="查找" /><br />
         (清空本查找条件以执行无本条件查询.)<br />
     </div>
-    <input type="hidden" name="cid" value="@cid" />
+    <input type="hidden" name="id" value="@id" />
 </form>
 <div class="row-fluid sortable">
     <div class="box span12">
@@ -104,7 +104,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach (var row in db.Query(listCommand,cid))
+                @foreach (var row in db.Query(listCommand,id))
                 {
                     <tr>
                         <td class="center">
@@ -114,7 +114,7 @@
                         <td class="center">
                             <a href="editstudents?id=@row.sid"><i class="halflings-icon pencil"></i>@row.sname</a>
                         </td>
-                        <td class="center">@row.cyear@row.spname</td>
+                        <td class="center">@row.classes_year@row.majors_name</td>
                         <td class="center">@row.ssex</td>
                         <td class="center">@row.sage</td>
                         <td class="center">@row.sphone</td>
@@ -148,8 +148,8 @@
             //grid.Column("sid"),
             grid.Column("snum"),
             grid.Column("sname"),
-            grid.Column("cyear"),
-            grid.Column("spname"),
+            grid.Column("classes_year"),
+            grid.Column("majors_name"),
             grid.Column("ssex"),
             grid.Column("sage"),
             grid.Column("sphone"),

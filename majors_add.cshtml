@@ -1,11 +1,11 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
     //这里是和JS差不多的一个偷懒变量定义方法，用var来定义
-    var spname = "";
+    var majors_name = "";
 
 
     //这里吧，是说咱们在页面上填写的信息，怎么特么的就跑到程序里面来了呢？
-    spname = Request.Form["spname"];
+    majors_name = Request.Form["majors_name"];
 
 
     if (IsPost)
@@ -13,9 +13,9 @@
         //这句吧，就是打开这个SQLCE数据库，这个SQLCE用法跟SQL没啥太大区别，就是不用用户名密码和IP了
         var db = Database.Open("StarterSite");
         //这里写清楚了所谓的顺序
-        var insertCommand = "INSERT INTO specialized (spname) Values(@0)";
+        var insertCommand = "INSERT INTO majors (majors_name) Values(@0)";
         //这句就是写如何插入到数据库，并且告诉程序要插入的数据都从哪里来的，也就是都从哪几个变量来了
-        db.Execute(insertCommand, spname);
+        db.Execute(insertCommand, majors_name);
     }
 }
 <ul class="breadcrumb">
@@ -30,8 +30,8 @@
     <fieldset>
         <legend>专业信息</legend>
         <p>
-            <label for="spname">专业名称：</label>
-            <input id="spname" type="text" name="spname" value=""/>
+            <label for="majors_name">专业名称：</label>
+            <input id="majors_name" type="text" name="majors_name" value=""/>
         </p>
 
 
@@ -42,5 +42,5 @@
     </fieldset>
 </form>
 <p>
-    <a href="~/specialized"></a>
+    <a href="~/majors_list"></a>
 </p>

@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
     var db = Database.Open("startersite");
-    var listCommand = db.Query("SELECT * FROM specialized");
+    var listCommand = db.Query("SELECT * FROM majors");
     var grid = new WebGrid(listCommand);
 }
 <ul class="breadcrumb">
@@ -14,9 +14,9 @@
     @grid.GetHtml(
         tableStyle: "table table-striped table-bordered table-hover bootstrap-datatable datatable",
         columns: grid.Columns(
-            grid.Column(format: @<a href="~/delspecialized?id=@item.spid">删除</a>),
-            grid.Column("spid", header: "专业内部ID"),
-            grid.Column("spname", header: "专业名称")
+            grid.Column(format: @<a href="~/majors_delete?id=@item.id">删除</a>),
+            grid.Column("id", header: "专业内部ID"),
+            grid.Column("majors_name", header: "专业名称")
 
             )
     )

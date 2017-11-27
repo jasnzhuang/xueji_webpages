@@ -16,7 +16,7 @@
     @foreach (var row in db.Query(listCommand))
     {
         <li>
-            <a href="viewjokes?id=@row.id">@row.title</a>
+            <a href="joke_details?id=@row.id">@row.title</a>
         </li>
         <li>
             @row.adddate

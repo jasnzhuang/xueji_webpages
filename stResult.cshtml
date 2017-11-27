@@ -1,4 +1,6 @@
 ﻿@{
+    Layout = "~/_xuejiLayout.cshtml";
+    
     var v1 = Request.Form["v1"];
     var v2 = Request.Form["v2"];
     {
@@ -6,7 +8,7 @@
         if (IsPost && v1 != null && v2 != null && v1!="" && v2!="" && v2.IsInt())
         {
             var db = Database.Open("startersite");
-            var loginCommand = "select tid from teachers where tname='" + v1 + "' and ttype=" + v2;
+            var loginCommand = "select id from teachers where teachers_name='" + v1 + "' and teachers_type=" + v2;
             var ready = db.QueryValue(loginCommand);
 
             Validation.AddFormError(ready != null ? "恭喜你，你ok了！" : "刚刚输入的信息有误，请检查后重新输入");

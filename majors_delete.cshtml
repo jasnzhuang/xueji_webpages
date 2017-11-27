@@ -1,19 +1,18 @@
 ﻿@{
-	var spname = "";
-	var spid="";
+	var majors_name = "";
+	var id=Request.QueryString["ID"];
 
 	if (!IsPost)
 	{
-		if (!Request.QueryString["ID"].IsEmpty() && Request.QueryString["ID"].IsInt())
+		if (!id.IsEmpty() && id.IsInt())
 		{
-			spid = Request.QueryString["ID"];
 			var db = Database.Open("startersite");
-			var dbCommand = "SELECT * FROM specialized WHERE spid = @0";
-			var row = db.QuerySingle(dbCommand, spid);
+			var dbCommand = "SELECT * FROM majors WHERE id = @0";
+			var row = db.QuerySingle(dbCommand, id);
 			if (row != null)
 			{
-				spname = row.spname;
-			    spid = row.spid.ToString();
+				majors_name = row.majors_name;
+			    id = row.id.ToString();
 			}
 			else
 			{
@@ -28,11 +27,11 @@
 	//两个条件：第一，这是一个POST请求，第二，这是由一个叫做buttonDelete的按钮提交的请求
 	if (IsPost && !Request["buttonDelete"].IsEmpty())
 	{
-		spid = Request.Form["spid"];
+		id = Request.Form["id"];
 		var db = Database.Open("startersite");
-		var deleteCommand = "DELETE FROM specialized WHERE spid = @0";
-		db.Execute(deleteCommand, spid);
-		Response.Redirect("~/specialized");
+		var deleteCommand = "DELETE FROM majors WHERE id = @0";
+		db.Execute(deleteCommand, id);
+		Response.Redirect("~/majors_list");
 	}
 }
 <!DOCTYPE html>
@@ -49,11 +48,11 @@
 
 		<p>
 			<span>专业名称:</span>
-			<span>@spname</span>
+			<span>@majors_name</span>
 		</p>
 
 
-		<input type="hidden" name="spid" value="@spid" />
+		<input type="hidden" name="id" value="@id" />
 		<p><input type="submit" name="buttonDelete" value="删除专业" /></p>
 	</fieldset>
 </form>

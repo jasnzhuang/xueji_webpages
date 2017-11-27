@@ -2,28 +2,28 @@
     Layout = "~/_xuejiLayout.cshtml";
     Page.Title = "添加班级";
     //这里是和JS差不多的一个偷懒变量定义方法，用var来定义
-    var spid = "";
-    var cyear = "";
+    var majors_id = "";
+    var classes_year = "";
     var teachers_id = "";
 
 
     //这里吧，是说咱们在页面上填写的信息，怎么特么的就跑到程序里面来了呢？
-    spid = Request.Form["spid"];
-    cyear = Request.Form["cyear"];
+    majors_id = Request.Form["majors_id"];
+    classes_year = Request.Form["classes_year"];
     teachers_id = Request.Form["teachers_id"];
 
     //这句吧，就是打开这个SQLCE数据库，这个SQLCE用法跟SQL没啥太大区别，就是不用用户名密码和IP了
     var db = Database.Open("StarterSite");
-    var downlistCommand = "SELECT * FROM teachers where ttype=1";
-    var downlistCommand2 = "SELECT spid,spname FROM specialized";
+    var downlistCommand = "SELECT * FROM teachers where teachers_type=1";
+    var downlistCommand2 = "SELECT id,majors_name FROM majors";
 
     if (IsPost)
     {
 
         //这里写清楚了所谓的顺序
-        var insertCommand = "INSERT INTO classes (spid,cyear,teachers_id) Values(@0, @1,@2)";
+        var insertCommand = "INSERT INTO classes (majors_id,classes_year,teachers_id) Values(@0, @1,@2)";
         //这句就是写如何插入到数据库，并且告诉程序要插入的数据都从哪里来的，也就是都从哪几个变量来了
-        db.Execute(insertCommand, spid, cyear, teachers_id);
+        db.Execute(insertCommand, majors_id, classes_year, teachers_id);
     }
 }
 <ul class="breadcrumb">
@@ -38,16 +38,16 @@
     <fieldset>
         <legend>班级信息</legend>
         <p>
-            <label for="spid">专业：</label>
-            <select id="spid" name="spid">
+            <label for="majors_id">专业：</label>
+            <select id="majors_id" name="majors_id">
                 @foreach (var row in db.Query(downlistCommand2)) { 
-                    <option value="@row.spid">@row.spname</option>
+                    <option value="@row.id">@row.majors_name</option>
                 }
             </select>
         </p>
         <p>
-            <label for="cyear">入学年份：</label>
-            <select id="cyear" name="cyear">
+            <label for="classes_year">入学年份：</label>
+            <select id="classes_year" name="classes_year">
                 <option value="2016">2016</option>
                 <option value="2017">2017</option>
                 <option value="2018">2018</option>
@@ -58,10 +58,10 @@
             </select>
         </p>
         <p>
-            <label for="tid">辅导员：</label>
-            <select id="tid" name="tid">
+            <label for="teachers_id">辅导员：</label>
+            <select id="teachers_id" name="teachers_id">
                 @foreach (var row in db.Query(downlistCommand)) { 
-                    <option value="@row.teachers_id">@row.tname</option>
+                    <option value="@row.teachers_id">@row.teachers_name</option>
                 }
             </select>
         </p>
