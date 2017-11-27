@@ -2,7 +2,7 @@
     Layout = "~/_xuejiLayout.cshtml";
     var db = Database.Open("startersite");
     var classes_id = Request.QueryString["classes_id"];
-    string listCommand= "SELECT s.id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.qq,s.wx,s.students_status FROM students as s INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = m.id";
+    string listCommand= "SELECT s.id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.students_qq,s.students_wx,s.students_status FROM students as s INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = m.id";
     //通过querystring传入的classes_id类型为string，所以判断是否为null；并且将classes_id转换为int后判断其是否小于等于0，这两种情况都是无法根据班级编号classes_id进行条件查询的
     if (classes_id == null || classes_id.AsInt()<=0)
     {
@@ -118,8 +118,8 @@
                         <td class="center">@row.students_sex</td>
                         <td class="center">@row.students_age</td>
                         <td class="center">@row.students_phone</td>
-                        <td class="center">@row.qq</td>
-                        <td class="center">@row.wx</td>
+                        <td class="center">@row.students_qq</td>
+                        <td class="center">@row.students_wx</td>
                         <td class="center">
 
                             @if (row.students_status == 1)
@@ -153,8 +153,8 @@
             grid.Column("students_sex"),
             grid.Column("students_age"),
             grid.Column("students_phone"),
-            grid.Column("qq"),
-            grid.Column("wx"),
+            grid.Column("students_qq"),
+            grid.Column("students_wx"),
             grid.Column("students_status"),
             grid.Column("classes_id")
 

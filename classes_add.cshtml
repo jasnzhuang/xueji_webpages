@@ -61,7 +61,7 @@
             <label for="teachers_id">辅导员：</label>
             <select id="teachers_id" name="teachers_id">
                 @foreach (var row in db.Query(downlistCommand)) { 
-                    <option value="@row.teachers_id">@row.teachers_name</option>
+                    <option value="@row.id">@row.teachers_name</option>
                 }
             </select>
         </p>

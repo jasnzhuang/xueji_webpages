@@ -33,7 +33,7 @@
         var deleteCommand = "DELETE FROM students WHERE id = @0";
         
         var logg = db.QuerySingle("select * FROM students WHERE id = "+students_id);
-        string logit = "students_id=" + logg.id + ",students_number=" + logg.students_number + ",students_name=" + logg.students_name + ",students_sex=" + logg.students_sex + ",students_age=" + logg.students_age + ",students_phone=" + logg.students_phone + ",qq=" + logg.qq + ",wx=" + logg.wx + ",students_status=" + logg.students_status + ",classes_id=" + logg.classes_id;
+        string logit = "students_id=" + logg.id + ",students_number=" + logg.students_number + ",students_name=" + logg.students_name + ",students_sex=" + logg.students_sex + ",students_age=" + logg.students_age + ",students_phone=" + logg.students_phone + ",students_qq=" + logg.students_qq + ",students_wx=" + logg.students_wx + ",students_status=" + logg.students_status + ",classes_id=" + logg.classes_id;
 
         var logCommand = "insert into log (who,whichtable,actiontype,withwhat,whendoes)values('1','students','delete',@0,getdate())";
         db.Execute(logCommand, logit);

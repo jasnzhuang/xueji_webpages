@@ -6,8 +6,8 @@
     var students_sex = "";
     var students_age = "";
     var students_phone = "";
-    var qq = "";
-    var wx = "";
+    var students_qq = "";
+    var students_wx = "";
     var students_status = "";
     var classes_id = "";
 
@@ -17,8 +17,8 @@
     students_sex = Request.Form["students_sex"];
     students_age = Request.Form["students_age"];
     students_phone = Request.Form["students_phone"];
-    qq = Request.Form["qq"];
-    wx = Request.Form["wx"];
+    students_qq = Request.Form["students_qq"];
+    students_wx = Request.Form["students_wx"];
     students_status = Request.Form["students_status"];
     classes_id = Request.Form["classes_id"];
 
@@ -30,11 +30,11 @@
         //这句吧，就是打开这个SQLCE数据库，这个SQLCE用法跟SQL没啥太大区别，就是不用用户名密码和IP了
         var db = Database.Open("StarterSite");
         //这里写清楚了所谓的顺序
-        var insertCommand = "INSERT INTO students (students_number,students_name,students_sex,students_age,students_phone,qq,wx,students_status,classes_id) Values(@0, @1,@2,@3,@4,@5,@6,@7,@8)";
+        var insertCommand = "INSERT INTO students (students_number,students_name,students_sex,students_age,students_phone,students_qq,students_wx,students_status,classes_id) Values(@0, @1,@2,@3,@4,@5,@6,@7,@8)";
         //这句就是写如何插入到数据库，并且告诉程序要插入的数据都从哪里来的，也就是都从哪几个变量来了
-        db.Execute(insertCommand, students_number, students_name, students_sex, students_age, students_phone, qq, wx, students_status, classes_id);
+        db.Execute(insertCommand, students_number, students_name, students_sex, students_age, students_phone, students_qq, students_wx, students_status, classes_id);
 
-        string logit = "students_number=" + students_number + ",students_name=" + students_name + ",students_sex=" + students_sex + ",students_age=" + students_age + ",students_phone=" + students_phone + ",qq=" + qq + ",wx=" + wx + ",students_status=" + students_status + ",classes_id=" + classes_id;
+        string logit = "students_number=" + students_number + ",students_name=" + students_name + ",students_sex=" + students_sex + ",students_age=" + students_age + ",students_phone=" + students_phone + ",students_qq=" + students_qq + ",students_wx=" + students_wx + ",students_status=" + students_status + ",classes_id=" + classes_id;
 
         var logCommand = "insert into log (who,whichtable,actiontype,withwhat,whendoes)values('1','students','insert',@0,getdate())";
         db.Execute(logCommand, logit);
@@ -81,12 +81,12 @@
             <input type="text" name="students_phone" value=""/>
         </p>
         <p>
-            <label for="qq">QQ号码：</label>
-            <input type="text" name="qq" value=""/>
+            <label for="students_qq">students_qq号码：</label>
+            <input type="text" name="students_qq" value=""/>
         </p>
         <p>
-            <label for="wx">微信号码：</label>
-            <input type="text" name="wx" value=""/>
+            <label for="students_wx">微信号码：</label>
+            <input type="text" name="students_wx" value=""/>
         </p>
         <p>
             <label for="students_status">学籍状态：</label>

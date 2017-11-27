@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
     var db = Database.Open("startersite");
-    var listCommand = "SELECT s.id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.qq,s.wx,s.students_status FROM students as m INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = majors.id";
+    var listCommand = "SELECT s.id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.students_qq,s.students_wx,s.students_status FROM students as m INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = majors.id";
     //var listCommand = db.Query("select * from students");
     //var grid = new WebGrid(listCommand);
 }
@@ -65,8 +65,8 @@
                         <td class="center">@row.students_sex</td>
                         <td class="center">@row.students_age</td>
                         <td class="center">@row.students_phone</td>
-                        <td class="center">@row.qq</td>
-                        <td class="center">@row.wx</td>
+                        <td class="center">@row.students_qq</td>
+                        <td class="center">@row.students_wx</td>
                         <td class="center">
 
                             @if (row.students_status == 1)
@@ -100,8 +100,8 @@
             grid.Column("students_sex"),
             grid.Column("students_age"),
             grid.Column("students_phone"),
-            grid.Column("qq"),
-            grid.Column("wx"),
+            grid.Column("students_qq"),
+            grid.Column("students_wx"),
             grid.Column("students_status"),
             grid.Column("classes_id")
 

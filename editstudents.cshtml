@@ -5,8 +5,8 @@
     var students_sex = "";
     var students_age = 0;
     var students_phone = "";
-    var qq = 0;
-    var wx = "";
+    var students_qq = 0;
+    var students_wx = "";
     var students_status = 0;
     var classes_year = 0;
     var majors_name = "";
@@ -22,7 +22,7 @@
         if (!Request.QueryString["students_id"].IsEmpty() && Request.QueryString["students_id"].IsInt())
         {
             students_id = Request.QueryString["students_id"];
-            var dbCommand = "SELECT s.id,c.id as classes_id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.qq,s.wx,s.students_status FROM students as s INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = m.id WHERE s.id = @0";
+            var dbCommand = "SELECT s.id,c.id as classes_id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.students_qq,s.students_wx,s.students_status FROM students as s INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = m.id WHERE s.id = @0";
             //因为我们只是要取出一条数据库记录，因为指定了ID嘛，所以不再使用query这个方法，而是QuerySingle方法
             var row = db.QuerySingle(dbCommand, students_id);
 
@@ -33,8 +33,8 @@
                 students_sex = row.students_sex;
                 students_age = row.students_age;
                 students_phone = row.students_phone;
-                qq = row.qq;
-                wx = row.wx;
+                students_qq = row.students_qq;
+                students_wx = row.students_wx;
                 students_status = row.students_status;
                 classes_year = row.classes_year;
                 majors_name = row.majors_name;
@@ -65,17 +65,17 @@
         students_sex = Request.Form["students_sex"];
         students_age = Convert.ToInt32(Request.Form["students_age"]);
         students_phone = Request.Form["students_phone"];
-        qq = Convert.ToInt32(Request.Form["qq"]);
-        wx = Request.Form["wx"];
+        students_qq = Convert.ToInt32(Request.Form["students_qq"]);
+        students_wx = Request.Form["students_wx"];
         students_status = Convert.ToInt32(Request.Form["students_status"]);
         classes_id = Convert.ToInt32(Request.Form["classes_id"]);
 
         if (Validation.IsValid())
         {
-            var updateCommand = "UPDATE students SET students_number=@1,students_name=@2,students_sex=@3,students_age=@4,students_phone=@5,qq=@6,wx=@7,students_status=@8, classes_id=@9 WHERE id=@0";
-            db.Execute(updateCommand, students_id, students_number, students_name, students_sex, students_age, students_phone, qq, wx, students_status, classes_id);
+            var updateCommand = "UPDATE students SET students_number=@1,students_name=@2,students_sex=@3,students_age=@4,students_phone=@5,students_qq=@6,students_wx=@7,students_status=@8, classes_id=@9 WHERE id=@0";
+            db.Execute(updateCommand, students_id, students_number, students_name, students_sex, students_age, students_phone, students_qq, students_wx, students_status, classes_id);
 
-            string logit = "id="+students_id + ",students_number=" + students_number + ",students_name=" + students_name + ",students_sex=" + students_sex + ",students_age=" + students_age + ",students_phone=" + students_phone + ",qq=" + qq + ",wx=" + wx + ",students_status=" + students_status + ",classes_id=" + classes_id;
+            string logit = "id="+students_id + ",students_number=" + students_number + ",students_name=" + students_name + ",students_sex=" + students_sex + ",students_age=" + students_age + ",students_phone=" + students_phone + ",students_qq=" + students_qq + ",students_wx=" + students_wx + ",students_status=" + students_status + ",classes_id=" + classes_id;
 
             var logCommand = "insert into log (who,whichtable,actiontype,withwhat,whendoes)values('1','students','update',@0,getdate())";
             db.Execute(logCommand, logit);
@@ -147,12 +147,12 @@
             <input type="text" id="students_phone" name="students_phone" value="@students_phone"/>
         </p>
         <p>
-            <label for="qq">QQ号码：</label>
-            <input type="text" id="qq" name="qq" value="@qq"/>
+            <label for="students_qq">QQ号码：</label>
+            <input type="text" id="students_qq" name="students_qq" value="@students_qq"/>
         </p>
         <p>
-            <label for="wx">微信号码：</label>
-            <input type="text" id="wx" name="wx" value="@wx"/>
+            <label for="students_wx">微信号码：</label>
+            <input type="text" id="students_wx" name="students_wx" value="@students_wx"/>
         </p>
         <p>
             <label for="students_status">学籍状态：</label>
