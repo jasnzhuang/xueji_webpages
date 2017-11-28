@@ -79,7 +79,7 @@
 
             var logCommand = "insert into log (who,whichtable,actiontype,withwhat,whendoes)values('1','students','update',@0,getdate())";
             db.Execute(logCommand, logit);
-            Response.Redirect("~/students?id="+classes_id);
+            Response.Redirect("~/students_list?classes_id="+classes_id);
         }
     }
 }
@@ -89,7 +89,7 @@
         <a href="~/index.cshtml">控制面板</a>
         <i class="icon-angle-right"></i>
     </li><li>
-        <a href="~/students.cshtml">学生信息</a>
+        <a href="~/students_list.cshtml">学生信息</a>
     </li>
     <li>
         <i class="icon-angle-right"></i>

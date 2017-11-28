@@ -38,7 +38,7 @@
         var logCommand = "insert into log (who,whichtable,actiontype,withwhat,whendoes)values('1','students','delete',@0,getdate())";
         db.Execute(logCommand, logit);
         db.Execute(deleteCommand, students_id);
-        Response.Redirect("~/students");
+        Response.Redirect("~/students_list");
     }
 }
 
@@ -50,7 +50,7 @@
 <body>
 <h1>删除学生信息</h1>
 @Html.ValidationSummary()
-<p><a href="~/students">返回学生列表</a></p>
+<p><a href="~/students_list">返回学生列表</a></p>
 
 <form method="post">
     <fieldset>

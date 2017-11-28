@@ -39,8 +39,6 @@
         }
     }
 
-
-
     //var listCommand = db.Query("select * from students");
     //var grid = new WebGrid(listCommand);
 }
@@ -108,11 +106,11 @@
                 {
                     <tr>
                         <td class="center">
-                            <a href="delstudents?students_id=@row.id"><i class="halflings-icon remove"></i>删除</a>
+                            <a href="students_delete?students_id=@row.id"><i class="halflings-icon remove"></i>删除</a>
                         </td>
                         <td class="center">@row.students_number</td>
                         <td class="center">
-                            <a href="editstudents?students_id=@row.id"><i class="halflings-icon pencil"></i>@row.students_name</a>
+                            <a href="students_edit?students_id=@row.id"><i class="halflings-icon pencil"></i>@row.students_name</a>
                         </td>
                         <td class="center">@row.classes_year@row.majors_name</td>
                         <td class="center">@row.students_sex</td>
@@ -142,9 +140,8 @@
             </table>
             @*@grid.GetHtml(
 
-
         columns: grid.Columns(
-            grid.Column(format: @<a href="~/delstudents?id=@item.id">删除</a>),
+            grid.Column(format: @<a href="~/students_delete?id=@item.id">删除</a>),
             //grid.Column("id"),
             grid.Column("students_number"),
             grid.Column("students_name"),
