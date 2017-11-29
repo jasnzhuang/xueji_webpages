@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/_xuejiLayout.cshtml";
     var db = Database.Open("startersite");
-    var listCommand = "SELECT s.id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.students_qq,s.students_wx,s.students_status FROM students as m INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = majors.id";
+    var listCommand = "SELECT s.id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.students_qq,s.students_wx,s.students_status FROM students as s INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = majors.id";
     //var listCommand = db.Query("select * from students");
     //var grid = new WebGrid(listCommand);
 }
