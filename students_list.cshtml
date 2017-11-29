@@ -2,40 +2,42 @@
     Layout = "~/_xuejiLayout.cshtml";
     var db = Database.Open("startersite");
     var classes_id = Request.QueryString["classes_id"];
+    var search_name = Request.QueryString["search_name"];
+    var search_number = Request.QueryString["search_number"];
     string listCommand= "SELECT s.id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.students_qq,s.students_wx,s.students_status FROM students as s INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = m.id";
     //通过querystring传入的classes_id类型为string，所以判断是否为null；并且将classes_id转换为int后判断其是否小于等于0，这两种情况都是无法根据班级编号classes_id进行条件查询的
     if (classes_id == null || classes_id.AsInt()<=0)
     {
         //这里使用的是拼接字符串的方法
         listCommand += "";
-        if (!Request.QueryString["searchNum"].IsEmpty() && Request.QueryString["searchName"].IsEmpty())
+        if (!search_number.IsEmpty() && search_name.IsEmpty())
         {
-            listCommand += " where s.students_number="+ Request.QueryString["searchNum"];
+            listCommand += " where s.students_number="+ search_number;
         }
-        if (!Request.QueryString["searchName"].IsEmpty() && Request.QueryString["searchNum"].IsEmpty())
+        if (!search_name.IsEmpty() && search_number.IsEmpty())
         {
-            listCommand += " where s.students_name like '%" + Request.QueryString["searchName"]+"%'";
+            listCommand += " where s.students_name like '%" + search_name+"%'";
         }
-        if (!Request.QueryString["searchName"].IsEmpty() && !Request.QueryString["searchNum"].IsEmpty())
+        if (!search_name.IsEmpty() && !search_number.IsEmpty())
         {
-            listCommand += " where s.students_number=" + Request.QueryString["searchNum"] + "and s.students_name like '%" + Request.QueryString["searchName"]+"%'";
+            listCommand += " where s.students_number=" + search_number + "and s.students_name like '%" + search_name+"%'";
         }
     }
     else
     {
-        //这里使用的是拼接字符串的方法
+        //这里使用的是拼接字符串的方法 
         listCommand += " where c.id=@0";
-        if (!Request.QueryString["searchNum"].IsEmpty() && Request.QueryString["searchName"].IsEmpty())
+        if (!search_number.IsEmpty() && search_name.IsEmpty())
         {
-            listCommand += " and s.students_number=" + Request.QueryString["searchNum"];
+            listCommand += " and s.students_number=" + search_number;
         }
-        if (!Request.QueryString["searchName"].IsEmpty() && Request.QueryString["searchNum"].IsEmpty())
+        if (!search_name.IsEmpty() && search_number.IsEmpty())
         {
-            listCommand += " and s.students_name like '%" + Request.QueryString["searchName"] + "%'";
+            listCommand += " and s.students_name like '%" + search_name + "%'";
         }
-        if (!Request.QueryString["searchName"].IsEmpty() && !Request.QueryString["searchNum"].IsEmpty())
+        if (!search_name.IsEmpty() && !search_number.IsEmpty())
         {
-            listCommand += " and s.students_number=" + Request.QueryString["searchNum"] + "and s.students_name like '%" + Request.QueryString["searchName"] + "%'";
+            listCommand += " and s.students_number=" + search_number + "and s.students_name like '%" + search_name + "%'";
         }
     }
 
@@ -54,14 +56,14 @@
 </ul>
 <form method="get" action="?classes_id=@classes_id">
     <div>
-        <label for="searchNum">按学号查找:</label>
-        <input type="text" id="searchNum" name="searchNum" value="@Request.QueryString["searchNum"]" />
+        <label for="search_number">按学号查找:</label>
+        <input type="text" id="search_number" name="search_number" value="@Request.QueryString["search_number"]" />
         <input type="Submit" value="查找" /><br />
         (清空本查找条件以执行无本条件查询.)<br />
     </div>
     <div>
-        <label for="SearchName">按姓名查找:</label>
-        <input type="text" id="searchName" name="searchName" value="@Request.QueryString["searchName"]" />
+        <label for="search_name">按姓名查找:</label>
+        <input type="text" id="search_name" name="search_name" value="@Request.QueryString["search_name"]" />
         <input type="Submit" value="查找" /><br />
         (清空本查找条件以执行无本条件查询.)<br />
     </div>

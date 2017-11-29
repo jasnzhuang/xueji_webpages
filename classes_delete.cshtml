@@ -1,16 +1,16 @@
 ﻿@{
     var classes_year = "";
     var majors_name = "";
-    var cid = "";
+    var classes_id = "";
     if (!IsPost)
     {
-        if (!Request.QueryString["ID"].IsEmpty() && Request.QueryString["ID"].IsInt())
+        if (!Request.QueryString["classes_id"].IsEmpty() && Request.QueryString["classes_id"].IsInt())
         {
 
-            cid = Request.QueryString["ID"];
+            classes_id = Request.QueryString["classes_id"];
             var db = Database.Open("startersite");
-            var dbCommand = "select classes.cid as cid,classes.classes_year as classes_year,majors.majors_name as majors_name from classes join majors on classes.majors_id=majors.id where cid = @0";
-            var row = db.QuerySingle(dbCommand, cid);
+            var dbCommand = "select classes.id,classes.classes_year as classes_year,majors.majors_name as majors_name from classes join majors on classes.majors_id=majors.id where id = @0";
+            var row = db.QuerySingle(dbCommand, classes_id);
             if (row != null)
             {
                 classes_year = row.classes_year.ToString();
@@ -31,8 +31,8 @@
     {
         cid = Request.Form["cid"];
         var db = Database.Open("startersite");
-        var deleteCommand = "DELETE FROM classes WHERE cid = @0";
-        db.Execute(deleteCommand, cid);
+        var deleteCommand = "DELETE FROM classes WHERE id = @0";
+        db.Execute(deleteCommand, classes_id);
         Response.Redirect("~/classes");
     }
 }
@@ -58,7 +58,7 @@
 
 
 
-        <input type="hidden" name="cid" value="@cid" />
+        <input type="hidden" name="classes_id" value="@classes_id" />
         <p><input type="submit" name="buttonDelete" value="确认删除" /></p>
     </fieldset>
 </form>

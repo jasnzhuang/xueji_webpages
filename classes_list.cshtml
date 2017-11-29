@@ -48,9 +48,9 @@
     @foreach (var row in db.Query(listCommand))
     {
         <tr>
-            <td><a href="delteachers?teachers_id=@row.id">删除</a></td>
+            <td><a href="classes_delete?classes_id=@row.id">删除</a></td>
             <td>@row.classes_year</td>
-            <td><a class="" href="students?classes_id=@row.id">@row.majors_name</a></td>
+            <td><a class="" href="students_list?classes_id=@row.id">@row.majors_name</a></td>
             <td>@row.teachers_name</td>
 
         </tr>
