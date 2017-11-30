@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 130000
 File Encoding         : 65001
 
-Date: 2017-11-27 20:42:52
+Date: 2017-11-30 13:05:56
 */
 
 
@@ -416,7 +416,7 @@ CREATE TABLE [dbo].[library_books] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[library_books]', RESEED, 1003)
+DBCC CHECKIDENT(N'[dbo].[library_books]', RESEED, 10)
 GO
 IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
@@ -532,6 +532,15 @@ INSERT INTO [dbo].[library_books] ([id], [name], [isbn], [author], [memo], [amou
 GO
 GO
 INSERT INTO [dbo].[library_books] ([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate]) VALUES (N'7', N'面粉与眯眯眼的恐怖组合', N'7777-7777-7777-7777-777', N'遛弯', N'溜达溜达小鲜肉', N'7', N'7', N'2017-11-22 16:13:53.193')
+GO
+GO
+INSERT INTO [dbo].[library_books] ([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate]) VALUES (N'8', N'人文类第一本哟', null, null, null, N'5', N'5', N'2017-11-29 08:53:54.483')
+GO
+GO
+INSERT INTO [dbo].[library_books] ([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate]) VALUES (N'9', N'社科类第一本哟', null, null, null, N'5', N'5', N'2017-11-29 08:54:00.927')
+GO
+GO
+INSERT INTO [dbo].[library_books] ([id], [name], [isbn], [author], [memo], [amount], [stocks], [stockdate]) VALUES (N'10', N'古籍类第一本哟', null, null, null, N'5', N'5', N'2017-11-29 08:54:06.633')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[library_books] OFF
@@ -723,7 +732,7 @@ CREATE TABLE [dbo].[library_collections] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[library_collections]', RESEED, 1026)
+DBCC CHECKIDENT(N'[dbo].[library_collections]', RESEED, 1056)
 GO
 IF ((SELECT COUNT(*) from fn_listextendedproperty('MS_Description', 
 'SCHEMA', N'dbo', 
@@ -883,6 +892,96 @@ INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [st
 GO
 GO
 INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'42', N'7', N'1', N'2017-11-22')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1027', N'1004', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1028', N'1004', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1029', N'1004', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1030', N'1004', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1031', N'1004', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1032', N'1005', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1033', N'1005', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1034', N'1005', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1035', N'1005', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1036', N'1005', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1037', N'1006', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1038', N'1006', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1039', N'1006', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1040', N'1006', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1041', N'1006', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1042', N'8', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1043', N'8', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1044', N'8', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1045', N'8', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1046', N'8', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1047', N'9', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1048', N'9', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1049', N'9', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1050', N'9', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1051', N'9', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1052', N'10', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1053', N'10', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1054', N'10', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1055', N'10', N'1', N'2017-11-29')
+GO
+GO
+INSERT INTO [dbo].[library_collections] ([id], [library_books_id], [status], [stockdate]) VALUES (N'1056', N'10', N'1', N'2017-11-29')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[library_collections] OFF
@@ -1086,7 +1185,7 @@ CREATE TABLE [dbo].[mycart] (
 
 
 GO
-DBCC CHECKIDENT(N'[dbo].[mycart]', RESEED, 40)
+DBCC CHECKIDENT(N'[dbo].[mycart]', RESEED, 44)
 GO
 
 -- ----------------------------
@@ -1181,13 +1280,16 @@ GO
 INSERT INTO [dbo].[mycart] ([cartid], [students_id], [orderid], [pcount], [price]) VALUES (N'37', N'7', N'201791391054AAJZ', N'3', N'20')
 GO
 GO
-INSERT INTO [dbo].[mycart] ([cartid], [students_id], [orderid], [pcount], [price]) VALUES (N'38', N'2', null, N'1', N'18')
-GO
-GO
 INSERT INTO [dbo].[mycart] ([cartid], [students_id], [orderid], [pcount], [price]) VALUES (N'39', N'2', N'20171025171549AAJZ', N'3', N'18')
 GO
 GO
 INSERT INTO [dbo].[mycart] ([cartid], [students_id], [orderid], [pcount], [price]) VALUES (N'40', N'6', N'20171025171549AAJZ', N'2', N'21')
+GO
+GO
+INSERT INTO [dbo].[mycart] ([cartid], [students_id], [orderid], [pcount], [price]) VALUES (N'43', N'2', N'2017113090428AAJZ', N'2', N'18')
+GO
+GO
+INSERT INTO [dbo].[mycart] ([cartid], [students_id], [orderid], [pcount], [price]) VALUES (N'44', N'2', null, N'1', N'18')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[mycart] OFF
@@ -1235,8 +1337,8 @@ CREATE TABLE [dbo].[students] (
 [students_sex] nvarchar(2) NOT NULL ,
 [students_age] int NOT NULL ,
 [students_phone] nvarchar(12) NOT NULL ,
-[qq] int NOT NULL ,
-[wx] nvarchar(20) NOT NULL ,
+[students_qq] int NOT NULL ,
+[students_wx] nvarchar(20) NOT NULL ,
 [students_status] int NOT NULL ,
 [classes_id] int NOT NULL 
 )
@@ -1249,184 +1351,184 @@ GO
 -- ----------------------------
 SET IDENTITY_INSERT [dbo].[students] ON
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'2', N'170101001', N'江崟才', N'男', N'18', N'11111111111', N'35345', N'tyuiyu', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'2', N'170101001', N'江崟才', N'男', N'18', N'11111111111', N'35345', N'tyuiyu', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'6', N'170102001', N'耿思瑶', N'女', N'21', N'22222222222', N'187333', N'6666222q11', N'1', N'2')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'6', N'170102001', N'耿思瑶', N'女', N'21', N'22222222222', N'187333', N'6666222q11', N'1', N'2')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'7', N'170101002', N'刘婉玥', N'女', N'20', N'33333333333', N'1212', N'1212', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'7', N'170101002', N'刘婉玥', N'女', N'20', N'33333333333', N'1212', N'1212', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'8', N'170101003', N'苏子豪', N'男', N'1', N'1', N'1', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'8', N'170101003', N'苏子豪', N'男', N'1', N'1', N'1', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'10', N'123123123', N'佟鑫荣', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'10', N'123123123', N'佟鑫荣', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'11', N'123123123', N'盛任', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'11', N'123123123', N'盛任', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'12', N'123123123', N'刘佳彬', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'12', N'123123123', N'刘佳彬', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'14', N'123123123', N'孟震', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'14', N'123123123', N'孟震', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'15', N'123123123', N'张齐', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'15', N'123123123', N'张齐', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'16', N'123123123', N'刘涛', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'16', N'123123123', N'刘涛', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'17', N'123123123', N'刘阔', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'17', N'123123123', N'刘阔', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'18', N'123123123', N'王英吉', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'18', N'123123123', N'王英吉', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'19', N'123123123', N'谢驰', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'19', N'123123123', N'谢驰', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'20', N'123123123', N'张照坤', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'20', N'123123123', N'张照坤', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'21', N'123123123', N'孙明新', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'21', N'123123123', N'孙明新', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'22', N'123123123', N'陈际宇', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'22', N'123123123', N'陈际宇', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'23', N'123123123', N'董权德', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'23', N'123123123', N'董权德', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'24', N'123123123', N'张贺', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'24', N'123123123', N'张贺', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'25', N'123123123', N'赵琦琳', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'25', N'123123123', N'赵琦琳', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'26', N'123123123', N'刘博', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'26', N'123123123', N'刘博', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'27', N'123123123', N'马志远', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'27', N'123123123', N'马志远', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'28', N'123123123', N'崔翔', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'28', N'123123123', N'崔翔', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'29', N'123123123', N'赵薪荐', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'29', N'123123123', N'赵薪荐', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'30', N'123123123', N'邹海洋', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'30', N'123123123', N'邹海洋', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'31', N'123123123', N'王方正', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'31', N'123123123', N'王方正', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'32', N'123123123', N'徐明远', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'32', N'123123123', N'徐明远', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'33', N'123123123', N'孙圣然', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'33', N'123123123', N'孙圣然', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'35', N'123123123', N'蔡达彬', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'35', N'123123123', N'蔡达彬', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'36', N'123123123', N'杨珺博', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'36', N'123123123', N'杨珺博', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'38', N'123123123', N'徐晓东', N'女', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'38', N'123123123', N'徐晓东', N'女', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'39', N'123123123', N'王帅', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'39', N'123123123', N'王帅', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'40', N'123123123', N'吴德斌', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'40', N'123123123', N'吴德斌', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'41', N'123123123', N'关超', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'41', N'123123123', N'关超', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'42', N'123123123', N'刘帅林', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'42', N'123123123', N'刘帅林', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'43', N'123123123', N'伊思宇', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'43', N'123123123', N'伊思宇', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'44', N'123123123', N'陈叙达', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'44', N'123123123', N'陈叙达', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'45', N'123123123', N'王陈旭', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'45', N'123123123', N'王陈旭', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'46', N'123123123', N'金智勋', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'46', N'123123123', N'金智勋', N'男', N'19', N'1', N'111', N'1', N'1', N'1')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'47', N'123123123', N'郭东来', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'47', N'123123123', N'郭东来', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'48', N'123123123', N'陈籽霖', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'48', N'123123123', N'陈籽霖', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'49', N'123123123', N'任鹏', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'49', N'123123123', N'任鹏', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'50', N'123123123', N'刘仲胜', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'50', N'123123123', N'刘仲胜', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'51', N'123123123', N'刘思奇', N'女', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'51', N'123123123', N'刘思奇', N'女', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'52', N'123123123', N'杨金月', N'女', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'52', N'123123123', N'杨金月', N'女', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'53', N'123123123', N'李浩博', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'53', N'123123123', N'李浩博', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'54', N'123123123', N'姚阳', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'54', N'123123123', N'姚阳', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'55', N'123123123', N'张雷', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'55', N'123123123', N'张雷', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'56', N'123123123', N'朱浩', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'56', N'123123123', N'朱浩', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'57', N'123123123', N'王希智', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'57', N'123123123', N'王希智', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'58', N'123123123', N'白宇轩', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'58', N'123123123', N'白宇轩', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'59', N'123123123', N'蓝硕', N'男', N'19', N'1', N'111', N'1', N'3', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'59', N'123123123', N'蓝硕', N'男', N'19', N'1', N'111', N'1', N'3', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'60', N'123123123', N'康源浩', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'60', N'123123123', N'康源浩', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'61', N'123123123', N'张云鹤', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'61', N'123123123', N'张云鹤', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'62', N'123123123', N'王浩楠', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'62', N'123123123', N'王浩楠', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'63', N'123123123', N'毛晟宇', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'63', N'123123123', N'毛晟宇', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'64', N'123123123', N'聂源良', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'64', N'123123123', N'聂源良', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'65', N'123123123', N'蔡演秋', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'65', N'123123123', N'蔡演秋', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'66', N'123123123', N'叶信麟', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'66', N'123123123', N'叶信麟', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'67', N'123123123', N'方铭坚', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'67', N'123123123', N'方铭坚', N'男', N'19', N'1', N'111', N'1', N'1', N'6')
 GO
 GO
-INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [qq], [wx], [students_status], [classes_id]) VALUES (N'68', N'121212212', N'陈龙昊', N'男', N'17', N'171717', N'171717', N'171717', N'1', N'2')
+INSERT INTO [dbo].[students] ([id], [students_number], [students_name], [students_sex], [students_age], [students_phone], [students_qq], [students_wx], [students_status], [classes_id]) VALUES (N'68', N'121212212', N'陈龙昊', N'男', N'17', N'171717', N'171717', N'171717', N'1', N'2')
 GO
 GO
 SET IDENTITY_INSERT [dbo].[students] OFF

@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-
     <!-- start: Meta -->
     <meta charset="utf-8">
     <title>@Page.title - 学籍管理系统</title>
@@ -27,8 +26,6 @@
     <!-- start: Favicon -->
     <link rel="shortcut icon" href="~/xuejiLayout/~/xuejiLayout/img/favicon.ico">
     <!-- end: Favicon -->
-
-
 </head>
 <body>
     <!-- start: Header -->
@@ -43,14 +40,10 @@
                 <a class="brand" href="index">
                     <span>学籍管理系统</span>
                 </a>
-
                 <!-- start: Header Menu -->
                 <div class="nav-no-collapse header-nav">
                     <ul class="nav pull-right">
                         <!-- start: User Dropdown -->
-
-
-
                         <li class="dropdown">
                             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
                                 <i class="halflings-icon white user"></i>
@@ -70,8 +63,6 @@
                                 <li class="dropdown-menu-title">
                                     <span>账户</span>
                                 </li>
-
-
                                 @if (WebSecurity.IsAuthenticated)
                                 {
                                     <li>
@@ -91,16 +82,12 @@
                                         <li><a href="~/Account/Login"><i class="halflings-icon off"></i>登录</a></li>
                                     </ul>
                                 }
-
-
-
                             </ul>
                         </li>
                         <!-- end: User Dropdown -->
                     </ul>
                 </div>
                 <!-- end: Header Menu -->
-
             </div>
         </div>
     </div>
@@ -119,6 +106,16 @@
                         <li>
                             <a href="seelog">
                                 <i class="icon-envelope"></i><span class="hidden-tablet"> 日志测试</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="buystudent">
+                                <i class="icon-cart"></i><span class="hidden-tablet"> 商品页测试</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="buyajax">
+                                <i class="icon-cart"></i><span class="hidden-tablet"> 购物车测试</span>
                             </a>
                         </li>
                         <li>
@@ -287,7 +284,6 @@
                                 <i class="icon-calendar"></i><span class="hidden-tablet"> 日历测试页</span>
                             </a>
                         </li>
-
                         <li>
                             <a href="login.html">
                                 <i class="icon-lock"></i><span class="hidden-tablet"> 登录测试页</span>
@@ -297,7 +293,6 @@
                 </div>
             </div>
             <!-- end: Main Menu -->
-
             <div id="content" class="span10">
                 @RenderBody()
             </div>
@@ -316,74 +311,43 @@
             <a href="#" class="btn btn-primary">Save changes</a>
         </div>
     </div>
-
     <div class="clearfix"></div>
     <!-- start: JavaScript-->
-
     <script src="~/xuejiLayout/js/jquery-1.9.1.min.js"></script>
     <script src="~/xuejiLayout/js/jquery-migrate-1.0.0.min.js"></script>
-
     <script src="~/xuejiLayout/js/jquery-ui-1.10.0.custom.min.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.ui.touch-punch.js"></script>
-
     <script src="~/xuejiLayout/js/modernizr.js"></script>
-
     <script src="~/xuejiLayout/js/bootstrap.min.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.cookie.js"></script>
-
     <script src="~/xuejiLayout/js/fullcalendar.min.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.dataTables.min.js"></script>
-
     <script src="~/xuejiLayout/js/excanvas.js"></script>
     <script src="~/xuejiLayout/js/jquery.flot.js"></script>
     <script src="~/xuejiLayout/js/jquery.flot.pie.js"></script>
     <script src="~/xuejiLayout/js/jquery.flot.stack.js"></script>
     <script src="~/xuejiLayout/js/jquery.flot.resize.min.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.chosen.min.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.uniform.min.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.cleditor.min.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.noty.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.elfinder.min.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.raty.min.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.iphone.toggle.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.uploadify-3.1.min.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.gritter.min.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.imagesloaded.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.masonry.min.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.knob.modified.js"></script>
-
     <script src="~/xuejiLayout/js/jquery.sparkline.min.js"></script>
-
     <script src="~/xuejiLayout/js/counter.js"></script>
-
     <script src="~/xuejiLayout/js/retina.js"></script>
-
     <script src="~/xuejiLayout/js/custom.js"></script>
     <!-- end: JavaScript-->
     <footer>
-
-
         <p>
             <span style="float: left; text-align: left;">&copy; 2017 - <a href="#" alt="Using the 'Bootstrap Metro Dashboard' Form Template">沈阳理工大学继续教育学院 博众教学部 指导教师率17编码小分队</a></span>
-
         </p>
-
-
     </footer>
 </body>
 </html>

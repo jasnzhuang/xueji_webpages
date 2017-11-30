@@ -3,7 +3,7 @@
     var db = Database.Open("startersite");
     var orderid=Session["orderid"];
     //var listCartCommand="select * from mycart where orderid=@0";
-    var listCartCommand="SELECT mycart.students_id, mycart.orderid, mycart.pcount, mycart.price, students.students_name, students.students_sex, (mycart.pcount*mycart.price)as summ FROM mycart INNER JOIN students ON mycart.students_id = students.students_id where orderid=@0";    
+    var listCartCommand="SELECT mycart.students_id, mycart.orderid, mycart.pcount, mycart.price, students.students_name, students.students_sex, (mycart.pcount*mycart.price)as summ FROM mycart INNER JOIN students ON mycart.students_id = students.id where orderid=@0";    
 }
 <a href="buystudent" target="_self">返回学生售卖一览表</a><br>
 订单号：@Session["orderid"]
