@@ -11,7 +11,7 @@
     //var grid = new WebGrid(listCommand);
 
     //
-    var listCommand = "SELECT c.id,c.classes_year,m.majors_name,t.teachers_name FROM classes as c JOIN majors as m ON c.majors_id=m.id JOIN teachers as t ON c.teachers_id=t.id";
+    var listCommand = "SELECT Count(s.id) AS students_count,c.id AS id,c.classes_year,m.majors_name,t.teachers_name FROM dbo.students AS s INNER JOIN dbo.classes AS c ON s.classes_id = c.id INNER JOIN dbo.majors AS m ON c.majors_id = m.id INNER JOIN dbo.teachers AS t ON c.teachers_id = t.id GROUP BY c.id,c.classes_year,m.majors_name,t.teachers_name";
 
 }
 <ul class="breadcrumb">
@@ -40,6 +40,7 @@
         <th>操作</th>
         <th>入学年份</th>
         <th>专业名称</th>
+        <th>班级人数</th>
         <th>辅导员</th>
 
     </tr>
@@ -51,6 +52,7 @@
             <td><a href="classes_delete?classes_id=@row.id">删除</a></td>
             <td>@row.classes_year</td>
             <td><a class="" href="students_list?classes_id=@row.id">@row.majors_name</a></td>
+            <td>@row.students_count</td>
             <td>@row.teachers_name</td>
 
         </tr>
