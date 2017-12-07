@@ -1,0 +1,26 @@
+﻿@using NPOI.HSSF.UserModel
+@using NPOI.SS.UserModel
+@using NPOI.XSSF.UserModel
+@{
+    IWorkbook myhbook =new HSSFWorkbook();
+    IWorkbook myxbook = new XSSFWorkbook();
+    ISheet myhsheet = myhbook.CreateSheet("都是傻子");
+    ISheet myxsheet = myxbook.CreateSheet("都是傻子");
+    IRow rowh = myhsheet.CreateRow(0);
+    rowh.CreateCell(0).SetCellValue(true);
+    rowh.CreateCell(1).SetCellValue(DateTime.Now);
+    rowh.CreateCell(2).SetCellValue(9.32);
+    rowh.CreateCell(3).SetCellValue("Hello World！");
+    IRow rowx = myxsheet.CreateRow(0);
+    rowx.CreateCell(0).SetCellValue(true);
+    rowx.CreateCell(1).SetCellValue(DateTime.Now);
+    rowx.CreateCell(2).SetCellValue(9.32);
+    rowx.CreateCell(3).SetCellValue("Hello World！");
+
+    FileStream myhfile =new FileStream(@"C:\inetpub\wwwroot\xueji_webpages\excel_files\test.xls", FileMode.Create);
+    FileStream myxfile = new FileStream(@"C:\inetpub\wwwroot\xueji_webpages\excel_files\test.xlsx", FileMode.Create);
+    myhbook.Write(myhfile);
+    myxbook.Write(myxfile);
+    myhfile.Close();
+    myxfile.Close();
+}

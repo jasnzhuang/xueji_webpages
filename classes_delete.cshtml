@@ -29,7 +29,7 @@
     //两个条件：第一，这是一个POST请求，第二，这是由一个叫做buttonDelete的按钮提交的请求
     if (IsPost && !Request["buttonDelete"].IsEmpty())
     {
-        cid = Request.Form["cid"];
+        classes_id = Request.Form["classes_id"];
         var db = Database.Open("startersite");
         var deleteCommand = "DELETE FROM classes WHERE id = @0";
         db.Execute(deleteCommand, classes_id);

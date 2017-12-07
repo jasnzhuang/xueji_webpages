@@ -1,4 +1,4 @@
-﻿@{
+﻿@*@{
     Layout = "~/_xuejiLayout.cshtml";
     var classes_id = Request.QueryString["classes_id"];
     var exams_id = Request.QueryString["exams_id"];
@@ -19,7 +19,7 @@
         <legend>添加信息的几个固定值如下：班级classes_id=@classes_id  考试exams_id=@exams_id  课程courses_id=@courses_id</legend>
         <ol>
 
-        @foreach (var row in db.Query(getstudentCommand, cid))
+        @foreach (var row in db.Query(getstudentCommand, classes_id))
         {
             //formnum=formnum+1;
             formnum += 1;
@@ -35,4 +35,4 @@
         }
         </ol>
     </fieldset>
-</form>
+</form>*@

@@ -1,0 +1,133 @@
+﻿@using NPOI.SS.UserModel
+@using NPOI.XSSF.UserModel
+@{
+    Layout = "~/_xuejiLayout.cshtml";
+    var db = Database.Open("startersite");
+    var listCommand = "SELECT s.id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.students_qq,s.students_wx,s.students_status FROM students as s INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = m.id";
+    //var listCommand = db.Query("select * from students");
+    //var grid = new WebGrid(listCommand);
+
+    IWorkbook myxbook = new XSSFWorkbook();
+    ISheet myxsheet = myxbook.CreateSheet("都是傻子");
+    IRow rowx = myxsheet.CreateRow(0);
+    rowx.CreateCell(0).SetCellValue("操作");
+    rowx.CreateCell(1).SetCellValue("学号");
+    rowx.CreateCell(2).SetCellValue("姓名");
+    rowx.CreateCell(3).SetCellValue("班级");
+    rowx.CreateCell(4).SetCellValue("性别");
+    rowx.CreateCell(5).SetCellValue("年龄");
+    rowx.CreateCell(6).SetCellValue("电话");
+    rowx.CreateCell(7).SetCellValue("QQ");
+    rowx.CreateCell(8).SetCellValue("微信");
+    rowx.CreateCell(9).SetCellValue("学籍状态");
+
+    FileStream myxfile = new FileStream(@"C:\inetpub\wwwroot\xueji_webpages\excel_files\students.xlsx", FileMode.Create);
+    myxbook.Write(myxfile);
+    myxfile.Close();
+}
+
+
+<ul class="breadcrumb">
+    <li>
+        <i class="icon-home"></i>
+        <a href="~/index.cshtml">控制面板</a>
+        <i class="icon-angle-right"></i>
+    </li>
+    <li><a href="#">@Page.title</a></li>
+</ul>
+
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header" data-original-title>
+            <h2>
+                <i class="halflings-icon user"></i><span class="break"></span>学生列表
+            </h2>
+            <div class="box-icon">
+                <a href="#" class="btn-setting">
+                    <i class="halflings-icon wrench"></i>
+                </a>
+                <a href="#" class="btn-minimize">
+                    <i class="halflings-icon chevron-up"></i>
+                </a>
+                <a href="#" class="btn-close">
+                    <i class="halflings-icon remove"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-content">
+            <table class="table table-striped table-bordered table-hover bootstrap-datatable datatable">
+                <thead>
+                <tr class="">
+                    <th>操作</th>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>班级</th>
+                    <th>性别</th>
+                    <th>年龄</th>
+                    <th>电话</th>
+                    <th>QQ</th>
+                    <th>微信</th>
+                    <th>学籍状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var row in db.Query(listCommand))
+                {
+                    <tr>
+                        <td class="center">
+                            <a href="delstudents?students_id=@row.id">删除</a>
+                        </td>
+                        <td class="center">@row.students_number</td>
+                        <td class="center">
+                            <a href="editstudents?students_id=@row.id">@row.students_name</a>
+                        </td>
+                        <td class="center">@row.classes_year@row.majors_name</td>
+                        <td class="center">@row.students_sex</td>
+                        <td class="center">@row.students_age</td>
+                        <td class="center">@row.students_phone</td>
+                        <td class="center">@row.students_qq</td>
+                        <td class="center">@row.students_wx</td>
+                        <td class="center">
+
+                            @if (row.students_status == 1)
+                            {
+                                <label class="label label-success">在读</label>
+                            }
+                            @if (row.students_status == 2)
+                            {
+                                <label class="label label-defaullt">休学</label>
+                            }
+                            @if (row.students_status == 3)
+                            {
+                                <label class="label label-Inverse">退学</label>
+                            }
+
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            @*@grid.GetHtml(
+
+
+        columns: grid.Columns(
+            grid.Column(format: @<a href="~/delstudents?id=@item.id">删除</a>),
+            //grid.Column("id"),
+            grid.Column("students_number"),
+            grid.Column("students_name"),
+            grid.Column("classes_year"),
+            grid.Column("majors_name"),
+            grid.Column("students_sex"),
+            grid.Column("students_age"),
+            grid.Column("students_phone"),
+            grid.Column("students_qq"),
+            grid.Column("students_wx"),
+            grid.Column("students_status"),
+            grid.Column("classes_id")
+
+            )
+        )*@
+
+        </div>
+    </div>
+</div>
