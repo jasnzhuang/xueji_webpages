@@ -5,7 +5,6 @@
     var exams_date = DateTime.Now;
     var exams_type = "";
 
-
     //这里吧，是说咱们在页面上填写的信息，怎么特么的就跑到程序里面来了呢？
     exams_name = Request.Form["exams_name"];
     exams_date = Convert.ToDateTime(Request.Form["exams_date"]);
@@ -45,7 +44,6 @@
                 <input type="text" class="input-xlarge datepicker" id="exams_date" name="exams_date" value="@Functions.PutDate()">
             </div>
         </div>
-
         <p>
             <label for="exams_type">考试类型：</label>
             <select id="exams_type" name="exams_type">
@@ -60,7 +58,8 @@
                 <option value="9">自考专升本</option>
                 <option value="10">大学英语四级</option>
                 <option value="11">学位英语</option>
-            </select>        </p>
+            </select>
+        </p>
         <p>
             <input type="submit" name="buttonSubmit" value="添加课程"/>
         </p>
