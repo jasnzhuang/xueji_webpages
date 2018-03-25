@@ -3,7 +3,7 @@
     var db = Database.Open("startersite");
     var listCommand = "SELECT s.id,s.students_number,s.students_name,c.classes_year,m.majors_name,s.students_sex,s.students_age,s.students_phone,s.students_qq,s.students_wx,s.students_status FROM students as s INNER JOIN classes as c ON s.classes_id = c.id INNER JOIN majors as m ON c.majors_id = majors.id";
     //var listCommand = db.Query("select * from students");
-    //var grid = new WebGrid(listCommand);
+    //var grid = new WebGrid(listCommand);-8
 }
 
 
@@ -68,7 +68,6 @@
                         <td class="center">@row.students_qq</td>
                         <td class="center">@row.students_wx</td>
                         <td class="center">
-
                             @if (row.students_status == 1)
                             {
                                 <label class="label label-success">在读</label>
@@ -81,15 +80,12 @@
                             {
                                 <label class="label label-Inverse">退学</label>
                             }
-
                         </td>
                     </tr>
                 }
                 </tbody>
             </table>
             @*@grid.GetHtml(
-
-
         columns: grid.Columns(
             grid.Column(format: @<a href="~/delstudents?id=@item.id">删除</a>),
             //grid.Column("id"),
@@ -104,10 +100,8 @@
             grid.Column("students_wx"),
             grid.Column("students_status"),
             grid.Column("classes_id")
-
             )
         )*@
-
         </div>
     </div>
 </div>
